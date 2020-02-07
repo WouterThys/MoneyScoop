@@ -137,6 +137,11 @@ namespace MoneyScoop.Model
 
         #region Methods & Calculated Fields
 
+        public MyInfo MyInfo
+        {
+            get { return Context.Ctx.MyInfo; }
+        }
+
         public Customer Customer
         {
             get

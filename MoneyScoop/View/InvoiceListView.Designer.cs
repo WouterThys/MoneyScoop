@@ -40,6 +40,8 @@
             this.colVAT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rpgCustomer = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiCustomers = new DevExpress.XtraBars.BarButtonItem();
+            this.rpgReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiCreateReport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -88,10 +90,6 @@
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDateCreated, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // colCode
-            // 
-            this.colCode.VisibleIndex = 1;
-            // 
             // colDescription
             // 
             this.colDescription.VisibleIndex = 2;
@@ -105,8 +103,9 @@
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiCustomers});
-            this.ribbonControl.MaxItemId = 5;
+            this.bbiCustomers,
+            this.bbiCreateReport});
+            this.ribbonControl.MaxItemId = 6;
             // 
             // 
             // 
@@ -119,7 +118,8 @@
             // MainRibbonPage
             // 
             this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgCustomer});
+            this.rpgCustomer,
+            this.rpgReport});
             // 
             // ic16x16
             // 
@@ -202,7 +202,7 @@
             this.colDateCreated.MinWidth = 25;
             this.colDateCreated.Name = "colDateCreated";
             this.colDateCreated.Visible = true;
-            this.colDateCreated.VisibleIndex = 0;
+            this.colDateCreated.VisibleIndex = 1;
             this.colDateCreated.Width = 94;
             // 
             // colDatePayed
@@ -269,6 +269,18 @@
             this.bbiCustomers.ImageOptions.LargeImageIndex = 11;
             this.bbiCustomers.Name = "bbiCustomers";
             // 
+            // rpgReport
+            // 
+            this.rpgReport.ItemLinks.Add(this.bbiCreateReport);
+            this.rpgReport.Name = "rpgReport";
+            this.rpgReport.Text = "Reports";
+            // 
+            // bbiCreateReport
+            // 
+            this.bbiCreateReport.Caption = "Create";
+            this.bbiCreateReport.Id = 5;
+            this.bbiCreateReport.Name = "bbiCreateReport";
+            // 
             // InvoiceListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -300,5 +312,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colVAT;
         private DevExpress.XtraBars.BarButtonItem bbiCustomers;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCustomer;
+        private DevExpress.XtraBars.BarButtonItem bbiCreateReport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReport;
     }
 }
