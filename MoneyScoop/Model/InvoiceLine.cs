@@ -17,6 +17,12 @@ namespace MoneyScoop.Model
         // Configs
         private bool showUnitPrice;
         private bool showDate;
+
+        public InvoiceLine(Invoice invoice) : this()
+        {
+            invoiceId = invoice != null ? invoice.Id : 1;
+
+        }
         
         public InvoiceLine() : this("")
         {
@@ -26,6 +32,7 @@ namespace MoneyScoop.Model
         public InvoiceLine(string code) : base(code)
         {
             DateCreated = DateTime.Now;
+            Multiplier = 1;
         }
 
         #region Base Overrides
@@ -112,7 +119,7 @@ namespace MoneyScoop.Model
 
         #endregion
 
-            #region Methods & Calculated Fields
+        #region Methods & Calculated Fields
 
         public decimal Total
         {

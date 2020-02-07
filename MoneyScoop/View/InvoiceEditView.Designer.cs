@@ -56,6 +56,27 @@
             this.ItemForDateSendString = new DevExpress.XtraLayout.LayoutControlItem();
             this.DateCreatedDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.ItemForDateCreated = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gcInvoiceLines = new DevExpress.XtraGrid.GridControl();
+            this.bsInvoiceLines = new System.Windows.Forms.BindingSource(this.components);
+            this.gvInvoiceLines = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInvoiceId = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDateCreated = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMultiplier = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colShowUnitPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colShowDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colId1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCode1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLastModified1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
+            this.rpgInvoiceLines = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiAddLine = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiEditLine = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiDeleteLine = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
             this.dataLayoutControl.SuspendLayout();
@@ -91,6 +112,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.DateCreatedDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateCreatedDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDateCreated)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcInvoiceLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsInvoiceLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceLines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // bbiSave
@@ -124,6 +150,7 @@
             // 
             // dataLayoutControl
             // 
+            this.dataLayoutControl.Controls.Add(this.gcInvoiceLines);
             this.dataLayoutControl.Controls.Add(this.IsPayedCheckEdit);
             this.dataLayoutControl.Controls.Add(this.IsSendCheckEdit);
             this.dataLayoutControl.Controls.Add(this.VATTextEdit);
@@ -131,7 +158,7 @@
             this.dataLayoutControl.Controls.Add(this.DatePayedStringTextEdit);
             this.dataLayoutControl.Controls.Add(this.DateSendStringTextEdit);
             this.dataLayoutControl.Controls.Add(this.DateCreatedDateEdit);
-            this.dataLayoutControl.Size = new System.Drawing.Size(527, 429);
+            this.dataLayoutControl.Size = new System.Drawing.Size(1233, 429);
             this.dataLayoutControl.Controls.SetChildIndex(this.DateCreatedDateEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.DateSendStringTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.DatePayedStringTextEdit, 0);
@@ -142,27 +169,32 @@
             this.dataLayoutControl.Controls.SetChildIndex(this.InfoTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.gcInvoiceLines, 0);
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(527, 429);
+            this.Root.Size = new System.Drawing.Size(1233, 429);
             // 
             // CodeTextEdit
             // 
             this.CodeTextEdit.Properties.ReadOnly = true;
-            this.CodeTextEdit.Size = new System.Drawing.Size(157, 22);
+            this.CodeTextEdit.Size = new System.Drawing.Size(248, 22);
             // 
             // DescriptionTextEdit
             // 
+            this.DescriptionTextEdit.Size = new System.Drawing.Size(487, 22);
             // 
             // InfoTextEdit
             // 
             this.InfoTextEdit.Location = new System.Drawing.Point(27, 238);
-            this.InfoTextEdit.Size = new System.Drawing.Size(473, 163);
+            this.InfoTextEdit.Size = new System.Drawing.Size(564, 163);
             // 
             // layoutControlGroup1
             // 
-            this.layoutControlGroup1.Size = new System.Drawing.Size(503, 405);
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.splitterItem1});
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1209, 405);
             // 
             // lcgId
             // 
@@ -174,20 +206,29 @@
             this.ItemForDatePayedString,
             this.ItemForDateSendString,
             this.ItemForDateCreated});
-            this.lcgId.Size = new System.Drawing.Size(503, 405);
+            this.lcgId.Size = new System.Drawing.Size(594, 405);
             // 
             // ItemForCode
             // 
-            this.ItemForCode.Size = new System.Drawing.Size(238, 26);
+            this.ItemForCode.Size = new System.Drawing.Size(329, 26);
+            // 
+            // ItemForDescription
+            // 
+            this.ItemForDescription.Size = new System.Drawing.Size(568, 26);
             // 
             // ItemForInfo
             // 
             this.ItemForInfo.Location = new System.Drawing.Point(0, 160);
-            this.ItemForInfo.Size = new System.Drawing.Size(477, 186);
+            this.ItemForInfo.Size = new System.Drawing.Size(568, 186);
             // 
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
+            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bbiAddLine,
+            this.bbiEditLine,
+            this.bbiDeleteLine});
+            this.ribbonControl.MaxItemId = 9;
             // 
             // 
             // 
@@ -196,6 +237,12 @@
             this.ribbonControl.SearchEditItem.Id = -5000;
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.SearchEditItem.UseEditorPadding = false;
+            this.ribbonControl.Size = new System.Drawing.Size(1233, 194);
+            // 
+            // MainRibbonPage
+            // 
+            this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgInvoiceLines});
             // 
             // ic16x16
             // 
@@ -215,6 +262,9 @@
             this.ic16x16.Images.SetKeyName(12, "invoice_euro.png");
             this.ic16x16.Images.SetKeyName(13, "table_row.png");
             this.ic16x16.Images.SetKeyName(14, "cashier.png");
+            this.ic16x16.Images.SetKeyName(15, "table_row_add.png");
+            this.ic16x16.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic16x16.Images.SetKeyName(17, "table_row_delete.png");
             // 
             // ic24x24
             // 
@@ -234,6 +284,9 @@
             this.ic24x24.Images.SetKeyName(12, "invoice_euro.png");
             this.ic24x24.Images.SetKeyName(13, "table_row.png");
             this.ic24x24.Images.SetKeyName(14, "cashier.png");
+            this.ic24x24.Images.SetKeyName(15, "table_row_add.png");
+            this.ic24x24.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic24x24.Images.SetKeyName(17, "table_row_delete.png");
             // 
             // ic48x48
             // 
@@ -253,6 +306,9 @@
             this.ic48x48.Images.SetKeyName(12, "invoice_euro.png");
             this.ic48x48.Images.SetKeyName(13, "table_row.png");
             this.ic48x48.Images.SetKeyName(14, "cashier.png");
+            this.ic48x48.Images.SetKeyName(15, "table_row_add.png");
+            this.ic48x48.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic48x48.Images.SetKeyName(17, "table_row_delete.png");
             // 
             // IsPayedCheckEdit
             // 
@@ -262,7 +318,7 @@
             this.IsPayedCheckEdit.Name = "IsPayedCheckEdit";
             this.IsPayedCheckEdit.Properties.Caption = "";
             this.IsPayedCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.IsPayedCheckEdit.Size = new System.Drawing.Size(157, 24);
+            this.IsPayedCheckEdit.Size = new System.Drawing.Size(103, 24);
             this.IsPayedCheckEdit.StyleController = this.dataLayoutControl;
             this.IsPayedCheckEdit.TabIndex = 7;
             // 
@@ -271,7 +327,7 @@
             this.ItemForIsPayed.Control = this.IsPayedCheckEdit;
             this.ItemForIsPayed.Location = new System.Drawing.Point(0, 104);
             this.ItemForIsPayed.Name = "ItemForIsPayed";
-            this.ItemForIsPayed.Size = new System.Drawing.Size(238, 28);
+            this.ItemForIsPayed.Size = new System.Drawing.Size(184, 28);
             this.ItemForIsPayed.Text = "Is Payed";
             this.ItemForIsPayed.TextSize = new System.Drawing.Size(63, 16);
             // 
@@ -283,7 +339,7 @@
             this.IsSendCheckEdit.Name = "IsSendCheckEdit";
             this.IsSendCheckEdit.Properties.Caption = "";
             this.IsSendCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.IsSendCheckEdit.Size = new System.Drawing.Size(157, 24);
+            this.IsSendCheckEdit.Size = new System.Drawing.Size(103, 24);
             this.IsSendCheckEdit.StyleController = this.dataLayoutControl;
             this.IsSendCheckEdit.TabIndex = 8;
             // 
@@ -292,7 +348,7 @@
             this.ItemForIsSend.Control = this.IsSendCheckEdit;
             this.ItemForIsSend.Location = new System.Drawing.Point(0, 132);
             this.ItemForIsSend.Name = "ItemForIsSend";
-            this.ItemForIsSend.Size = new System.Drawing.Size(238, 28);
+            this.ItemForIsSend.Size = new System.Drawing.Size(184, 28);
             this.ItemForIsSend.Text = "Is Send";
             this.ItemForIsSend.TextSize = new System.Drawing.Size(63, 16);
             // 
@@ -307,7 +363,7 @@
             this.VATTextEdit.Properties.Mask.EditMask = "N0";
             this.VATTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.VATTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.VATTextEdit.Size = new System.Drawing.Size(396, 22);
+            this.VATTextEdit.Size = new System.Drawing.Size(487, 22);
             this.VATTextEdit.StyleController = this.dataLayoutControl;
             this.VATTextEdit.TabIndex = 11;
             // 
@@ -316,7 +372,7 @@
             this.ItemForVAT.Control = this.VATTextEdit;
             this.ItemForVAT.Location = new System.Drawing.Point(0, 78);
             this.ItemForVAT.Name = "ItemForVAT";
-            this.ItemForVAT.Size = new System.Drawing.Size(477, 26);
+            this.ItemForVAT.Size = new System.Drawing.Size(568, 26);
             this.ItemForVAT.Text = "VAT";
             this.ItemForVAT.TextSize = new System.Drawing.Size(63, 16);
             // 
@@ -335,7 +391,7 @@
             this.CustomerIdSearchLookUpEdit.Properties.NullText = "";
             this.CustomerIdSearchLookUpEdit.Properties.PopupView = this.searchLookUpEdit1View;
             this.CustomerIdSearchLookUpEdit.Properties.ValueMember = "Id";
-            this.CustomerIdSearchLookUpEdit.Size = new System.Drawing.Size(396, 22);
+            this.CustomerIdSearchLookUpEdit.Size = new System.Drawing.Size(487, 22);
             this.CustomerIdSearchLookUpEdit.StyleController = this.dataLayoutControl;
             this.CustomerIdSearchLookUpEdit.TabIndex = 12;
             // 
@@ -426,27 +482,27 @@
             this.ItemForCustomerId.Control = this.CustomerIdSearchLookUpEdit;
             this.ItemForCustomerId.Location = new System.Drawing.Point(0, 52);
             this.ItemForCustomerId.Name = "ItemForCustomerId";
-            this.ItemForCustomerId.Size = new System.Drawing.Size(477, 26);
+            this.ItemForCustomerId.Size = new System.Drawing.Size(568, 26);
             this.ItemForCustomerId.Text = "Customer";
             this.ItemForCustomerId.TextSize = new System.Drawing.Size(63, 16);
             // 
             // DatePayedStringTextEdit
             // 
             this.DatePayedStringTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DatePayedString", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.DatePayedStringTextEdit.Location = new System.Drawing.Point(265, 163);
+            this.DatePayedStringTextEdit.Location = new System.Drawing.Point(211, 163);
             this.DatePayedStringTextEdit.MenuManager = this.ribbonControl;
             this.DatePayedStringTextEdit.Name = "DatePayedStringTextEdit";
             this.DatePayedStringTextEdit.Properties.ReadOnly = true;
-            this.DatePayedStringTextEdit.Size = new System.Drawing.Size(235, 22);
+            this.DatePayedStringTextEdit.Size = new System.Drawing.Size(380, 22);
             this.DatePayedStringTextEdit.StyleController = this.dataLayoutControl;
             this.DatePayedStringTextEdit.TabIndex = 14;
             // 
             // ItemForDatePayedString
             // 
             this.ItemForDatePayedString.Control = this.DatePayedStringTextEdit;
-            this.ItemForDatePayedString.Location = new System.Drawing.Point(238, 104);
+            this.ItemForDatePayedString.Location = new System.Drawing.Point(184, 104);
             this.ItemForDatePayedString.Name = "ItemForDatePayedString";
-            this.ItemForDatePayedString.Size = new System.Drawing.Size(239, 28);
+            this.ItemForDatePayedString.Size = new System.Drawing.Size(384, 28);
             this.ItemForDatePayedString.Text = "Date Payed String";
             this.ItemForDatePayedString.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDatePayedString.TextVisible = false;
@@ -454,20 +510,20 @@
             // DateSendStringTextEdit
             // 
             this.DateSendStringTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DateSendString", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.DateSendStringTextEdit.Location = new System.Drawing.Point(265, 191);
+            this.DateSendStringTextEdit.Location = new System.Drawing.Point(211, 191);
             this.DateSendStringTextEdit.MenuManager = this.ribbonControl;
             this.DateSendStringTextEdit.Name = "DateSendStringTextEdit";
             this.DateSendStringTextEdit.Properties.ReadOnly = true;
-            this.DateSendStringTextEdit.Size = new System.Drawing.Size(235, 22);
+            this.DateSendStringTextEdit.Size = new System.Drawing.Size(380, 22);
             this.DateSendStringTextEdit.StyleController = this.dataLayoutControl;
             this.DateSendStringTextEdit.TabIndex = 15;
             // 
             // ItemForDateSendString
             // 
             this.ItemForDateSendString.Control = this.DateSendStringTextEdit;
-            this.ItemForDateSendString.Location = new System.Drawing.Point(238, 132);
+            this.ItemForDateSendString.Location = new System.Drawing.Point(184, 132);
             this.ItemForDateSendString.Name = "ItemForDateSendString";
-            this.ItemForDateSendString.Size = new System.Drawing.Size(239, 28);
+            this.ItemForDateSendString.Size = new System.Drawing.Size(384, 28);
             this.ItemForDateSendString.Text = "Date Send String";
             this.ItemForDateSendString.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDateSendString.TextVisible = false;
@@ -476,7 +532,7 @@
             // 
             this.DateCreatedDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DateCreated", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DateCreatedDateEdit.EditValue = null;
-            this.DateCreatedDateEdit.Location = new System.Drawing.Point(265, 59);
+            this.DateCreatedDateEdit.Location = new System.Drawing.Point(356, 59);
             this.DateCreatedDateEdit.MenuManager = this.ribbonControl;
             this.DateCreatedDateEdit.Name = "DateCreatedDateEdit";
             this.DateCreatedDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -491,19 +547,205 @@
             // ItemForDateCreated
             // 
             this.ItemForDateCreated.Control = this.DateCreatedDateEdit;
-            this.ItemForDateCreated.Location = new System.Drawing.Point(238, 0);
+            this.ItemForDateCreated.Location = new System.Drawing.Point(329, 0);
             this.ItemForDateCreated.Name = "ItemForDateCreated";
             this.ItemForDateCreated.Size = new System.Drawing.Size(239, 26);
             this.ItemForDateCreated.Text = "Date Created";
             this.ItemForDateCreated.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDateCreated.TextVisible = false;
             // 
+            // gcInvoiceLines
+            // 
+            this.gcInvoiceLines.DataSource = this.bsInvoiceLines;
+            this.gcInvoiceLines.Location = new System.Drawing.Point(620, 14);
+            this.gcInvoiceLines.MainView = this.gvInvoiceLines;
+            this.gcInvoiceLines.MenuManager = this.ribbonControl;
+            this.gcInvoiceLines.Name = "gcInvoiceLines";
+            this.gcInvoiceLines.Size = new System.Drawing.Size(599, 401);
+            this.gcInvoiceLines.TabIndex = 17;
+            this.gcInvoiceLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvInvoiceLines});
+            // 
+            // bsInvoiceLines
+            // 
+            this.bsInvoiceLines.DataSource = typeof(MoneyScoop.Model.InvoiceLine);
+            // 
+            // gvInvoiceLines
+            // 
+            this.gvInvoiceLines.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTotal,
+            this.colInvoiceId,
+            this.colDateCreated,
+            this.colUnitPrice,
+            this.colMultiplier,
+            this.colShowUnitPrice,
+            this.colShowDate,
+            this.colId1,
+            this.colCode1,
+            this.colDescription1,
+            this.colInfo1,
+            this.colLastModified1});
+            this.gvInvoiceLines.GridControl = this.gcInvoiceLines;
+            this.gvInvoiceLines.Name = "gvInvoiceLines";
+            this.gvInvoiceLines.OptionsView.ShowGroupPanel = false;
+            // 
+            // colTotal
+            // 
+            this.colTotal.DisplayFormat.FormatString = "C";
+            this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTotal.FieldName = "Total";
+            this.colTotal.MinWidth = 25;
+            this.colTotal.Name = "colTotal";
+            this.colTotal.OptionsColumn.ReadOnly = true;
+            this.colTotal.Visible = true;
+            this.colTotal.VisibleIndex = 5;
+            this.colTotal.Width = 94;
+            // 
+            // colInvoiceId
+            // 
+            this.colInvoiceId.FieldName = "InvoiceId";
+            this.colInvoiceId.MinWidth = 25;
+            this.colInvoiceId.Name = "colInvoiceId";
+            this.colInvoiceId.Width = 94;
+            // 
+            // colDateCreated
+            // 
+            this.colDateCreated.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm";
+            this.colDateCreated.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colDateCreated.FieldName = "DateCreated";
+            this.colDateCreated.MinWidth = 25;
+            this.colDateCreated.Name = "colDateCreated";
+            this.colDateCreated.Visible = true;
+            this.colDateCreated.VisibleIndex = 0;
+            this.colDateCreated.Width = 94;
+            // 
+            // colUnitPrice
+            // 
+            this.colUnitPrice.DisplayFormat.FormatString = "C";
+            this.colUnitPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colUnitPrice.FieldName = "UnitPrice";
+            this.colUnitPrice.MinWidth = 25;
+            this.colUnitPrice.Name = "colUnitPrice";
+            this.colUnitPrice.Visible = true;
+            this.colUnitPrice.VisibleIndex = 3;
+            this.colUnitPrice.Width = 94;
+            // 
+            // colMultiplier
+            // 
+            this.colMultiplier.FieldName = "Multiplier";
+            this.colMultiplier.MinWidth = 25;
+            this.colMultiplier.Name = "colMultiplier";
+            this.colMultiplier.Visible = true;
+            this.colMultiplier.VisibleIndex = 4;
+            this.colMultiplier.Width = 94;
+            // 
+            // colShowUnitPrice
+            // 
+            this.colShowUnitPrice.FieldName = "ShowUnitPrice";
+            this.colShowUnitPrice.MinWidth = 25;
+            this.colShowUnitPrice.Name = "colShowUnitPrice";
+            this.colShowUnitPrice.Width = 94;
+            // 
+            // colShowDate
+            // 
+            this.colShowDate.FieldName = "ShowDate";
+            this.colShowDate.MinWidth = 25;
+            this.colShowDate.Name = "colShowDate";
+            this.colShowDate.Width = 94;
+            // 
+            // colId1
+            // 
+            this.colId1.FieldName = "Id";
+            this.colId1.MinWidth = 25;
+            this.colId1.Name = "colId1";
+            this.colId1.Width = 94;
+            // 
+            // colCode1
+            // 
+            this.colCode1.FieldName = "Code";
+            this.colCode1.MinWidth = 25;
+            this.colCode1.Name = "colCode1";
+            this.colCode1.Visible = true;
+            this.colCode1.VisibleIndex = 1;
+            this.colCode1.Width = 94;
+            // 
+            // colDescription1
+            // 
+            this.colDescription1.FieldName = "Description";
+            this.colDescription1.MinWidth = 25;
+            this.colDescription1.Name = "colDescription1";
+            this.colDescription1.Visible = true;
+            this.colDescription1.VisibleIndex = 2;
+            this.colDescription1.Width = 94;
+            // 
+            // colInfo1
+            // 
+            this.colInfo1.FieldName = "Info";
+            this.colInfo1.MinWidth = 25;
+            this.colInfo1.Name = "colInfo1";
+            this.colInfo1.Width = 94;
+            // 
+            // colLastModified1
+            // 
+            this.colLastModified1.FieldName = "LastModified";
+            this.colLastModified1.MinWidth = 25;
+            this.colLastModified1.Name = "colLastModified1";
+            this.colLastModified1.Width = 94;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gcInvoiceLines;
+            this.layoutControlItem1.Location = new System.Drawing.Point(606, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(603, 405);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // splitterItem1
+            // 
+            this.splitterItem1.AllowHotTrack = true;
+            this.splitterItem1.Location = new System.Drawing.Point(594, 0);
+            this.splitterItem1.Name = "splitterItem1";
+            this.splitterItem1.Size = new System.Drawing.Size(12, 405);
+            // 
+            // rpgInvoiceLines
+            // 
+            this.rpgInvoiceLines.ItemLinks.Add(this.bbiAddLine);
+            this.rpgInvoiceLines.ItemLinks.Add(this.bbiEditLine);
+            this.rpgInvoiceLines.ItemLinks.Add(this.bbiDeleteLine);
+            this.rpgInvoiceLines.Name = "rpgInvoiceLines";
+            this.rpgInvoiceLines.Text = "Lines";
+            // 
+            // bbiAddLine
+            // 
+            this.bbiAddLine.Caption = "Add";
+            this.bbiAddLine.Id = 6;
+            this.bbiAddLine.ImageOptions.ImageIndex = 15;
+            this.bbiAddLine.ImageOptions.LargeImageIndex = 15;
+            this.bbiAddLine.Name = "bbiAddLine";
+            // 
+            // bbiEditLine
+            // 
+            this.bbiEditLine.Caption = "Edit";
+            this.bbiEditLine.Id = 7;
+            this.bbiEditLine.ImageOptions.ImageIndex = 16;
+            this.bbiEditLine.ImageOptions.LargeImageIndex = 16;
+            this.bbiEditLine.Name = "bbiEditLine";
+            // 
+            // bbiDeleteLine
+            // 
+            this.bbiDeleteLine.Caption = "Delete";
+            this.bbiDeleteLine.Id = 8;
+            this.bbiDeleteLine.ImageOptions.ImageIndex = 17;
+            this.bbiDeleteLine.ImageOptions.LargeImageIndex = 17;
+            this.bbiDeleteLine.Name = "bbiDeleteLine";
+            // 
             // InvoiceEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "InvoiceEditView";
-            this.Size = new System.Drawing.Size(527, 623);
+            this.Size = new System.Drawing.Size(1233, 623);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
             this.dataLayoutControl.ResumeLayout(false);
@@ -539,6 +781,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.DateCreatedDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateCreatedDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForDateCreated)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcInvoiceLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsInvoiceLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceLines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -572,5 +819,26 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForDatePayedString;
         private DevExpress.XtraLayout.LayoutControlItem ItemForDateSendString;
         private DevExpress.XtraLayout.LayoutControlItem ItemForDateCreated;
+        private DevExpress.XtraGrid.GridControl gcInvoiceLines;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvInvoiceLines;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.SplitterItem splitterItem1;
+        private System.Windows.Forms.BindingSource bsInvoiceLines;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotal;
+        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceId;
+        private DevExpress.XtraGrid.Columns.GridColumn colDateCreated;
+        private DevExpress.XtraGrid.Columns.GridColumn colUnitPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colMultiplier;
+        private DevExpress.XtraGrid.Columns.GridColumn colShowUnitPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn colShowDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colId1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCode1;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription1;
+        private DevExpress.XtraGrid.Columns.GridColumn colInfo1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLastModified1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInvoiceLines;
+        private DevExpress.XtraBars.BarButtonItem bbiAddLine;
+        private DevExpress.XtraBars.BarButtonItem bbiEditLine;
+        private DevExpress.XtraBars.BarButtonItem bbiDeleteLine;
     }
 }

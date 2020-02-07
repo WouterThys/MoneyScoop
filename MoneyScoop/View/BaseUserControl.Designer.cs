@@ -62,6 +62,9 @@
             this.ic16x16.Images.SetKeyName(12, "invoice_euro.png");
             this.ic16x16.Images.SetKeyName(13, "table_row.png");
             this.ic16x16.Images.SetKeyName(14, "cashier.png");
+            this.ic16x16.Images.SetKeyName(15, "table_row_add.png");
+            this.ic16x16.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic16x16.Images.SetKeyName(17, "table_row_delete.png");
             // 
             // ic24x24
             // 
@@ -82,6 +85,9 @@
             this.ic24x24.Images.SetKeyName(12, "invoice_euro.png");
             this.ic24x24.Images.SetKeyName(13, "table_row.png");
             this.ic24x24.Images.SetKeyName(14, "cashier.png");
+            this.ic24x24.Images.SetKeyName(15, "table_row_add.png");
+            this.ic24x24.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic24x24.Images.SetKeyName(17, "table_row_delete.png");
             // 
             // ic48x48
             // 
@@ -102,6 +108,9 @@
             this.ic48x48.Images.SetKeyName(12, "invoice_euro.png");
             this.ic48x48.Images.SetKeyName(13, "table_row.png");
             this.ic48x48.Images.SetKeyName(14, "cashier.png");
+            this.ic48x48.Images.SetKeyName(15, "table_row_add.png");
+            this.ic48x48.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic48x48.Images.SetKeyName(17, "table_row_delete.png");
             // 
             // BaseUserControl
             // 

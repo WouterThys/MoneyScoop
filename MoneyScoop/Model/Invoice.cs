@@ -96,6 +96,8 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "datePayed", DatePayed);
             DatabaseAccess.AddDbValue(command, "vat", VAT);
             DatabaseAccess.AddDbValue(command, "customerId", CustomerId > UNKNOWN_ID ? CustomerId : UNKNOWN_ID);
+
+
         }
 
         protected override void OnDbActionDone(ActionType action)
