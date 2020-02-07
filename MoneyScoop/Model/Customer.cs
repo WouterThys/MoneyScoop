@@ -84,16 +84,33 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "email", Email);
             DatabaseAccess.AddDbValue(command, "phone", Phone);
         }
-        #endregion
 
-        #region Methods & Calculated Fields
+        protected override void OnDbActionDone(ActionType action)
+        {
+            switch (action)
+            {
+                case ActionType.Insert:
+                    DataSource.Ds.OnInserted(this);
+                    break;
+                case ActionType.Update:
+                    DataSource.Ds.OnUpdated(this);
+                    break;
+                case ActionType.Delete:
+                    DataSource.Ds.OnDeleted(this);
+                    break;
+        }
+    }
 
-        
-        #endregion
+    #endregion
 
-        #region Properties
+    #region Methods & Calculated Fields
 
-        public string AddressLine1
+
+    #endregion
+
+    #region Properties
+
+    public string AddressLine1
         {
             get => addressLine1 ?? "";
             set

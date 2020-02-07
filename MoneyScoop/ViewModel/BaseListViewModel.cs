@@ -38,6 +38,7 @@ namespace MoneyScoop.ViewModel
                 try
                 {
                     results = new List<TEntity>(Source());
+                    results.RemoveAll(t => !t.IsValid());
                     OnLoading();
                 }
                 catch (Exception e)

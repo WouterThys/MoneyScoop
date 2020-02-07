@@ -27,5 +27,23 @@ namespace MoneyScoop.ViewModel
             return DataSource.Ds.Invoices;
         }
 
+        public override void UpdateCommands()
+        {
+            base.UpdateCommands();
+            this.RaiseCanExecuteChanged(x => x.ShowCustomers());
+        }
+
+        public virtual bool CanShowCustomers()
+        {
+            return !IsLoading;
+        }
+
+        public virtual void ShowCustomers()
+        {
+            CustomerListViewModel model = CustomerListViewModel.Create();
+            model.SetParentViewModel(this);
+            ShowDocument(model);
+        }
+
     }
 }

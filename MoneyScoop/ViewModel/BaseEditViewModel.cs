@@ -205,7 +205,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual void Save()
         {
-            if (Editable.Id > BaseObject.UNKNOWN_ID && DataSource.Ds.CodeExists<TEntity>(Editable.Code))
+            if (Editable.Id <= BaseObject.UNKNOWN_ID && DataSource.Ds.CodeExists<TEntity>(Editable.Code))
             {
                 MessageBoxService.ShowMessage("Code " + Editable.Code + " should be unique.", "Already exists", MessageButton.OK);
             }
@@ -394,7 +394,7 @@ namespace MoneyScoop.ViewModel
 
         void IDataChanged<TEntity>.OnInserted(TEntity inserted)
         {
-            if (inserted != null && inserted.Code.Equals(Editable.Code))
+            if (inserted != null)
             {
                 DispatcherService.BeginInvoke(() => Inserted(inserted));
             }

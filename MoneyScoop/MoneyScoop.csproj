@@ -119,7 +119,31 @@
     <Compile Include="View\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CustomerEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CustomerEditView.Designer.cs">
+      <DependentUpon>CustomerEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\CustomerListView.Designer.cs">
+      <DependentUpon>CustomerListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Interfaces.cs" />
+    <Compile Include="View\InvoiceEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\InvoiceEditView.Designer.cs">
+      <DependentUpon>InvoiceEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\InvoiceListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\InvoiceListView.Designer.cs">
+      <DependentUpon>InvoiceListView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,8 +172,22 @@
     <EmbeddedResource Include="View\BaseUserControl.resx">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomerEditView.resx">
+      <DependentUpon>CustomerEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomerListView.resx">
+      <DependentUpon>CustomerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InvoiceEditView.resx">
+      <DependentUpon>InvoiceEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InvoiceListView.resx">
+      <DependentUpon>InvoiceListView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Config\settings.ini" />
+    <None Include="Config\settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\DataSources\MoneyScoop.Model.BaseObject.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.Customer.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.Invoice.datasource" />

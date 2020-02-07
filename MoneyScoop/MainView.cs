@@ -36,7 +36,7 @@ namespace MoneyScoop
 
         private void InitializeServices()
         {
-            mvvmContext.RegisterService(DocumentManagerService.Create(tabbedView1));
+            mvvmContext.RegisterService(DocumentManagerService.Create(tabbedView));
             mvvmContext.RegisterService(MessageBoxService.Create(DefaultMessageBoxServiceType.XtraMessageBox));
             mvvmContext.RegisterService("FloatingDocumentService", WindowedDocumentManagerService.CreateXtraFormService(this));
             mvvmContext.RegisterDefaultService("DataChangedService", new DataChangedService());

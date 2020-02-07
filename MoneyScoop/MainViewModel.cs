@@ -1,6 +1,7 @@
 ﻿using Database;
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
+using DevExpress.Mvvm.POCO;
 using MoneyScoop.Model;
 using MoneyScoop.Model.Data;
 using MoneyScoop.ViewModel;
@@ -19,8 +20,11 @@ namespace MoneyScoop
     {
         public virtual IModuleType ActiveModule { get; protected set; }
 
+        private InvoiceListViewModel InvoiceListViewModel { get; set; }
+
         protected MainViewModel() : base(ModuleTypes.MainViewModule)
         {
+            
         }
 
         public override Task Load()
@@ -45,6 +49,13 @@ namespace MoneyScoop
         {
             IsLoading = true;
             DocumentManagerService.ActiveDocumentChanged += DocumentManagerService_ActiveDocumentChanged;
+            if (InvoiceListViewModel == null)
+            {
+                InvoiceListViewModel = InvoiceListViewModel.Create();
+                InvoiceListViewModel.SetParentViewModel(this);
+            }
+            InvoiceListViewModel.Load();
+            ShowDocument(InvoiceListViewModel);
             IsLoading = false;
         }
 
@@ -61,18 +72,18 @@ namespace MoneyScoop
             }
         }
 
-        public override void OnClose(CancelEventArgs e)
-        {
-            var res = MessageBoxService.ShowMessage("Close Control Center?", "Close", MessageButton.YesNo, MessageIcon.Question);
-            if (res == MessageResult.Yes)
-            {
-                base.OnClose(e);
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+        //public override void OnClose(CancelEventArgs e)
+        //{
+        //    //var res = MessageBoxService.ShowMessage("Close Control Center?", "Close", MessageButton.YesNo, MessageIcon.Question);
+        //    //if (res == MessageResult.Yes)
+        //    //{
+        //    //    base.OnClose(e);
+        //    //}
+        //    //else
+        //    //{
+        //    //    e.Cancel = true;
+        //    //}
+        //}
 
         #region Data Invoker
         
@@ -91,7 +102,7 @@ namespace MoneyScoop
 
         public void DbQueryFailed(DbException dbException)
         {
-            
+            MessageBoxService.ShowMessage("Database error. \r\n" + dbException, "Error", MessageButton.OK, MessageIcon.Error);
         }
 
         public void DbLogInfo(string message)

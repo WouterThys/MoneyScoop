@@ -1,6 +1,6 @@
 ﻿namespace MoneyScoop.View
 {
-    partial class BaseUserControl
+    partial class CustomerListView
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,21 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseUserControl));
-            this.mvvmContext = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.ic16x16 = new DevExpress.Utils.ImageCollection(this.components);
-            this.ic24x24 = new DevExpress.Utils.ImageCollection(this.components);
-            this.ic48x48 = new DevExpress.Utils.ImageCollection(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerListView));
+            this.colAddressLine1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAddressLine2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colVATNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).BeginInit();
             this.SuspendLayout();
             // 
-            // mvvmContext
+            // bbiAdd
             // 
-            this.mvvmContext.ContainerControl = this;
+            this.bbiAdd.ImageOptions.ImageIndex = 0;
+            this.bbiAdd.ImageOptions.LargeImageIndex = 0;
+            // 
+            // bbiEdit
+            // 
+            this.bbiEdit.ImageOptions.ImageIndex = 1;
+            this.bbiEdit.ImageOptions.LargeImageIndex = 1;
+            // 
+            // bbiDelete
+            // 
+            this.bbiDelete.ImageOptions.ImageIndex = 2;
+            this.bbiDelete.ImageOptions.LargeImageIndex = 2;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(MoneyScoop.Model.Customer);
+            // 
+            // gridControl
+            // 
+            this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            // 
+            // gridView
+            // 
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colAddressLine1,
+            this.colAddressLine2,
+            this.colEmail,
+            this.colPhone,
+            this.colVATNumber});
+            // 
+            // colLastModified
+            // 
+            this.colLastModified.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm";
+            this.colLastModified.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            // 
+            // ribbonControl
+            // 
+            this.ribbonControl.ExpandCollapseItem.Id = 0;
+            // 
+            // 
+            // 
+            this.ribbonControl.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.ribbonControl.SearchEditItem.EditWidth = 150;
+            this.ribbonControl.SearchEditItem.Id = -5000;
+            this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.ribbonControl.SearchEditItem.UseEditorPadding = false;
             // 
             // ic16x16
             // 
@@ -65,7 +114,6 @@
             // 
             // ic24x24
             // 
-            this.ic24x24.ImageSize = new System.Drawing.Size(24, 24);
             this.ic24x24.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic24x24.ImageStream")));
             this.ic24x24.Images.SetKeyName(0, "add.png");
             this.ic24x24.Images.SetKeyName(1, "pencil.png");
@@ -85,7 +133,6 @@
             // 
             // ic48x48
             // 
-            this.ic48x48.ImageSize = new System.Drawing.Size(48, 48);
             this.ic48x48.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic48x48.ImageStream")));
             this.ic48x48.Images.SetKeyName(0, "add.png");
             this.ic48x48.Images.SetKeyName(1, "pencil.png");
@@ -103,26 +150,69 @@
             this.ic48x48.Images.SetKeyName(13, "table_row.png");
             this.ic48x48.Images.SetKeyName(14, "cashier.png");
             // 
-            // BaseUserControl
+            // colAddressLine1
+            // 
+            this.colAddressLine1.FieldName = "AddressLine1";
+            this.colAddressLine1.MinWidth = 25;
+            this.colAddressLine1.Name = "colAddressLine1";
+            this.colAddressLine1.Width = 94;
+            // 
+            // colAddressLine2
+            // 
+            this.colAddressLine2.FieldName = "AddressLine2";
+            this.colAddressLine2.MinWidth = 25;
+            this.colAddressLine2.Name = "colAddressLine2";
+            this.colAddressLine2.Width = 94;
+            // 
+            // colEmail
+            // 
+            this.colEmail.FieldName = "Email";
+            this.colEmail.MinWidth = 25;
+            this.colEmail.Name = "colEmail";
+            this.colEmail.Visible = true;
+            this.colEmail.VisibleIndex = 2;
+            this.colEmail.Width = 94;
+            // 
+            // colPhone
+            // 
+            this.colPhone.FieldName = "Phone";
+            this.colPhone.MinWidth = 25;
+            this.colPhone.Name = "colPhone";
+            this.colPhone.Visible = true;
+            this.colPhone.VisibleIndex = 3;
+            this.colPhone.Width = 94;
+            // 
+            // colVATNumber
+            // 
+            this.colVATNumber.FieldName = "VATNumber";
+            this.colVATNumber.MinWidth = 25;
+            this.colVATNumber.Name = "colVATNumber";
+            this.colVATNumber.Width = 94;
+            // 
+            // CustomerListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "BaseUserControl";
-            this.Size = new System.Drawing.Size(175, 185);
+            this.Name = "CustomerListView";
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        protected DevExpress.Utils.MVVM.MVVMContext mvvmContext;
-        protected DevExpress.Utils.ImageCollection ic16x16;
-        protected DevExpress.Utils.ImageCollection ic24x24;
-        protected DevExpress.Utils.ImageCollection ic48x48;
+        private DevExpress.XtraGrid.Columns.GridColumn colAddressLine1;
+        private DevExpress.XtraGrid.Columns.GridColumn colAddressLine2;
+        private DevExpress.XtraGrid.Columns.GridColumn colEmail;
+        private DevExpress.XtraGrid.Columns.GridColumn colPhone;
+        private DevExpress.XtraGrid.Columns.GridColumn colVATNumber;
     }
 }

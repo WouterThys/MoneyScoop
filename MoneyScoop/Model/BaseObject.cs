@@ -173,21 +173,21 @@ namespace MoneyScoop.Model
             return null;
         }
 
-        protected virtual void OnDbActionDone(ActionType action)
-        {
-            switch (action)
-            {
-                case ActionType.Insert:
-                    DataSource.Ds.OnInserted(this);
-                    break;
-                case ActionType.Update:
-                    DataSource.Ds.OnUpdated(this);
-                    break;
-                case ActionType.Delete:
-                    DataSource.Ds.OnDeleted(this);
-                    break;
-            }
-        }
+        protected abstract void OnDbActionDone(ActionType action);
+        //{
+        //    switch (action)
+        //    {
+        //        case ActionType.Insert:
+        //            DataSource.Ds.OnInserted(this);
+        //            break;
+        //        case ActionType.Update:
+        //            DataSource.Ds.OnUpdated(this);
+        //            break;
+        //        case ActionType.Delete:
+        //            DataSource.Ds.OnDeleted(this);
+        //            break;
+        //    }
+        //}
 
         #endregion
 

@@ -93,9 +93,26 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "showUnitPrice", ShowUnitPrice);
             DatabaseAccess.AddDbValue(command, "showDate", ShowDate);
         }
+
+        protected override void OnDbActionDone(ActionType action)
+        {
+            switch (action)
+            {
+                case ActionType.Insert:
+                    DataSource.Ds.OnInserted(this);
+                    break;
+                case ActionType.Update:
+                    DataSource.Ds.OnUpdated(this);
+                    break;
+                case ActionType.Delete:
+                    DataSource.Ds.OnDeleted(this);
+                    break;
+            }
+        }
+
         #endregion
 
-        #region Methods & Calculated Fields
+            #region Methods & Calculated Fields
 
         public decimal Total
         {

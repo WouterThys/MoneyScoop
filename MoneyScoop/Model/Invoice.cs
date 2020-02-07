@@ -30,6 +30,10 @@ namespace MoneyScoop.Model
         public Invoice(string code) : base(code)
         {
             DateCreated = DateTime.Now;
+            DateSend = DateTime.MinValue.AddYears(10);
+            DatePayed = DateTime.MinValue.AddYears(10);
+            Code = Guid.NewGuid().ToString();
+            VAT = 21;
         }
         
         #region Base Overrides
@@ -49,6 +53,7 @@ namespace MoneyScoop.Model
                 DateSend = that.DateSend;
                 DatePayed = that.DatePayed;
                 VAT = that.VAT;
+                CustomerId = that.CustomerId;
             }
         }
 
@@ -59,11 +64,12 @@ namespace MoneyScoop.Model
                 if (iObject is Invoice that)
                 {
                     return
-                    DateCreated == that.DateCreated &&
-                    DateSend == that.DateSend &&
-                    DatePayed == that.DatePayed &&
-                    VAT == that.VAT
-                    ;
+                        CustomerId == that.CustomerId &&
+                        DateCreated == that.DateCreated &&
+                        DateSend == that.DateSend &&
+                        DatePayed == that.DatePayed &&
+                        VAT == that.VAT
+                        ;
                 }
             }
             return false;
@@ -91,10 +97,43 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "vat", VAT);
             DatabaseAccess.AddDbValue(command, "customerId", CustomerId > UNKNOWN_ID ? CustomerId : UNKNOWN_ID);
         }
+
+        protected override void OnDbActionDone(ActionType action)
+        {
+            switch (action)
+            {
+                case ActionType.Insert:
+                    DataSource.Ds.OnInserted(this);
+                    break;
+                case ActionType.Update:
+                    DataSource.Ds.OnUpdated(this);
+                    break;
+                case ActionType.Delete:
+                    DataSource.Ds.OnDeleted(this);
+                    break;
+            }
+        }
+
+        public override string Code
+        {
+            get
+            {
+                if (Id <= UNKNOWN_ID)
+                {
+                    return DateCreated.Year + "-" + DataSource.Ds.NextInvoiceNumber.ToString("D3");
+                }
+                return base.Code;
+            }
+
+            set
+            {
+                base.Code = value;
+            }
+        }
+
         #endregion
 
         #region Methods & Calculated Fields
-
 
         public Customer Customer
         {
@@ -106,6 +145,11 @@ namespace MoneyScoop.Model
                 }
                 return customer;
             }
+        }
+
+        public string CustomerCode
+        {
+            get { return Customer?.Code ?? ""; }
         }
 
         public IEnumerable<InvoiceLine> InvoiceLines
@@ -152,6 +196,48 @@ namespace MoneyScoop.Model
                 {
                     OnPropertyChanged("InvoiceLines");
                 }
+            }
+        }
+
+        public bool IsPayed
+        {
+            get
+            {
+                return DatePayed != null && DatePayed.Year > 2000;
+            }
+            set
+            {
+                DatePayed = value ? DateTime.Now : DateTime.MinValue.AddYears(10);
+                OnPropertyChanged("IsPayed");
+            }
+        }
+
+        public bool IsSend
+        {
+            get
+            {
+                return DateSend != null && DateSend.Year > 2000;
+            }
+            set
+            {
+                DateSend = value ? DateTime.Now : DateTime.MinValue.AddYears(10);
+                OnPropertyChanged("IsSend");
+            }
+        }
+
+        public string DatePayedString
+        {
+            get
+            {
+                return IsPayed ? DatePayed.ToString("dd/MM/yyyy hh:mm") : "";
+            }
+        }
+
+        public string DateSendString
+        {
+            get
+            {
+                return IsSend ? DateSend.ToString("dd/MM/yyyy hh:mm") : "";
             }
         }
 

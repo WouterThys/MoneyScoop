@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 
 namespace MoneyScoop.Model
 {
@@ -27,6 +28,28 @@ namespace MoneyScoop.Model
                 { typeof(InvoiceLine), new DataList<InvoiceLine>() },
                 { typeof(Customer), new DataList<Customer>() }
             };
+        }
+
+        public IEnumerable<Invoice> ThisYearsInvoices
+        {
+            get
+            {
+                int year = DateTime.Now.Year;
+                return Invoices.Where(i => i.DateCreated.Year == year);
+            }
+        }
+
+        public int NextInvoiceNumber
+        {
+            get
+            {
+                IEnumerable<Invoice> invoices = ThisYearsInvoices;
+                if (invoices != null)
+                {
+                    return invoices.Count() + 1;
+                }
+                return 1;
+            }
         }
 
         #region DataSource Methods
@@ -61,8 +84,7 @@ namespace MoneyScoop.Model
         }
 
         #endregion
-
-
+        
         #region Data Lists
 
         public DataList<Invoice> Invoices { get { return GetList(GetCachedList<Invoice>(), () => FetchAllFromDb<Invoice>()); } }

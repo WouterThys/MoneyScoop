@@ -28,60 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseRibbonControl));
+            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseRibbonControl));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.MainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.ic24x24)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.ic48x48)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ic16x16
-            // 
-            this.ic16x16.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic16x16.ImageStream")));
-            this.ic16x16.Images.SetKeyName(0, "add.png");
-            this.ic16x16.Images.SetKeyName(1, "pencil.png");
-            this.ic16x16.Images.SetKeyName(2, "delete.png");
-            this.ic16x16.Images.SetKeyName(3, "copy.png");
-            this.ic16x16.Images.SetKeyName(4, "cut.png");
-            this.ic16x16.Images.SetKeyName(5, "paste.png");
-            this.ic16x16.Images.SetKeyName(6, "refresh.png");
-            this.ic16x16.Images.SetKeyName(7, "undo.png");
-            this.ic16x16.Images.SetKeyName(8, "redo.png");
-            this.ic16x16.Images.SetKeyName(9, "floppy_disk.png");
-            this.ic16x16.Images.SetKeyName(10, "floppy_disk_ok.png");
-            // 
-            // ic24x24
-            // 
-            this.ic24x24.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic24x24.ImageStream")));
-            this.ic24x24.Images.SetKeyName(0, "add.png");
-            this.ic24x24.Images.SetKeyName(1, "pencil.png");
-            this.ic24x24.Images.SetKeyName(2, "delete.png");
-            this.ic24x24.Images.SetKeyName(3, "copy.png");
-            this.ic24x24.Images.SetKeyName(4, "cut.png");
-            this.ic24x24.Images.SetKeyName(5, "paste.png");
-            this.ic24x24.Images.SetKeyName(6, "refresh.png");
-            this.ic24x24.Images.SetKeyName(7, "undo.png");
-            this.ic24x24.Images.SetKeyName(8, "redo.png");
-            this.ic24x24.Images.SetKeyName(9, "floppy_disk.png");
-            this.ic24x24.Images.SetKeyName(10, "floppy_disk_ok.png");
-            // 
-            // ic48x48
-            // 
-            this.ic48x48.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic48x48.ImageStream")));
-            this.ic48x48.Images.SetKeyName(0, "add.png");
-            this.ic48x48.Images.SetKeyName(1, "pencil.png");
-            this.ic48x48.Images.SetKeyName(2, "delete.png");
-            this.ic48x48.Images.SetKeyName(3, "copy.png");
-            this.ic48x48.Images.SetKeyName(4, "cut.png");
-            this.ic48x48.Images.SetKeyName(5, "paste.png");
-            this.ic48x48.Images.SetKeyName(6, "refresh.png");
-            this.ic48x48.Images.SetKeyName(7, "undo.png");
-            this.ic48x48.Images.SetKeyName(8, "redo.png");
-            this.ic48x48.Images.SetKeyName(9, "floppy_disk.png");
-            this.ic48x48.Images.SetKeyName(10, "floppy_disk_ok.png");
+            //// 
+            //// ic16x16
+            //// 
+            //this.ic16x16.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic16x16.ImageStream")));
+            //this.ic16x16.Images.SetKeyName(0, "add.png");
+            //this.ic16x16.Images.SetKeyName(1, "pencil.png");
+            //this.ic16x16.Images.SetKeyName(2, "delete.png");
+            //this.ic16x16.Images.SetKeyName(3, "copy.png");
+            //this.ic16x16.Images.SetKeyName(4, "cut.png");
+            //this.ic16x16.Images.SetKeyName(5, "paste.png");
+            //this.ic16x16.Images.SetKeyName(6, "refresh.png");
+            //this.ic16x16.Images.SetKeyName(7, "undo.png");
+            //this.ic16x16.Images.SetKeyName(8, "redo.png");
+            //this.ic16x16.Images.SetKeyName(9, "floppy_disk.png");
+            //this.ic16x16.Images.SetKeyName(10, "floppy_disk_ok.png");
+            //// 
+            //// ic24x24
+            //// 
+            //this.ic24x24.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic24x24.ImageStream")));
+            //this.ic24x24.Images.SetKeyName(0, "add.png");
+            //this.ic24x24.Images.SetKeyName(1, "pencil.png");
+            //this.ic24x24.Images.SetKeyName(2, "delete.png");
+            //this.ic24x24.Images.SetKeyName(3, "copy.png");
+            //this.ic24x24.Images.SetKeyName(4, "cut.png");
+            //this.ic24x24.Images.SetKeyName(5, "paste.png");
+            //this.ic24x24.Images.SetKeyName(6, "refresh.png");
+            //this.ic24x24.Images.SetKeyName(7, "undo.png");
+            //this.ic24x24.Images.SetKeyName(8, "redo.png");
+            //this.ic24x24.Images.SetKeyName(9, "floppy_disk.png");
+            //this.ic24x24.Images.SetKeyName(10, "floppy_disk_ok.png");
+            //// 
+            //// ic48x48
+            //// 
+            //this.ic48x48.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic48x48.ImageStream")));
+            //this.ic48x48.Images.SetKeyName(0, "add.png");
+            //this.ic48x48.Images.SetKeyName(1, "pencil.png");
+            //this.ic48x48.Images.SetKeyName(2, "delete.png");
+            //this.ic48x48.Images.SetKeyName(3, "copy.png");
+            //this.ic48x48.Images.SetKeyName(4, "cut.png");
+            //this.ic48x48.Images.SetKeyName(5, "paste.png");
+            //this.ic48x48.Images.SetKeyName(6, "refresh.png");
+            //this.ic48x48.Images.SetKeyName(7, "undo.png");
+            //this.ic48x48.Images.SetKeyName(8, "redo.png");
+            //this.ic48x48.Images.SetKeyName(9, "floppy_disk.png");
+            //this.ic48x48.Images.SetKeyName(10, "floppy_disk_ok.png");
             // 
             // ribbonControl
             // 
@@ -116,9 +116,9 @@
             this.Name = "BaseRibbonControl";
             this.Size = new System.Drawing.Size(452, 429);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.ic48x48)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
