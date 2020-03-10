@@ -20,7 +20,7 @@ namespace MoneyScoop.Model
 
         // Cached
         private Customer customer;
-        private HashSet<InvoiceLine> invoiceLines;
+        private List<InvoiceLine> invoiceLines;
 
         public Invoice() : this("")
         {
@@ -159,13 +159,18 @@ namespace MoneyScoop.Model
             get { return Customer?.Code ?? ""; }
         }
 
-        public IEnumerable<InvoiceLine> InvoiceLines
+        public DateTime DueDate
+        {
+            get { return DateCreated.AddDays(Context.Ctx.MyInfo.DueDays); }
+        }
+
+        public List<InvoiceLine> InvoiceLines
         {
             get
             {
                 if (invoiceLines == null && Id > UNKNOWN_ID)
                 {
-                    invoiceLines = new HashSet<InvoiceLine>(DataSource.Ds.InvoiceLines.Where(il => il.InvoiceId == Id));
+                    invoiceLines = new List<InvoiceLine>(DataSource.Ds.InvoiceLines.Where(il => il.InvoiceId == Id));
                 }
                 return invoiceLines;
             }
@@ -180,10 +185,8 @@ namespace MoneyScoop.Model
         {
             if (line != null && InvoiceLines != null)
             {
-                if (invoiceLines.Add(line))
-                {
-                    OnPropertyChanged("InvoiceLines");
-                }
+                invoiceLines.Add(line);
+                OnPropertyChanged("InvoiceLines");
             }
         }
 

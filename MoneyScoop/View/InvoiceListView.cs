@@ -5,6 +5,9 @@ using DevExpress.Utils.MVVM;
 using MoneyScoop.Reports;
 using System.Collections.Generic;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraPrinting;
+using DevExpress.XtraBars;
+using System.IO;
 
 namespace MoneyScoop.View
 {
@@ -29,8 +32,9 @@ namespace MoneyScoop.View
         {
             base.InitializeLayouts();
             bbiCreateReport.ItemClick += BbiCreateReport_ItemClick;
+            bbiSaveReport.ItemClick += BbiSaveReport_ItemClick;
         }
-        
+
         private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
             CreateDefaultPopupMenu<Invoice, InvoiceListViewModel>(sender, e);
@@ -43,7 +47,7 @@ namespace MoneyScoop.View
             fluent.BindCommand(bbiCustomers, m => m.ShowCustomers());
         }
 
-        private void BbiCreateReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void BbiCreateReport_ItemClick(object sender, ItemClickEventArgs e)
         {
             if (fluent == null) return;
             if (fluent.ViewModel.Selected == null) return;
@@ -52,9 +56,25 @@ namespace MoneyScoop.View
             {
                 DataSource = new List<Invoice>() { fluent.ViewModel.Selected }
             };
-
+            
             ReportPrintTool tool = new ReportPrintTool(report);
             tool.ShowPreview();
+        }
+
+        private void BbiSaveReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (fluent == null) return;
+            if (fluent.ViewModel.Selected == null) return;
+
+            string file = Path.Combine(Context.Ctx.MyInfo.SavePdfPath,
+                fluent.ViewModel.Selected.Code);
+
+            InvoiceReport report = new InvoiceReport
+            {
+                DataSource = new List<Invoice>() { fluent.ViewModel.Selected }
+            };
+
+            report.ExportToPdf(file + ".pdf");
         }
     }
 }

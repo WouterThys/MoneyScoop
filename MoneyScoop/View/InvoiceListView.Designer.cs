@@ -42,6 +42,7 @@
             this.bbiCustomers = new DevExpress.XtraBars.BarButtonItem();
             this.rpgReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiCreateReport = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSaveReport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -87,25 +88,46 @@
             this.colIsSaved,
             this.colIsSend,
             this.colVAT});
+            this.gridView.DetailHeight = 350;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDateCreated, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
+            // colId
+            // 
+            this.colId.MinWidth = 21;
+            this.colId.Width = 75;
+            // 
+            // colCode
+            // 
+            this.colCode.MinWidth = 21;
+            this.colCode.Width = 75;
+            // 
             // colDescription
             // 
-            this.colDescription.VisibleIndex = 2;
+            this.colDescription.MinWidth = 21;
+            this.colDescription.Width = 75;
+            // 
+            // colInfo
+            // 
+            this.colInfo.MinWidth = 21;
+            this.colInfo.Width = 75;
             // 
             // colLastModified
             // 
             this.colLastModified.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm";
             this.colLastModified.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colLastModified.MinWidth = 21;
+            this.colLastModified.Width = 75;
             // 
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbiCustomers,
-            this.bbiCreateReport});
-            this.ribbonControl.MaxItemId = 6;
+            this.bbiCreateReport,
+            this.bbiSaveReport});
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonControl.MaxItemId = 7;
             // 
             // 
             // 
@@ -202,7 +224,7 @@
             this.colDateCreated.MinWidth = 25;
             this.colDateCreated.Name = "colDateCreated";
             this.colDateCreated.Visible = true;
-            this.colDateCreated.VisibleIndex = 1;
+            this.colDateCreated.VisibleIndex = 2;
             this.colDateCreated.Width = 94;
             // 
             // colDatePayed
@@ -272,6 +294,7 @@
             // rpgReport
             // 
             this.rpgReport.ItemLinks.Add(this.bbiCreateReport);
+            this.rpgReport.ItemLinks.Add(this.bbiSaveReport);
             this.rpgReport.Name = "rpgReport";
             this.rpgReport.Text = "Reports";
             // 
@@ -279,12 +302,23 @@
             // 
             this.bbiCreateReport.Caption = "Create";
             this.bbiCreateReport.Id = 5;
+            this.bbiCreateReport.ImageOptions.ImageIndex = 12;
+            this.bbiCreateReport.ImageOptions.LargeImageIndex = 12;
             this.bbiCreateReport.Name = "bbiCreateReport";
+            // 
+            // bbiSaveReport
+            // 
+            this.bbiSaveReport.Caption = "Save";
+            this.bbiSaveReport.Id = 6;
+            this.bbiSaveReport.ImageOptions.ImageIndex = 10;
+            this.bbiSaveReport.ImageOptions.LargeImageIndex = 10;
+            this.bbiSaveReport.Name = "bbiSaveReport";
             // 
             // InvoiceListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "InvoiceListView";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
@@ -314,5 +348,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCustomer;
         private DevExpress.XtraBars.BarButtonItem bbiCreateReport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReport;
+        private DevExpress.XtraBars.BarButtonItem bbiSaveReport;
     }
 }

@@ -24,6 +24,8 @@ namespace MoneyScoop
         public const string KEY_INFO_EMAIL = "Email";
         public const string KEY_INFO_PHONE = "Phone";
         public const string KEY_INFO_BANK = "BankAccount";
+        public const string KEY_INFO_DUE_DAYS = "DueDays";
+        public const string KEY_INFO_SAVE_PATH = "SavePdfPath";
 
         public const int MAX_OBJECT_CODE_LENGTH = 45;
         public const int MIN_OBJECT_CODE_LENGTH = 4;
@@ -79,12 +81,14 @@ namespace MoneyScoop
             MyInfo = new MyInfo()
             {
                 Name = iniFile.ReadString(SECTION_INFO, KEY_INFO_NAME),
-                AddressLine1 = iniFile.ReadString(SECTION_INFO, KEY_INFO_NAME),
-                AddressLine2 = iniFile.ReadString(SECTION_INFO, KEY_INFO_NAME),
-                VATNumber = iniFile.ReadString(SECTION_INFO, KEY_INFO_NAME),
-                Email = iniFile.ReadString(SECTION_INFO, KEY_INFO_NAME),
-                Phone = iniFile.ReadString(SECTION_INFO, KEY_INFO_NAME),
-                BankAccount = iniFile.ReadString(SECTION_INFO, KEY_INFO_NAME)
+                AddressLine1 = iniFile.ReadString(SECTION_INFO, KEY_INFO_ADR1),
+                AddressLine2 = iniFile.ReadString(SECTION_INFO, KEY_INFO_ADR2),
+                VATNumber = iniFile.ReadString(SECTION_INFO, KEY_INFO_VAT),
+                Email = iniFile.ReadString(SECTION_INFO, KEY_INFO_EMAIL),
+                Phone = iniFile.ReadString(SECTION_INFO, KEY_INFO_PHONE),
+                BankAccount = iniFile.ReadString(SECTION_INFO, KEY_INFO_BANK),
+                DueDays = iniFile.ReadInt(SECTION_INFO, KEY_INFO_DUE_DAYS),
+                SavePdfPath = iniFile.ReadString(SECTION_INFO, KEY_INFO_SAVE_PATH)
             };
         }
 
