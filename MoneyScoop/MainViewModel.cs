@@ -6,10 +6,6 @@ using MoneyScoop.Model;
 using MoneyScoop.Model.Data;
 using MoneyScoop.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 
@@ -18,9 +14,7 @@ namespace MoneyScoop
     [POCOViewModel()]
     public class MainViewModel : BaseDocumentViewModel, IDataInvoker, IDatabaseAccess
     {
-        public virtual IModuleType ActiveModule { get; protected set; }
-
-        private InvoiceListViewModel InvoiceListViewModel { get; set; }
+        public virtual IModuleType ActiveModule { get; set; }
 
         protected MainViewModel() : base(ModuleTypes.MainViewModule)
         {
@@ -49,13 +43,14 @@ namespace MoneyScoop
         {
             IsLoading = true;
             DocumentManagerService.ActiveDocumentChanged += DocumentManagerService_ActiveDocumentChanged;
-            if (InvoiceListViewModel == null)
-            {
-                InvoiceListViewModel = InvoiceListViewModel.Create();
-                InvoiceListViewModel.SetParentViewModel(this);
-            }
-            InvoiceListViewModel.Load();
-            ShowDocument(InvoiceListViewModel);
+            //if (InvoiceListViewModel == null)
+            //{
+            //    InvoiceListViewModel = InvoiceListViewModel.Create();
+            //    InvoiceListViewModel.SetParentViewModel(this);
+            //}
+            //InvoiceListViewModel.Load();
+            //ShowDocument(InvoiceListViewModel);
+            ShowDocument(ModuleTypes.IncomingInvoiceListModule);
             IsLoading = false;
         }
 
@@ -68,25 +63,20 @@ namespace MoneyScoop
             else if (e.NewDocument.Content is IBaseViewModel viewModel)
             {
                 ActiveModule = viewModel.Module;
-                
             }
         }
 
-        //public override void OnClose(CancelEventArgs e)
-        //{
-        //    //var res = MessageBoxService.ShowMessage("Close Control Center?", "Close", MessageButton.YesNo, MessageIcon.Question);
-        //    //if (res == MessageResult.Yes)
-        //    //{
-        //    //    base.OnClose(e);
-        //    //}
-        //    //else
-        //    //{
-        //    //    e.Cancel = true;
-        //    //}
-        //}
+        public void OnActiveModuleChanged()
+        {
+            if (ActiveModule != null)
+            {
+                ShowDocument(ActiveModule);
+            }
+        }
+
 
         #region Data Invoker
-        
+
         public void InvokeOnMain(Action action)
         {
             DispatcherService.BeginInvoke(action);

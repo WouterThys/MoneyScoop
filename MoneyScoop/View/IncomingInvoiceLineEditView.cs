@@ -5,11 +5,11 @@ using MoneyScoop.Utils;
 
 namespace MoneyScoop.View
 {
-    public partial class InvoiceLineEditView : BaseEditView
+    public partial class IncomingInvoiceLineEditView : BaseEditView
     {
-        public InvoiceLineEditView()
+        public IncomingInvoiceLineEditView()
         {
-            InitializeModel(typeof(InvoiceLineEditViewModel));
+            InitializeModel(typeof(IncomingInvoiceLineEditViewModel));
             InitializeComponent();
             if (!DesignMode)
             {
@@ -32,7 +32,7 @@ namespace MoneyScoop.View
             base.OnLoad(e);
             if (!DesignMode)
             {
-                var fluent = InitBindings<InvoiceLine, InvoiceLineEditViewModel>();
+                var fluent = InitBindings<InvoiceLine, IncomingInvoiceLineEditViewModel>();
             }
         }
     }

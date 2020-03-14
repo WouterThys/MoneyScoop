@@ -10,11 +10,11 @@ using System.Linq;
 
 namespace MoneyScoop.View
 {
-    public partial class InvoiceEditView : BaseEditView
+    public partial class IncomingInvoiceEditView : BaseEditView
     {
-        public InvoiceEditView()
+        public IncomingInvoiceEditView()
         {
-            InitializeModel(typeof(InvoiceEditViewModel));
+            InitializeModel(typeof(IncomingInvoiceEditViewModel));
             InitializeComponent();
             if (!DesignMode)
             {
@@ -37,7 +37,7 @@ namespace MoneyScoop.View
             base.OnLoad(e);
             if (!DesignMode)
             {
-                var fluent = InitBindings<Invoice, InvoiceEditViewModel>();
+                var fluent = InitBindings<Invoice, IncomingInvoiceEditViewModel>();
 
                 fluent.SetObjectDataSourceBinding(bsCustomers, m => m.Customers);
                 fluent.SetObjectDataSourceBinding(bsInvoiceLines, m => m.InvoiceLines, m => m.UpdateCommands());

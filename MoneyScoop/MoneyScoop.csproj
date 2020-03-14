@@ -103,11 +103,12 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomerEditViewModel.cs" />
     <Compile Include="ViewModel\CustomerListViewModel.cs" />
+    <Compile Include="ViewModel\OutgoingInvoiceListViewModel.cs" />
     <Compile Include="ViewModel\Interfaces.cs" />
     <Compile Include="ViewModel\InvoiceActionHelper.cs" />
-    <Compile Include="ViewModel\InvoiceEditViewModel.cs" />
-    <Compile Include="ViewModel\InvoiceLineEditViewModel.cs" />
-    <Compile Include="ViewModel\InvoiceListViewModel.cs" />
+    <Compile Include="ViewModel\IncomingInvoiceEditViewModel.cs" />
+    <Compile Include="ViewModel\IncomingInvoiceLineEditViewModel.cs" />
+    <Compile Include="ViewModel\IncomingInvoiceListViewModel.cs" />
     <Compile Include="ViewModel\ModuleTypes.cs" />
     <Compile Include="View\BaseDialogForm.cs">
       <SubType>Form</SubType>
@@ -151,24 +152,30 @@
     <Compile Include="View\CustomerListView.Designer.cs">
       <DependentUpon>CustomerListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\OutgoingInvoiceListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\OutgoingInvoiceListView.Designer.cs">
+      <DependentUpon>OutgoingInvoiceListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Interfaces.cs" />
-    <Compile Include="View\InvoiceEditView.cs">
+    <Compile Include="View\IncomingInvoiceEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\InvoiceEditView.Designer.cs">
-      <DependentUpon>InvoiceEditView.cs</DependentUpon>
+    <Compile Include="View\IncomingInvoiceEditView.Designer.cs">
+      <DependentUpon>IncomingInvoiceEditView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\InvoiceLineEditView.cs">
+    <Compile Include="View\IncomingInvoiceLineEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\InvoiceLineEditView.Designer.cs">
-      <DependentUpon>InvoiceLineEditView.cs</DependentUpon>
+    <Compile Include="View\IncomingInvoiceLineEditView.Designer.cs">
+      <DependentUpon>IncomingInvoiceLineEditView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\InvoiceListView.cs">
+    <Compile Include="View\IncomingInvoiceListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\InvoiceListView.Designer.cs">
-      <DependentUpon>InvoiceListView.cs</DependentUpon>
+    <Compile Include="View\IncomingInvoiceListView.Designer.cs">
+      <DependentUpon>IncomingInvoiceListView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -207,14 +214,17 @@
     <EmbeddedResource Include="View\CustomerListView.resx">
       <DependentUpon>CustomerListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\InvoiceEditView.resx">
-      <DependentUpon>InvoiceEditView.cs</DependentUpon>
+    <EmbeddedResource Include="View\IncomingInvoiceEditView.resx">
+      <DependentUpon>IncomingInvoiceEditView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\InvoiceLineEditView.resx">
-      <DependentUpon>InvoiceLineEditView.cs</DependentUpon>
+    <EmbeddedResource Include="View\IncomingInvoiceLineEditView.resx">
+      <DependentUpon>IncomingInvoiceLineEditView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\InvoiceListView.resx">
-      <DependentUpon>InvoiceListView.cs</DependentUpon>
+    <EmbeddedResource Include="View\OutgoingInvoiceListView.resx">
+      <DependentUpon>OutgoingInvoiceListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\IncomingInvoiceListView.resx">
+      <DependentUpon>IncomingInvoiceListView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Config\settings.ini">

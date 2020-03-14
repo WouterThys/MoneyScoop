@@ -13,13 +13,13 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace MoneyScoop.View
 {
-    public partial class InvoiceListView : BaseListView
+    public partial class OutgoingInvoiceListView : BaseListView
     {
-        private MVVMContextFluentAPI<InvoiceListViewModel> fluent;
+        private MVVMContextFluentAPI<OutgoingInvoiceListViewModel> fluent;
 
-        public InvoiceListView()
+        public OutgoingInvoiceListView()
         {
-            InitializeModel(typeof(InvoiceListViewModel));
+            InitializeModel(typeof(OutgoingInvoiceListViewModel));
             InitializeComponent();
             InitializeLayouts();
             if (!DesignMode)
@@ -40,7 +40,7 @@ namespace MoneyScoop.View
         
         private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
-            CreateDefaultPopupMenu<Invoice, InvoiceListViewModel>(sender, e);
+            CreateDefaultPopupMenu<Invoice, OutgoingInvoiceListViewModel>(sender, e);
         }
 
         private void ToolTipController_GetActiveObjectInfo(object sender, ToolTipControllerGetActiveObjectInfoEventArgs e)
@@ -75,12 +75,8 @@ namespace MoneyScoop.View
 
         private void InitializeBindings()
         {
-            fluent = base.InitializeBindings<Invoice, InvoiceListViewModel>();
+            fluent = base.InitializeBindings<Invoice, OutgoingInvoiceListViewModel>();
 
-            fluent.BindCommand(bbiCustomers, m => m.ShowCustomers());
-            fluent.BindCommand(bbiPreviewReports, m => m.ShowInvoicePreviews());
-            fluent.BindCommand(bbiSaveReports, m => m.SavePdfReports());
-            fluent.BindCommand(bbiMail, m => m.SendMailToCustomer());
         }
     }
 }

@@ -106,8 +106,10 @@ namespace MoneyScoop.ViewModel
     {
         public readonly static SimpleModuleType MainViewModule = new SimpleModuleType(-4, ObjectDefinitions.DummyDef, -1, "MainView", "Control center");
 
-        public readonly static DataListModuleType InvoiceListModule = new DataListModuleType(-200, ObjectDefinitions.Invoice, 20, "Invoice");
-        public readonly static AddEditDataModule InvoiceEditModule = new AddEditDataModule(-202, ObjectDefinitions.Invoice, 20, "Invoice");
+        public readonly static DataListModuleType IncomingInvoiceListModule = new DataListModuleType(-200, ObjectDefinitions.Invoice, 20, "IncomingInvoice");
+        public readonly static DataListModuleType OutgoingInvoiceListModule = new DataListModuleType(-201, ObjectDefinitions.Invoice, 20, "OutgoingInvoice");
+        public readonly static AddEditDataModule IncomingInvoiceEditModule = new AddEditDataModule(-202, ObjectDefinitions.Invoice, 20, "IncomingInvoice");
+        public readonly static AddEditDataModule OutgoingInvoiceEditModule = new AddEditDataModule(-203, ObjectDefinitions.Invoice, 20, "IncomingInvoice");
 
         public readonly static DataListModuleType InvoiceLineListModule = new DataListModuleType(-300, ObjectDefinitions.InvoiceLine, 20, "InvoiceLine");
         public readonly static AddEditDataModule InvoiceLineEditModule = new AddEditDataModule(-302, ObjectDefinitions.InvoiceLine, 20, "InvoiceLine");

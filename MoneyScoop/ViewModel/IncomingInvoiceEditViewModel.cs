@@ -11,11 +11,11 @@ using System.Linq;
 namespace MoneyScoop.ViewModel
 {
     [POCOViewModel]
-    public class InvoiceEditViewModel : BaseEditViewModel<Invoice>, IDataChanged<Customer>, IDataChanged<InvoiceLine>
+    public class IncomingInvoiceEditViewModel : BaseEditViewModel<Invoice>, IDataChanged<Customer>, IDataChanged<InvoiceLine>
     {
-        public static InvoiceEditViewModel Create(Invoice original)
+        public static IncomingInvoiceEditViewModel Create(Invoice original)
         {
-            return ViewModelSource.Create(() => new InvoiceEditViewModel(original));
+            return ViewModelSource.Create(() => new IncomingInvoiceEditViewModel(original));
         }
 
         public virtual BindingList<Customer> Customers { get; set; }
@@ -23,7 +23,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual List<InvoiceLine> SelectedLines { get; set; }
 
-        protected InvoiceEditViewModel(Invoice original) : base(ModuleTypes.InvoiceEditModule, original)
+        protected IncomingInvoiceEditViewModel(Invoice original) : base(ModuleTypes.IncomingInvoiceEditModule, original)
         {
             Load();
         }
@@ -143,7 +143,7 @@ namespace MoneyScoop.ViewModel
         public virtual void AddLine()
         {
             InvoiceLine line = new InvoiceLine(Editable);
-            InvoiceLineEditViewModel model = InvoiceLineEditViewModel.Create(line);
+            IncomingInvoiceLineEditViewModel model = IncomingInvoiceLineEditViewModel.Create(line);
             model.SetParentViewModel(this);
             ShowDocument(model);
         }
@@ -153,7 +153,7 @@ namespace MoneyScoop.ViewModel
             InvoiceLine line = SelectedLines?.First();
             if (line != null)
             {
-                InvoiceLineEditViewModel model = InvoiceLineEditViewModel.Create(line);
+                IncomingInvoiceLineEditViewModel model = IncomingInvoiceLineEditViewModel.Create(line);
                 model.SetParentViewModel(this);
                 ShowDocument(model);
             }

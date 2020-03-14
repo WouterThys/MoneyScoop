@@ -12,20 +12,20 @@ using System.Linq;
 namespace MoneyScoop.ViewModel
 {
     [POCOViewModel]
-    public class InvoiceListViewModel : BaseListViewModel<Invoice>
+    public class IncomingInvoiceListViewModel : BaseListViewModel<Invoice>
     {
-        public static InvoiceListViewModel Create()
+        public static IncomingInvoiceListViewModel Create()
         {
-            return ViewModelSource.Create(() => new InvoiceListViewModel());
+            return ViewModelSource.Create(() => new IncomingInvoiceListViewModel());
         }
 
-        public InvoiceListViewModel() : base(ModuleTypes.InvoiceListModule, ModuleTypes.InvoiceEditModule)
+        public IncomingInvoiceListViewModel() : base(ModuleTypes.IncomingInvoiceListModule, ModuleTypes.IncomingInvoiceEditModule)
         {
         }
 
         public override IBaseViewModel GetEditViewModel(Invoice baseObject)
         {
-            return InvoiceEditViewModel.Create(baseObject);
+            return IncomingInvoiceEditViewModel.Create(baseObject);
         }
 
         public override IEnumerable<Invoice> Source()
@@ -36,24 +36,11 @@ namespace MoneyScoop.ViewModel
         public override void UpdateCommands()
         {
             base.UpdateCommands();
-            this.RaiseCanExecuteChanged(x => x.ShowCustomers());
             this.RaiseCanExecuteChanged(x => x.ShowInvoicePreviews());
             this.RaiseCanExecuteChanged(x => x.SavePdfReports());
             this.RaiseCanExecuteChanged(x => x.SendMailToCustomer());
         }
-
-        public virtual bool CanShowCustomers()
-        {
-            return !IsLoading;
-        }
-
-        public virtual void ShowCustomers()
-        {
-            CustomerListViewModel model = CustomerListViewModel.Create();
-            model.SetParentViewModel(this);
-            ShowDocument(model);
-        }
-
+        
 
         public virtual bool CanShowInvoicePreviews()
         {

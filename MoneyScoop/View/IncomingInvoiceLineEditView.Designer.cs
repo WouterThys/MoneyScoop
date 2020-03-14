@@ -1,6 +1,6 @@
 ﻿namespace MoneyScoop.View
 {
-    partial class InvoiceLineEditView
+    partial class IncomingInvoiceLineEditView
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceLineEditView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomingInvoiceLineEditView));
             this.TotalTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.ItemForTotal = new DevExpress.XtraLayout.LayoutControlItem();
             this.DateCreatedDateEdit = new DevExpress.XtraEditors.DateEdit();

@@ -1,6 +1,6 @@
 ﻿namespace MoneyScoop.View
 {
-    partial class InvoiceListView
+    partial class IncomingInvoiceListView
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceListView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomingInvoiceListView));
             this.colCustomerCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomerId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDateCreated = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,16 +41,15 @@
             this.colIsSend = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riCheckEditSend = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colVAT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rpgCustomer = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiCustomers = new DevExpress.XtraBars.BarButtonItem();
             this.rpgReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPreviewReports = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveReports = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiMail = new DevExpress.XtraBars.BarButtonItem();
             this.colDueDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIsPdfSaved = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riCheckEditSaved = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.toolTipController = new DevExpress.Utils.ToolTipController(this.components);
-            this.bbiMail = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -158,7 +157,6 @@
             // MainRibbonPage
             // 
             this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgCustomer,
             this.rpgReport});
             // 
             // ic16x16
@@ -337,12 +335,6 @@
             this.colVAT.Name = "colVAT";
             this.colVAT.Width = 94;
             // 
-            // rpgCustomer
-            // 
-            this.rpgCustomer.ItemLinks.Add(this.bbiCustomers);
-            this.rpgCustomer.Name = "rpgCustomer";
-            this.rpgCustomer.Text = "Customers";
-            // 
             // bbiCustomers
             // 
             this.bbiCustomers.Caption = "Customers";
@@ -375,6 +367,14 @@
             this.bbiSaveReports.ImageOptions.LargeImageIndex = 10;
             this.bbiSaveReports.Name = "bbiSaveReports";
             // 
+            // bbiMail
+            // 
+            this.bbiMail.Caption = "Mail";
+            this.bbiMail.Id = 7;
+            this.bbiMail.ImageOptions.ImageIndex = 20;
+            this.bbiMail.ImageOptions.LargeImageIndex = 20;
+            this.bbiMail.Name = "bbiMail";
+            // 
             // colDueDate
             // 
             this.colDueDate.FieldName = "DueDate";
@@ -402,20 +402,12 @@
             this.riCheckEditSaved.ImageOptions.Images = this.ic16x16;
             this.riCheckEditSaved.Name = "riCheckEditSaved";
             // 
-            // bbiMail
-            // 
-            this.bbiMail.Caption = "Mail";
-            this.bbiMail.Id = 7;
-            this.bbiMail.ImageOptions.ImageIndex = 20;
-            this.bbiMail.ImageOptions.LargeImageIndex = 20;
-            this.bbiMail.Name = "bbiMail";
-            // 
-            // InvoiceListView
+            // IncomingInvoiceListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "InvoiceListView";
+            this.Name = "IncomingInvoiceListView";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -444,7 +436,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIsSend;
         private DevExpress.XtraGrid.Columns.GridColumn colVAT;
         private DevExpress.XtraBars.BarButtonItem bbiCustomers;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgCustomer;
         private DevExpress.XtraBars.BarButtonItem bbiPreviewReports;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReport;
         private DevExpress.XtraBars.BarButtonItem bbiSaveReports;
