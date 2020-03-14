@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
 using MoneyScoop.ViewModel;
 using MoneyScoop.Model;
+using MoneyScoop.Utils;
 
 namespace MoneyScoop.View
 {
@@ -29,6 +21,10 @@ namespace MoneyScoop.View
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
+
+            ViewHelpers.SetTextAlignment(
+                UnitPriceTextEdit,
+                MultiplierTextEdit);
         }
 
         protected override void OnLoad(EventArgs e)

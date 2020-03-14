@@ -111,7 +111,8 @@
             this.dataLayoutControl.Controls.Add(this.MultiplierTextEdit);
             this.dataLayoutControl.Controls.Add(this.ShowUnitPriceCheckEdit);
             this.dataLayoutControl.Controls.Add(this.ShowDateCheckEdit);
-            this.dataLayoutControl.Size = new System.Drawing.Size(527, 394);
+            this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataLayoutControl.Size = new System.Drawing.Size(452, 320);
             this.dataLayoutControl.Controls.SetChildIndex(this.ShowDateCheckEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.ShowUnitPriceCheckEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.MultiplierTextEdit, 0);
@@ -124,23 +125,22 @@
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(527, 394);
+            this.Root.Size = new System.Drawing.Size(452, 320);
             // 
             // CodeTextEdit
             // 
-            this.CodeTextEdit.Size = new System.Drawing.Size(204, 22);
             // 
             // DescriptionTextEdit
             // 
             // 
             // InfoTextEdit
             // 
-            this.InfoTextEdit.Location = new System.Drawing.Point(27, 264);
-            this.InfoTextEdit.Size = new System.Drawing.Size(473, 102);
+            this.InfoTextEdit.Location = new System.Drawing.Point(24, 257);
+            this.InfoTextEdit.Size = new System.Drawing.Size(404, 39);
             // 
             // layoutControlGroup1
             // 
-            this.layoutControlGroup1.Size = new System.Drawing.Size(503, 370);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(432, 300);
             // 
             // lcgId
             // 
@@ -151,20 +151,17 @@
             this.ItemForTotal,
             this.ItemForShowUnitPrice,
             this.ItemForShowDate});
-            this.lcgId.Size = new System.Drawing.Size(503, 370);
-            // 
-            // ItemForCode
-            // 
-            this.ItemForCode.Size = new System.Drawing.Size(285, 26);
+            this.lcgId.Size = new System.Drawing.Size(432, 300);
             // 
             // ItemForInfo
             // 
-            this.ItemForInfo.Location = new System.Drawing.Point(0, 186);
-            this.ItemForInfo.Size = new System.Drawing.Size(477, 125);
+            this.ItemForInfo.Location = new System.Drawing.Point(0, 192);
+            this.ItemForInfo.Size = new System.Drawing.Size(408, 59);
             // 
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             // 
             // 
             // 
@@ -234,7 +231,7 @@
             // TotalTextEdit
             // 
             this.TotalTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TotalTextEdit.Location = new System.Drawing.Point(104, 163);
+            this.TotalTextEdit.Location = new System.Drawing.Point(89, 169);
             this.TotalTextEdit.MenuManager = this.ribbonControl;
             this.TotalTextEdit.Name = "TotalTextEdit";
             this.TotalTextEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -243,24 +240,24 @@
             this.TotalTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.TotalTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.TotalTextEdit.Properties.ReadOnly = true;
-            this.TotalTextEdit.Size = new System.Drawing.Size(396, 22);
+            this.TotalTextEdit.Size = new System.Drawing.Size(339, 20);
             this.TotalTextEdit.StyleController = this.dataLayoutControl;
             this.TotalTextEdit.TabIndex = 7;
             // 
             // ItemForTotal
             // 
             this.ItemForTotal.Control = this.TotalTextEdit;
-            this.ItemForTotal.Location = new System.Drawing.Point(0, 104);
+            this.ItemForTotal.Location = new System.Drawing.Point(0, 120);
             this.ItemForTotal.Name = "ItemForTotal";
-            this.ItemForTotal.Size = new System.Drawing.Size(477, 26);
+            this.ItemForTotal.Size = new System.Drawing.Size(408, 24);
             this.ItemForTotal.Text = "Total";
-            this.ItemForTotal.TextSize = new System.Drawing.Size(63, 16);
+            this.ItemForTotal.TextSize = new System.Drawing.Size(53, 13);
             // 
             // DateCreatedDateEdit
             // 
             this.DateCreatedDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DateCreated", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DateCreatedDateEdit.EditValue = null;
-            this.DateCreatedDateEdit.Location = new System.Drawing.Point(312, 59);
+            this.DateCreatedDateEdit.Location = new System.Drawing.Point(24, 97);
             this.DateCreatedDateEdit.MenuManager = this.ribbonControl;
             this.DateCreatedDateEdit.Name = "DateCreatedDateEdit";
             this.DateCreatedDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -268,16 +265,16 @@
             this.DateCreatedDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DateCreatedDateEdit.Properties.ReadOnly = true;
-            this.DateCreatedDateEdit.Size = new System.Drawing.Size(188, 22);
+            this.DateCreatedDateEdit.Size = new System.Drawing.Size(404, 20);
             this.DateCreatedDateEdit.StyleController = this.dataLayoutControl;
             this.DateCreatedDateEdit.TabIndex = 8;
             // 
             // ItemForDateCreated
             // 
             this.ItemForDateCreated.Control = this.DateCreatedDateEdit;
-            this.ItemForDateCreated.Location = new System.Drawing.Point(285, 0);
+            this.ItemForDateCreated.Location = new System.Drawing.Point(0, 48);
             this.ItemForDateCreated.Name = "ItemForDateCreated";
-            this.ItemForDateCreated.Size = new System.Drawing.Size(192, 26);
+            this.ItemForDateCreated.Size = new System.Drawing.Size(408, 24);
             this.ItemForDateCreated.Text = "Date Created";
             this.ItemForDateCreated.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDateCreated.TextVisible = false;
@@ -285,7 +282,7 @@
             // UnitPriceTextEdit
             // 
             this.UnitPriceTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "UnitPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.UnitPriceTextEdit.Location = new System.Drawing.Point(104, 111);
+            this.UnitPriceTextEdit.Location = new System.Drawing.Point(89, 121);
             this.UnitPriceTextEdit.MenuManager = this.ribbonControl;
             this.UnitPriceTextEdit.Name = "UnitPriceTextEdit";
             this.UnitPriceTextEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -293,61 +290,63 @@
             this.UnitPriceTextEdit.Properties.Mask.EditMask = "c";
             this.UnitPriceTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.UnitPriceTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.UnitPriceTextEdit.Size = new System.Drawing.Size(396, 22);
+            this.UnitPriceTextEdit.Size = new System.Drawing.Size(339, 20);
             this.UnitPriceTextEdit.StyleController = this.dataLayoutControl;
             this.UnitPriceTextEdit.TabIndex = 9;
             // 
             // ItemForUnitPrice
             // 
             this.ItemForUnitPrice.Control = this.UnitPriceTextEdit;
-            this.ItemForUnitPrice.Location = new System.Drawing.Point(0, 52);
+            this.ItemForUnitPrice.Location = new System.Drawing.Point(0, 72);
             this.ItemForUnitPrice.Name = "ItemForUnitPrice";
-            this.ItemForUnitPrice.Size = new System.Drawing.Size(477, 26);
+            this.ItemForUnitPrice.Size = new System.Drawing.Size(408, 24);
             this.ItemForUnitPrice.Text = "Unit Price";
-            this.ItemForUnitPrice.TextSize = new System.Drawing.Size(63, 16);
+            this.ItemForUnitPrice.TextSize = new System.Drawing.Size(53, 13);
             // 
             // MultiplierTextEdit
             // 
             this.MultiplierTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "Multiplier", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MultiplierTextEdit.Location = new System.Drawing.Point(104, 137);
+            this.MultiplierTextEdit.Location = new System.Drawing.Point(89, 145);
+            this.MultiplierTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MultiplierTextEdit.MenuManager = this.ribbonControl;
             this.MultiplierTextEdit.Name = "MultiplierTextEdit";
             this.MultiplierTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.MultiplierTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.MultiplierTextEdit.Properties.Mask.EditMask = "N0";
+            this.MultiplierTextEdit.Properties.Mask.EditMask = "n";
             this.MultiplierTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.MultiplierTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.MultiplierTextEdit.Size = new System.Drawing.Size(396, 22);
+            this.MultiplierTextEdit.Size = new System.Drawing.Size(339, 20);
             this.MultiplierTextEdit.StyleController = this.dataLayoutControl;
             this.MultiplierTextEdit.TabIndex = 10;
             // 
             // ItemForMultiplier
             // 
             this.ItemForMultiplier.Control = this.MultiplierTextEdit;
-            this.ItemForMultiplier.Location = new System.Drawing.Point(0, 78);
+            this.ItemForMultiplier.Location = new System.Drawing.Point(0, 96);
             this.ItemForMultiplier.Name = "ItemForMultiplier";
-            this.ItemForMultiplier.Size = new System.Drawing.Size(477, 26);
+            this.ItemForMultiplier.Size = new System.Drawing.Size(408, 24);
             this.ItemForMultiplier.Text = "Multiplier";
-            this.ItemForMultiplier.TextSize = new System.Drawing.Size(63, 16);
+            this.ItemForMultiplier.TextSize = new System.Drawing.Size(53, 13);
             // 
             // ShowUnitPriceCheckEdit
             // 
             this.ShowUnitPriceCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "ShowUnitPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ShowUnitPriceCheckEdit.Location = new System.Drawing.Point(27, 189);
+            this.ShowUnitPriceCheckEdit.Location = new System.Drawing.Point(24, 193);
+            this.ShowUnitPriceCheckEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ShowUnitPriceCheckEdit.MenuManager = this.ribbonControl;
             this.ShowUnitPriceCheckEdit.Name = "ShowUnitPriceCheckEdit";
             this.ShowUnitPriceCheckEdit.Properties.Caption = "Show Unit Price";
             this.ShowUnitPriceCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ShowUnitPriceCheckEdit.Size = new System.Drawing.Size(473, 24);
+            this.ShowUnitPriceCheckEdit.Size = new System.Drawing.Size(404, 20);
             this.ShowUnitPriceCheckEdit.StyleController = this.dataLayoutControl;
             this.ShowUnitPriceCheckEdit.TabIndex = 11;
             // 
             // ItemForShowUnitPrice
             // 
             this.ItemForShowUnitPrice.Control = this.ShowUnitPriceCheckEdit;
-            this.ItemForShowUnitPrice.Location = new System.Drawing.Point(0, 130);
+            this.ItemForShowUnitPrice.Location = new System.Drawing.Point(0, 144);
             this.ItemForShowUnitPrice.Name = "ItemForShowUnitPrice";
-            this.ItemForShowUnitPrice.Size = new System.Drawing.Size(477, 28);
+            this.ItemForShowUnitPrice.Size = new System.Drawing.Size(408, 24);
             this.ItemForShowUnitPrice.Text = "Show Unit Price";
             this.ItemForShowUnitPrice.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForShowUnitPrice.TextVisible = false;
@@ -355,31 +354,33 @@
             // ShowDateCheckEdit
             // 
             this.ShowDateCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "ShowDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ShowDateCheckEdit.Location = new System.Drawing.Point(27, 217);
+            this.ShowDateCheckEdit.Location = new System.Drawing.Point(24, 217);
+            this.ShowDateCheckEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ShowDateCheckEdit.MenuManager = this.ribbonControl;
             this.ShowDateCheckEdit.Name = "ShowDateCheckEdit";
             this.ShowDateCheckEdit.Properties.Caption = "Show Date";
             this.ShowDateCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ShowDateCheckEdit.Size = new System.Drawing.Size(473, 24);
+            this.ShowDateCheckEdit.Size = new System.Drawing.Size(404, 20);
             this.ShowDateCheckEdit.StyleController = this.dataLayoutControl;
             this.ShowDateCheckEdit.TabIndex = 12;
             // 
             // ItemForShowDate
             // 
             this.ItemForShowDate.Control = this.ShowDateCheckEdit;
-            this.ItemForShowDate.Location = new System.Drawing.Point(0, 158);
+            this.ItemForShowDate.Location = new System.Drawing.Point(0, 168);
             this.ItemForShowDate.Name = "ItemForShowDate";
-            this.ItemForShowDate.Size = new System.Drawing.Size(477, 28);
+            this.ItemForShowDate.Size = new System.Drawing.Size(408, 24);
             this.ItemForShowDate.Text = "Show Date";
             this.ItemForShowDate.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForShowDate.TextVisible = false;
             // 
             // InvoiceLineEditView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InvoiceLineEditView";
-            this.Size = new System.Drawing.Size(527, 588);
+            this.Size = new System.Drawing.Size(452, 478);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
             this.dataLayoutControl.ResumeLayout(false);

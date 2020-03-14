@@ -22,6 +22,7 @@ namespace MoneyScoop.ViewModel
         public virtual bool IsSaving { get; protected set; }
         public virtual bool IsUpdating { get; protected set; }
         public virtual bool IsLoadingIcon { get; protected set; }
+        public virtual bool CheckExists { get; protected set; }
 
         public virtual TEntity Original { get; protected set; }
         public virtual TEntity Editable { get; protected set; }
@@ -32,6 +33,7 @@ namespace MoneyScoop.ViewModel
         protected BaseEditViewModel(IModuleType moduleType, TEntity original) : base(moduleType)
         {
             Original = original;
+            CheckExists = true;
         }
 
         public override Task Load()
@@ -205,7 +207,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual void Save()
         {
-            if (Editable.Id <= BaseObject.UNKNOWN_ID && DataSource.Ds.CodeExists<TEntity>(Editable.Code))
+            if (Editable.Id <= BaseObject.UNKNOWN_ID && CheckExists && DataSource.Ds.CodeExists<TEntity>(Editable.Code))
             {
                 MessageBoxService.ShowMessage("Code " + Editable.Code + " should be unique.", "Already exists", MessageButton.OK);
             }

@@ -104,6 +104,7 @@
     <Compile Include="ViewModel\CustomerEditViewModel.cs" />
     <Compile Include="ViewModel\CustomerListViewModel.cs" />
     <Compile Include="ViewModel\Interfaces.cs" />
+    <Compile Include="ViewModel\InvoiceActionHelper.cs" />
     <Compile Include="ViewModel\InvoiceEditViewModel.cs" />
     <Compile Include="ViewModel\InvoiceLineEditViewModel.cs" />
     <Compile Include="ViewModel\InvoiceListViewModel.cs" />

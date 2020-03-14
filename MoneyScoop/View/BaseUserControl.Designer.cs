@@ -65,6 +65,9 @@
             this.ic16x16.Images.SetKeyName(15, "table_row_add.png");
             this.ic16x16.Images.SetKeyName(16, "table_row_edit.png");
             this.ic16x16.Images.SetKeyName(17, "table_row_delete.png");
+            this.ic16x16.Images.SetKeyName(18, "mail_ok.png");
+            this.ic16x16.Images.SetKeyName(19, "moneybag2_ok.png");
+            this.ic16x16.Images.SetKeyName(20, "mail.png");
             // 
             // ic24x24
             // 
@@ -88,6 +91,9 @@
             this.ic24x24.Images.SetKeyName(15, "table_row_add.png");
             this.ic24x24.Images.SetKeyName(16, "table_row_edit.png");
             this.ic24x24.Images.SetKeyName(17, "table_row_delete.png");
+            this.ic24x24.Images.SetKeyName(18, "mail_ok.png");
+            this.ic24x24.Images.SetKeyName(19, "moneybag2_ok.png");
+            this.ic24x24.Images.SetKeyName(20, "mail.png");
             // 
             // ic48x48
             // 
@@ -111,14 +117,15 @@
             this.ic48x48.Images.SetKeyName(15, "table_row_add.png");
             this.ic48x48.Images.SetKeyName(16, "table_row_edit.png");
             this.ic48x48.Images.SetKeyName(17, "table_row_delete.png");
+            this.ic48x48.Images.SetKeyName(18, "mail_ok.png");
+            this.ic48x48.Images.SetKeyName(19, "moneybag2_ok.png");
+            this.ic48x48.Images.SetKeyName(20, "mail.png");
             // 
             // BaseUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "BaseUserControl";
-            this.Size = new System.Drawing.Size(175, 185);
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();

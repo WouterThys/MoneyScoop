@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -32,6 +33,10 @@ namespace MoneyScoop
             Ribbon.MdiMergeStyle = RibbonMdiMergeStyle.Always;
             Ribbon.Merge += Ribbon_Merge;
             
+            CultureInfo cultureInfo = new CultureInfo("nl-BE");
+            CultureInfo.CurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
         }
 
         private void InitializeServices()

@@ -9,5 +9,10 @@ namespace MoneyScoop.Reports
             InitializeComponent();
         }
 
+        
+        public void ShowVATShifted(bool show)
+        {
+            xrLabelVATShifted.Visible = show;
+        }
     }
 }

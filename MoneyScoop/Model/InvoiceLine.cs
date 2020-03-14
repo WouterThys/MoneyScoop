@@ -12,7 +12,7 @@ namespace MoneyScoop.Model
 
         private DateTime dateCreated;
         private decimal unitPrice;
-        private int multiplier;
+        private double multiplier;
 
         // Configs
         private bool showUnitPrice;
@@ -85,7 +85,7 @@ namespace MoneyScoop.Model
             InvoiceId = DatabaseAccess.RGetLong(reader, "invoiceId");
             DateCreated = DatabaseAccess.RGetDateTime(reader, "dateCreated");
             UnitPrice = DatabaseAccess.RGetDecimal(reader, "unitPrice");
-            Multiplier = DatabaseAccess.RGetInt(reader, "multiplier");
+            Multiplier = DatabaseAccess.RGetDouble(reader, "multiplier");
             ShowUnitPrice = DatabaseAccess.RGetBool(reader, "showUnitPrice");
             ShowDate = DatabaseAccess.RGetBool(reader, "showDate");
         }
@@ -121,13 +121,7 @@ namespace MoneyScoop.Model
 
         #region Methods & Calculated Fields
 
-        public decimal Total
-        {
-            get
-            {
-                return Multiplier > 0 ? (Multiplier * UnitPrice) : UnitPrice;
-            }
-        }
+        public decimal Total => Multiplier > 0 ? ((decimal)Multiplier * UnitPrice) : UnitPrice;
 
         #endregion
 
@@ -164,7 +158,7 @@ namespace MoneyScoop.Model
             }
         }
 
-        public int Multiplier
+        public double Multiplier
         {
             get => multiplier;
             set

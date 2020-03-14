@@ -8,6 +8,8 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraBars;
 using System.IO;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace MoneyScoop.View
 {
@@ -31,13 +33,44 @@ namespace MoneyScoop.View
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
-            bbiCreateReport.ItemClick += BbiCreateReport_ItemClick;
-            bbiSaveReport.ItemClick += BbiSaveReport_ItemClick;
-        }
 
+            gridControl.ToolTipController = toolTipController;
+            toolTipController.GetActiveObjectInfo += ToolTipController_GetActiveObjectInfo;
+        }
+        
         private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
             CreateDefaultPopupMenu<Invoice, InvoiceListViewModel>(sender, e);
+        }
+
+        private void ToolTipController_GetActiveObjectInfo(object sender, ToolTipControllerGetActiveObjectInfoEventArgs e)
+        {
+            if (e.Info == null && e.SelectedControl == gridControl)
+            {
+                GridView view = gridControl.FocusedView as GridView;
+                GridHitInfo info = view.CalcHitInfo(e.ControlMousePosition);
+                if (info.InRowCell)
+                {
+                    string cellKey = info.RowHandle.ToString() + " - " + info.Column.ToString();
+                    string fieldName = info.Column.FieldName;
+                    Invoice invoice = null;
+                    switch (fieldName)
+                    {
+                        case "IsSend":
+                            invoice = view.GetRow(info.RowHandle) as Invoice;
+                            e.Info = new ToolTipControlInfo(cellKey, (invoice != null && invoice.IsSend) ? invoice.DateSendString : "Not yet send");
+                            break;
+                        case "IsPayed":
+                            invoice = view.GetRow(info.RowHandle) as Invoice;
+                            e.Info = new ToolTipControlInfo(cellKey, (invoice != null && invoice.IsPayed) ? invoice.DatePayedString : "Not yet payed");
+                            break;
+                        case "IsPdfSaved":
+                            invoice = view.GetRow(info.RowHandle) as Invoice;
+                            e.Info = new ToolTipControlInfo(cellKey, (invoice != null && invoice.IsPdfSaved) ? invoice.SavePath : "Not yet saved");
+                            break;
+                    }
+                }
+            }
         }
 
         private void InitializeBindings()
@@ -45,36 +78,9 @@ namespace MoneyScoop.View
             fluent = base.InitializeBindings<Invoice, InvoiceListViewModel>();
 
             fluent.BindCommand(bbiCustomers, m => m.ShowCustomers());
-        }
-
-        private void BbiCreateReport_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (fluent == null) return;
-            if (fluent.ViewModel.Selected == null) return;
-
-            InvoiceReport report = new InvoiceReport
-            {
-                DataSource = new List<Invoice>() { fluent.ViewModel.Selected }
-            };
-            
-            ReportPrintTool tool = new ReportPrintTool(report);
-            tool.ShowPreview();
-        }
-
-        private void BbiSaveReport_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (fluent == null) return;
-            if (fluent.ViewModel.Selected == null) return;
-
-            string file = Path.Combine(Context.Ctx.MyInfo.SavePdfPath,
-                fluent.ViewModel.Selected.Code);
-
-            InvoiceReport report = new InvoiceReport
-            {
-                DataSource = new List<Invoice>() { fluent.ViewModel.Selected }
-            };
-
-            report.ExportToPdf(file + ".pdf");
+            fluent.BindCommand(bbiPreviewReports, m => m.ShowInvoicePreviews());
+            fluent.BindCommand(bbiSaveReports, m => m.SavePdfReports());
+            fluent.BindCommand(bbiMail, m => m.SendMailToCustomer());
         }
     }
 }

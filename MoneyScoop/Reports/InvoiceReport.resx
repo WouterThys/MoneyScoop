@@ -117,6 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="xrLabel12.Text" xml:space="preserve">
+    <value>Eventuele klachten dienen per aangetekend schrijven verzonden te worden ten laatste7 dagen na factuurdatum. 
+Bij gebreke aan tijdige betaling is de klant van rechtswege en zonder ingebrekestelling een schadevergoeding verschuldigd van 10% op het factuurbedrag en
+een interest van 10% op jaarbasis. Enkel de rechtbanken van RPR Antwerpen zijn bevoegd bij eventuele geschillen.</value>
+  </data>
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>

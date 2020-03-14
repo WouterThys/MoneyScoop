@@ -15,6 +15,7 @@ namespace MoneyScoop.ViewModel
         protected InvoiceLineEditViewModel(InvoiceLine original) : base(ModuleTypes.InvoiceLineEditModule, original)
         {
             Load();
+            CheckExists = false;
         }
     }
 }

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +14,14 @@ namespace MoneyScoop.Model
     {
         public override ObjectDefinition ObjectDefinition { get { return ObjectDefinitions.Invoice; } }
 
+        private bool outgoing; // Created by me (false) or invoice to pay (true)
         private DateTime dateCreated;
         private DateTime dateSend;
         private DateTime datePayed;
         private int vat;
+        private bool vatShifted;
         private long customerId;
+        private string savePath;
 
         // Cached
         private Customer customer;
@@ -49,11 +54,14 @@ namespace MoneyScoop.Model
             if (toCopy is Invoice that)
             {
                 base.CopyFrom(that);
+                OutGoing = that.OutGoing;
                 DateCreated = that.DateCreated;
                 DateSend = that.DateSend;
                 DatePayed = that.DatePayed;
                 VAT = that.VAT;
+                VATShifted = that.VATShifted;
                 CustomerId = that.CustomerId;
+                SavePath = that.SavePath;
             }
         }
 
@@ -64,11 +72,14 @@ namespace MoneyScoop.Model
                 if (iObject is Invoice that)
                 {
                     return
+                        OutGoing == that.OutGoing &&
                         CustomerId == that.CustomerId &&
                         DateCreated == that.DateCreated &&
                         DateSend == that.DateSend &&
                         DatePayed == that.DatePayed &&
-                        VAT == that.VAT
+                        VAT == that.VAT &&
+                        VATShifted == that.VATShifted &&
+                        SavePath == that.SavePath
                         ;
                 }
             }
@@ -81,23 +92,27 @@ namespace MoneyScoop.Model
         public override void InitFromReader(DbDataReader reader)
         {
             base.InitFromReader(reader);
+            OutGoing = DatabaseAccess.RGetBool(reader, "outgoing");
             DateCreated = DatabaseAccess.RGetDateTime(reader, "dateCreated");
             DateSend = DatabaseAccess.RGetDateTime(reader, "dateSend");
             DatePayed = DatabaseAccess.RGetDateTime(reader, "datePayed");
             VAT = DatabaseAccess.RGetInt(reader, "vat");
+            VATShifted = DatabaseAccess.RGetBool(reader, "vatShifted");
             CustomerId = DatabaseAccess.RGetLong(reader, "customerId");
+            SavePath = DatabaseAccess.RGetString(reader, "savePath");
         }
 
         public override void AddSqlParameters(DbCommand command)
         {
             base.AddSqlParameters(command);
+            DatabaseAccess.AddDbValue(command, "outgoing", OutGoing);
             DatabaseAccess.AddDbValue(command, "dateCreated", DateCreated);
             DatabaseAccess.AddDbValue(command, "dateSend", DateSend);
             DatabaseAccess.AddDbValue(command, "datePayed", DatePayed);
             DatabaseAccess.AddDbValue(command, "vat", VAT);
+            DatabaseAccess.AddDbValue(command, "vatShifted", VATShifted);
             DatabaseAccess.AddDbValue(command, "customerId", CustomerId > UNKNOWN_ID ? CustomerId : UNKNOWN_ID);
-
-
+            DatabaseAccess.AddDbValue(command, "savePath", SavePath);
         }
 
         protected override void OnDbActionDone(ActionType action)
@@ -112,6 +127,17 @@ namespace MoneyScoop.Model
                     break;
                 case ActionType.Delete:
                     DataSource.Ds.OnDeleted(this);
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(SavePath) && File.Exists(SavePath))
+                        {
+                            File.Delete(SavePath);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine("Failed to delete file " + SavePath + ". " + e.Message);
+                    }
                     break;
             }
         }
@@ -161,7 +187,7 @@ namespace MoneyScoop.Model
 
         public DateTime DueDate
         {
-            get { return DateCreated.AddDays(Context.Ctx.MyInfo.DueDays); }
+            get { return DateCreated.AddDays(Context.Ctx.MyInfo.DueDays).Date; }
         }
 
         public List<InvoiceLine> InvoiceLines
@@ -235,25 +261,61 @@ namespace MoneyScoop.Model
             }
         }
 
-        public string DatePayedString
+        public bool IsPdfSaved => !string.IsNullOrEmpty(SavePath) && File.Exists(SavePath);
+
+        public string DatePayedString => IsPayed ? DatePayed.ToString("dd/MM/yyyy hh:mm") : "";
+
+        public string DateSendString => IsSend ? DateSend.ToString("dd/MM/yyyy hh:mm") : "";
+
+        public string DueDateString => DueDate.ToString("dd/MM/yyyy");
+
+        public string BankAccount => MyInfo.BankAccount;
+
+
+        public decimal SubTotal
         {
             get
             {
-                return IsPayed ? DatePayed.ToString("dd/MM/yyyy hh:mm") : "";
+                decimal result = 0;
+                if (InvoiceLines != null)
+                {
+                    foreach (InvoiceLine line in InvoiceLines)
+                    {
+                        result += line.Total;
+                    }
+                }
+                return result;
             }
         }
 
-        public string DateSendString
+        public decimal Total
         {
             get
             {
-                return IsSend ? DateSend.ToString("dd/MM/yyyy hh:mm") : "";
+                if (VATShifted)
+                {
+                    return SubTotal;
+                }
+                else
+                {
+                    return SubTotal + (SubTotal * VAT / 100);
+                }
             }
         }
 
         #endregion
 
         #region Properties
+
+        public bool OutGoing
+        {
+            get => outgoing;
+            set
+            {
+                outgoing = value;
+                OnPropertyChanged("OutGoing");
+            }
+        }
 
         public DateTime DateCreated
         {
@@ -287,10 +349,31 @@ namespace MoneyScoop.Model
 
         public int VAT
         {
-            get => vat;
+            get
+            {
+                if (VATShifted)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return vat;
+                }
+            }
             set
             {
                 vat = value;
+                OnPropertyChanged("VAT");
+            }
+        }
+
+        public bool VATShifted
+        {
+            get => vatShifted;
+            set
+            {
+                vatShifted = value;
+                OnPropertyChanged("VATShifted");
                 OnPropertyChanged("VAT");
             }
         }
@@ -309,6 +392,16 @@ namespace MoneyScoop.Model
                 }
                 customerId = value;
                 OnPropertyChanged("CustomerId");
+            }
+        }
+
+        public string SavePath
+        {
+            get => savePath ?? "";
+            set
+            {
+                savePath = value;
+                OnPropertyChanged("SavePath");
             }
         }
 

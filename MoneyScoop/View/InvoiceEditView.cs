@@ -28,6 +28,8 @@ namespace MoneyScoop.View
             base.InitializeLayouts();
             ViewHelpers.InitializeSearchLookUpEdit(CustomerIdSearchLookUpEdit);
             ViewHelpers.InitializeGridView(gvInvoiceLines);
+
+            ViewHelpers.SetTextAlignment(CustomerIdSearchLookUpEdit, VATTextEdit);
         }
 
         protected override void OnLoad(EventArgs e)
@@ -43,6 +45,12 @@ namespace MoneyScoop.View
                 fluent.BindCommand(bbiAddLine, m => m.AddLine());
                 fluent.BindCommand(bbiEditLine, m => m.EditLine());
                 fluent.BindCommand(bbiDeleteLine, m => m.DeleteLines());
+
+                fluent.BindCommand(bbiPreview, m => m.ShowInvoicePreview());
+                fluent.BindCommand(bbiSavePdf, m => m.SavePdfReport());
+                fluent.BindCommand(bbiMailToCustomer, m => m.SendMailToCustomer());
+
+                fluent.SetTrigger(m => m.Editable.VATShifted, (shifted) => VATTextEdit.Enabled = !shifted);
 
                 // GridView - Row double clicked
                 fluent.WithEvent<RowClickEventArgs>(gvInvoiceLines, "RowClick").EventToCommand(
