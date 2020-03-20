@@ -68,6 +68,9 @@
             this.ic16x16.Images.SetKeyName(18, "mail_ok.png");
             this.ic16x16.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic16x16.Images.SetKeyName(20, "mail.png");
+            this.ic16x16.Images.SetKeyName(21, "mail_forward.png");
+            this.ic16x16.Images.SetKeyName(22, "document_ok.png");
+            this.ic16x16.Images.SetKeyName(23, "document.png");
             // 
             // ic24x24
             // 
@@ -94,6 +97,9 @@
             this.ic24x24.Images.SetKeyName(18, "mail_ok.png");
             this.ic24x24.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic24x24.Images.SetKeyName(20, "mail.png");
+            this.ic24x24.Images.SetKeyName(21, "mail_forward.png");
+            this.ic24x24.Images.SetKeyName(22, "document_ok.png");
+            this.ic24x24.Images.SetKeyName(23, "document.png");
             // 
             // ic48x48
             // 
@@ -120,6 +126,9 @@
             this.ic48x48.Images.SetKeyName(18, "mail_ok.png");
             this.ic48x48.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic48x48.Images.SetKeyName(20, "mail.png");
+            this.ic48x48.Images.SetKeyName(21, "mail_forward.png");
+            this.ic48x48.Images.SetKeyName(22, "document_ok.png");
+            this.ic48x48.Images.SetKeyName(23, "document.png");
             // 
             // BaseUserControl
             // 

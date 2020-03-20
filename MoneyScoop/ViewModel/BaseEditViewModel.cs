@@ -4,12 +4,8 @@ using DevExpress.Mvvm.POCO;
 using MoneyScoop.Model;
 using MoneyScoop.Model.Data;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -145,7 +141,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual bool CanClose()
         {
-            return Editable == null || Original.PropertiesEqual(Editable) || Editable.Code.Length < Context.MIN_OBJECT_CODE_LENGTH;
+            return Editable == null || Original.PropertiesEqual(Editable) || Editable.Code.Length < Context.Ctx.MaxObjectCodeLength;
         }
         
         #region DOCUMENT
@@ -191,7 +187,7 @@ namespace MoneyScoop.ViewModel
         {
             if (IsSaving || IsLoading || IsUpdating) return false;
 
-            if (!propertiesEqual && Editable != null && Editable.Code.Length >= Context.MIN_OBJECT_CODE_LENGTH)
+            if (!propertiesEqual && Editable != null && Editable.Code.Length >= Context.Ctx.MinObjectCodeLength)
             {
                 if (Editable.Id > BaseObject.UNKNOWN_ID)
                 {
@@ -396,7 +392,7 @@ namespace MoneyScoop.ViewModel
 
         void IDataChanged<TEntity>.OnInserted(TEntity inserted)
         {
-            if (inserted != null)
+            if (inserted != null && inserted.Code == Editable.Code)
             {
                 DispatcherService.BeginInvoke(() => Inserted(inserted));
             }

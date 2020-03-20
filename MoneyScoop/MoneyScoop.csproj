@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.Mvvm.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Drawing, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v19.2.Core" />
     <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -53,9 +54,11 @@
     <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -101,15 +104,17 @@
     <Compile Include="ViewModel\BaseEditViewModel.cs" />
     <Compile Include="ViewModel\BaseListViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\CustomerEditViewModel.cs" />
-    <Compile Include="ViewModel\CustomerListViewModel.cs" />
-    <Compile Include="ViewModel\OutgoingInvoiceListViewModel.cs" />
+    <Compile Include="ViewModel\Customers\CustomerEditViewModel.cs" />
+    <Compile Include="ViewModel\Customers\CustomerListViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\OutgoingInvoiceEditViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\OutgoingInvoiceListViewModel.cs" />
     <Compile Include="ViewModel\Interfaces.cs" />
-    <Compile Include="ViewModel\InvoiceActionHelper.cs" />
-    <Compile Include="ViewModel\IncomingInvoiceEditViewModel.cs" />
-    <Compile Include="ViewModel\IncomingInvoiceLineEditViewModel.cs" />
-    <Compile Include="ViewModel\IncomingInvoiceListViewModel.cs" />
+    <Compile Include="ViewModel\Other\InvoiceActionHelper.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceEditViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceLineEditViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceListViewModel.cs" />
     <Compile Include="ViewModel\ModuleTypes.cs" />
+    <Compile Include="ViewModel\Other\SendMailViewModel.cs" />
     <Compile Include="View\BaseDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,42 +145,54 @@
     <Compile Include="View\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CustomerEditView.cs">
+    <Compile Include="View\Customers\CustomerEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\CustomerEditView.Designer.cs">
+    <Compile Include="View\Customers\CustomerEditView.Designer.cs">
       <DependentUpon>CustomerEditView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CustomerListView.cs">
+    <Compile Include="View\Customers\CustomerListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\CustomerListView.Designer.cs">
+    <Compile Include="View\Customers\CustomerListView.Designer.cs">
       <DependentUpon>CustomerListView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\OutgoingInvoiceListView.cs">
+    <Compile Include="View\Invoices\OutgoingInvoiceEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\OutgoingInvoiceListView.Designer.cs">
+    <Compile Include="View\Invoices\OutgoingInvoiceEditView.Designer.cs">
+      <DependentUpon>OutgoingInvoiceEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceListView.Designer.cs">
       <DependentUpon>OutgoingInvoiceListView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Interfaces.cs" />
-    <Compile Include="View\IncomingInvoiceEditView.cs">
+    <Compile Include="View\Invoices\IncomingInvoiceEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\IncomingInvoiceEditView.Designer.cs">
+    <Compile Include="View\Invoices\IncomingInvoiceEditView.Designer.cs">
       <DependentUpon>IncomingInvoiceEditView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\IncomingInvoiceLineEditView.cs">
+    <Compile Include="View\Invoices\IncomingInvoiceLineEditView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\IncomingInvoiceLineEditView.Designer.cs">
+    <Compile Include="View\Invoices\IncomingInvoiceLineEditView.Designer.cs">
       <DependentUpon>IncomingInvoiceLineEditView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\IncomingInvoiceListView.cs">
+    <Compile Include="View\Invoices\IncomingInvoiceListView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\IncomingInvoiceListView.Designer.cs">
+    <Compile Include="View\Invoices\IncomingInvoiceListView.Designer.cs">
       <DependentUpon>IncomingInvoiceListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Other\SendMailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Other\SendMailView.Designer.cs">
+      <DependentUpon>SendMailView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -208,23 +225,29 @@
     <EmbeddedResource Include="View\BaseUserControl.resx">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CustomerEditView.resx">
+    <EmbeddedResource Include="View\Customers\CustomerEditView.resx">
       <DependentUpon>CustomerEditView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CustomerListView.resx">
+    <EmbeddedResource Include="View\Customers\CustomerListView.resx">
       <DependentUpon>CustomerListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\IncomingInvoiceEditView.resx">
+    <EmbeddedResource Include="View\Invoices\OutgoingInvoiceEditView.resx">
+      <DependentUpon>OutgoingInvoiceEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceEditView.resx">
       <DependentUpon>IncomingInvoiceEditView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\IncomingInvoiceLineEditView.resx">
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceLineEditView.resx">
       <DependentUpon>IncomingInvoiceLineEditView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\OutgoingInvoiceListView.resx">
+    <EmbeddedResource Include="View\Invoices\OutgoingInvoiceListView.resx">
       <DependentUpon>OutgoingInvoiceListView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\IncomingInvoiceListView.resx">
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceListView.resx">
       <DependentUpon>IncomingInvoiceListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Other\SendMailView.resx">
+      <DependentUpon>SendMailView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Config\settings.ini">
@@ -234,6 +257,7 @@
     <None Include="Properties\DataSources\MoneyScoop.Model.Customer.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.Invoice.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.InvoiceLine.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.ViewModel.SendMailViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

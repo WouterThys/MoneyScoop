@@ -5,8 +5,6 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MoneyScoop.Model
 {
@@ -18,6 +16,7 @@ namespace MoneyScoop.Model
         private DateTime dateCreated;
         private DateTime dateSend;
         private DateTime datePayed;
+        private decimal total;
         private int vat;
         private bool vatShifted;
         private long customerId;
@@ -62,6 +61,7 @@ namespace MoneyScoop.Model
                 VATShifted = that.VATShifted;
                 CustomerId = that.CustomerId;
                 SavePath = that.SavePath;
+                total = that.total;
             }
         }
 
@@ -79,7 +79,8 @@ namespace MoneyScoop.Model
                         DatePayed == that.DatePayed &&
                         VAT == that.VAT &&
                         VATShifted == that.VATShifted &&
-                        SavePath == that.SavePath
+                        SavePath == that.SavePath &&
+                        total == that.total
                         ;
                 }
             }
@@ -100,6 +101,7 @@ namespace MoneyScoop.Model
             VATShifted = DatabaseAccess.RGetBool(reader, "vatShifted");
             CustomerId = DatabaseAccess.RGetLong(reader, "customerId");
             SavePath = DatabaseAccess.RGetString(reader, "savePath");
+            total = DatabaseAccess.RGetDecimal(reader, "total");
         }
 
         public override void AddSqlParameters(DbCommand command)
@@ -113,6 +115,7 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "vatShifted", VATShifted);
             DatabaseAccess.AddDbValue(command, "customerId", CustomerId > UNKNOWN_ID ? CustomerId : UNKNOWN_ID);
             DatabaseAccess.AddDbValue(command, "savePath", SavePath);
+            DatabaseAccess.AddDbValue(command, "total", Total);
         }
 
         protected override void OnDbActionDone(ActionType action)
@@ -127,16 +130,19 @@ namespace MoneyScoop.Model
                     break;
                 case ActionType.Delete:
                     DataSource.Ds.OnDeleted(this);
-                    try
+                    if (!OutGoing)
                     {
-                        if (!string.IsNullOrEmpty(SavePath) && File.Exists(SavePath))
+                        try
                         {
-                            File.Delete(SavePath);
+                            if (!string.IsNullOrEmpty(SavePath) && File.Exists(SavePath))
+                            {
+                                File.Delete(SavePath);
+                            }
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        Debug.WriteLine("Failed to delete file " + SavePath + ". " + e.Message);
+                        catch (Exception e)
+                        {
+                            Debug.WriteLine("Failed to delete file " + SavePath + ". " + e.Message);
+                        }
                     }
                     break;
             }
@@ -146,7 +152,7 @@ namespace MoneyScoop.Model
         {
             get
             {
-                if (Id <= UNKNOWN_ID)
+                if (Id <= UNKNOWN_ID && !OutGoing)
                 {
                     return DateCreated.Year + "-" + DataSource.Ds.NextInvoiceNumber.ToString("D3");
                 }
@@ -187,7 +193,7 @@ namespace MoneyScoop.Model
 
         public DateTime DueDate
         {
-            get { return DateCreated.AddDays(Context.Ctx.MyInfo.DueDays).Date; }
+            get { return DateCreated.AddDays(Context.Ctx.DueDays).Date; }
         }
 
         public List<InvoiceLine> InvoiceLines
@@ -213,6 +219,7 @@ namespace MoneyScoop.Model
             {
                 invoiceLines.Add(line);
                 OnPropertyChanged("InvoiceLines");
+                //OnPropertyChanged("Total");
             }
         }
 
@@ -221,6 +228,7 @@ namespace MoneyScoop.Model
             if (line != null && InvoiceLines != null)
             {
                 // TODO
+                //OnPropertyChanged("Total");
             }
         }
 
@@ -231,6 +239,7 @@ namespace MoneyScoop.Model
                 if (invoiceLines.Remove(line))
                 {
                     OnPropertyChanged("InvoiceLines");
+                    //OnPropertyChanged("Total");
                 }
             }
         }
@@ -283,6 +292,7 @@ namespace MoneyScoop.Model
                     {
                         result += line.Total;
                     }
+                    //OnPropertyChanged("Total");
                 }
                 return result;
             }
@@ -292,13 +302,28 @@ namespace MoneyScoop.Model
         {
             get
             {
-                if (VATShifted)
+                if (OutGoing)
                 {
-                    return SubTotal;
+                    return total;
                 }
                 else
                 {
-                    return SubTotal + (SubTotal * VAT / 100);
+                    if (VATShifted)
+                    {
+                        return SubTotal;
+                    }
+                    else
+                    {
+                        return SubTotal + (SubTotal * VAT / 100);
+                    }
+                }
+            }
+            set
+            {
+                if (OutGoing)
+                {
+                    total = value;
+                    //OnPropertyChanged("Total");
                 }
             }
         }

@@ -13,11 +13,7 @@ namespace MoneyScoop.Model
         private string email;
         private string phone;
         private string bankAccount;
-
-        private string savePdfPath;
-        private int dueDays;
-    
-
+        
         #region Interface Methods
 
         protected void OnPropertyChanged(string property)
@@ -98,25 +94,7 @@ namespace MoneyScoop.Model
             }
         }
 
-        public string SavePdfPath
-        {
-            get => savePdfPath ?? "";
-            set
-            {
-                savePdfPath = value;
-                OnPropertyChanged("SavePdfPath");
-            }
-        }
 
-        public int DueDays
-        {
-            get => dueDays;
-            set
-            {
-                dueDays = value;
-                OnPropertyChanged("DueDays");
-            }
-        }
 
         #endregion
     }

@@ -77,9 +77,9 @@ namespace MoneyScoop.ViewModel
         #endregion
 
         #region DIALOGS
-        public void ShowDialog(IBaseViewModel viewModel)
+        public MessageResult ShowDialog(IBaseViewModel viewModel)
         {
-            DialogService.ShowDialog(MessageButton.OKCancel, viewModel.ViewTitle, viewModel.Module.ViewName, viewModel);
+            return DialogService.ShowDialog(MessageButton.OKCancel, viewModel.ViewTitle, viewModel.Module.ViewName, viewModel);
         }
         #endregion
 

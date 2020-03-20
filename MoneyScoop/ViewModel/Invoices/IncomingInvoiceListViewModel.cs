@@ -93,7 +93,9 @@ namespace MoneyScoop.ViewModel
 
         public virtual void SendMailToCustomer()
         {
-
+            SendMailViewModel viewModel = SendMailViewModel.Create(Selected);
+            viewModel.SetParentViewModel(this);
+            ShowDialog(viewModel);
         }
     }
 }

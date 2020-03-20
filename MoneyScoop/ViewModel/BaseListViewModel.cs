@@ -116,7 +116,11 @@ namespace MoneyScoop.ViewModel
 
         public virtual void Add()
         {
-            TEntity newEntity = CreateNewObject();
+            AddEntity(CreateNewObject());
+        }
+
+        protected virtual void AddEntity(TEntity newEntity)
+        {
             IBaseViewModel model = GetEditViewModel(newEntity);
             model.SetParentViewModel(this);
             ShowDocument(model);

@@ -1,6 +1,6 @@
 ﻿namespace MoneyScoop.View
 {
-    partial class OutgoingInvoiceListView
+    partial class IncomingInvoiceListView
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutgoingInvoiceListView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomingInvoiceListView));
             this.colCustomerCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCustomerId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDateCreated = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -42,6 +42,7 @@
             this.riCheckEditSend = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colVAT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bbiCustomers = new DevExpress.XtraBars.BarButtonItem();
+            this.rpgReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPreviewReports = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveReports = new DevExpress.XtraBars.BarButtonItem();
             this.bbiMail = new DevExpress.XtraBars.BarButtonItem();
@@ -49,6 +50,7 @@
             this.colIsPdfSaved = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riCheckEditSaved = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.toolTipController = new DevExpress.Utils.ToolTipController(this.components);
+            this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -88,6 +90,7 @@
             this.riCheckEditPayed,
             this.riCheckEditSend,
             this.riCheckEditSaved});
+            this.gridControl.Size = new System.Drawing.Size(1330, 362);
             // 
             // gridView
             // 
@@ -102,10 +105,11 @@
             this.colIsSend,
             this.colVAT,
             this.colDueDate,
-            this.colIsPdfSaved});
+            this.colIsPdfSaved,
+            this.colTotal});
             this.gridView.DetailHeight = 350;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDateCreated, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCode, DevExpress.Data.ColumnSortOrder.Descending)});
             // 
             // colId
             // 
@@ -152,6 +156,12 @@
             this.ribbonControl.SearchEditItem.Id = -5000;
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.SearchEditItem.UseEditorPadding = false;
+            this.ribbonControl.Size = new System.Drawing.Size(1330, 158);
+            // 
+            // MainRibbonPage
+            // 
+            this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgReport});
             // 
             // ic16x16
             // 
@@ -177,6 +187,9 @@
             this.ic16x16.Images.SetKeyName(18, "mail_ok.png");
             this.ic16x16.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic16x16.Images.SetKeyName(20, "mail.png");
+            this.ic16x16.Images.SetKeyName(21, "mail_forward.png");
+            this.ic16x16.Images.SetKeyName(22, "document_ok.png");
+            this.ic16x16.Images.SetKeyName(23, "document.png");
             // 
             // ic24x24
             // 
@@ -202,6 +215,9 @@
             this.ic24x24.Images.SetKeyName(18, "mail_ok.png");
             this.ic24x24.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic24x24.Images.SetKeyName(20, "mail.png");
+            this.ic24x24.Images.SetKeyName(21, "mail_forward.png");
+            this.ic24x24.Images.SetKeyName(22, "document_ok.png");
+            this.ic24x24.Images.SetKeyName(23, "document.png");
             // 
             // ic48x48
             // 
@@ -227,6 +243,9 @@
             this.ic48x48.Images.SetKeyName(18, "mail_ok.png");
             this.ic48x48.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic48x48.Images.SetKeyName(20, "mail.png");
+            this.ic48x48.Images.SetKeyName(21, "mail_forward.png");
+            this.ic48x48.Images.SetKeyName(22, "document_ok.png");
+            this.ic48x48.Images.SetKeyName(23, "document.png");
             // 
             // colCustomerCode
             // 
@@ -283,7 +302,7 @@
             this.colIsPayed.Name = "colIsPayed";
             this.colIsPayed.ToolTip = "Payed";
             this.colIsPayed.Visible = true;
-            this.colIsPayed.VisibleIndex = 6;
+            this.colIsPayed.VisibleIndex = 7;
             this.colIsPayed.Width = 30;
             // 
             // riCheckEditPayed
@@ -311,7 +330,7 @@
             this.colIsSend.Name = "colIsSend";
             this.colIsSend.ToolTip = "Send";
             this.colIsSend.Visible = true;
-            this.colIsSend.VisibleIndex = 5;
+            this.colIsSend.VisibleIndex = 6;
             this.colIsSend.Width = 30;
             // 
             // riCheckEditSend
@@ -337,6 +356,14 @@
             this.bbiCustomers.ImageOptions.LargeImageIndex = 11;
             this.bbiCustomers.Name = "bbiCustomers";
             // 
+            // rpgReport
+            // 
+            this.rpgReport.ItemLinks.Add(this.bbiPreviewReports);
+            this.rpgReport.ItemLinks.Add(this.bbiSaveReports);
+            this.rpgReport.ItemLinks.Add(this.bbiMail);
+            this.rpgReport.Name = "rpgReport";
+            this.rpgReport.Text = "Reports";
+            // 
             // bbiPreviewReports
             // 
             this.bbiPreviewReports.Caption = "Preview";
@@ -349,8 +376,8 @@
             // 
             this.bbiSaveReports.Caption = "Save";
             this.bbiSaveReports.Id = 6;
-            this.bbiSaveReports.ImageOptions.ImageIndex = 10;
-            this.bbiSaveReports.ImageOptions.LargeImageIndex = 10;
+            this.bbiSaveReports.ImageOptions.ImageIndex = 23;
+            this.bbiSaveReports.ImageOptions.LargeImageIndex = 23;
             this.bbiSaveReports.Name = "bbiSaveReports";
             // 
             // bbiMail
@@ -377,23 +404,34 @@
             this.colIsPdfSaved.Name = "colIsPdfSaved";
             this.colIsPdfSaved.ToolTip = "PDF saved";
             this.colIsPdfSaved.Visible = true;
-            this.colIsPdfSaved.VisibleIndex = 4;
+            this.colIsPdfSaved.VisibleIndex = 5;
             this.colIsPdfSaved.Width = 30;
             // 
             // riCheckEditSaved
             // 
             this.riCheckEditSaved.AutoHeight = false;
             this.riCheckEditSaved.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Custom;
-            this.riCheckEditSaved.ImageOptions.ImageIndexChecked = 10;
+            this.riCheckEditSaved.ImageOptions.ImageIndexChecked = 22;
             this.riCheckEditSaved.ImageOptions.Images = this.ic16x16;
             this.riCheckEditSaved.Name = "riCheckEditSaved";
             // 
-            // OutgoingInvoiceListView
+            // colTotal
+            // 
+            this.colTotal.DisplayFormat.FormatString = "C";
+            this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTotal.FieldName = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.Visible = true;
+            this.colTotal.VisibleIndex = 4;
+            this.colTotal.Width = 64;
+            // 
+            // IncomingInvoiceListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "OutgoingInvoiceListView";
+            this.Name = "IncomingInvoiceListView";
+            this.Size = new System.Drawing.Size(1330, 520);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -423,6 +461,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colVAT;
         private DevExpress.XtraBars.BarButtonItem bbiCustomers;
         private DevExpress.XtraBars.BarButtonItem bbiPreviewReports;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReport;
         private DevExpress.XtraBars.BarButtonItem bbiSaveReports;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditPayed;
         private DevExpress.XtraGrid.Columns.GridColumn colDueDate;
@@ -431,5 +470,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditSaved;
         private DevExpress.Utils.ToolTipController toolTipController;
         private DevExpress.XtraBars.BarButtonItem bbiMail;
+        private DevExpress.XtraGrid.Columns.GridColumn colTotal;
     }
 }

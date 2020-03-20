@@ -129,14 +129,15 @@
             // 
             // CodeTextEdit
             // 
+            this.CodeTextEdit.Size = new System.Drawing.Size(135, 20);
             // 
             // DescriptionTextEdit
             // 
             // 
             // InfoTextEdit
             // 
-            this.InfoTextEdit.Location = new System.Drawing.Point(24, 257);
-            this.InfoTextEdit.Size = new System.Drawing.Size(404, 39);
+            this.InfoTextEdit.Location = new System.Drawing.Point(24, 233);
+            this.InfoTextEdit.Size = new System.Drawing.Size(404, 63);
             // 
             // layoutControlGroup1
             // 
@@ -145,18 +146,22 @@
             // lcgId
             // 
             this.lcgId.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.ItemForDateCreated,
             this.ItemForUnitPrice,
             this.ItemForMultiplier,
             this.ItemForTotal,
             this.ItemForShowUnitPrice,
-            this.ItemForShowDate});
+            this.ItemForShowDate,
+            this.ItemForDateCreated});
             this.lcgId.Size = new System.Drawing.Size(432, 300);
+            // 
+            // ItemForCode
+            // 
+            this.ItemForCode.Size = new System.Drawing.Size(204, 24);
             // 
             // ItemForInfo
             // 
-            this.ItemForInfo.Location = new System.Drawing.Point(0, 192);
-            this.ItemForInfo.Size = new System.Drawing.Size(408, 59);
+            this.ItemForInfo.Location = new System.Drawing.Point(0, 168);
+            this.ItemForInfo.Size = new System.Drawing.Size(408, 83);
             // 
             // ribbonControl
             // 
@@ -231,7 +236,7 @@
             // TotalTextEdit
             // 
             this.TotalTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TotalTextEdit.Location = new System.Drawing.Point(89, 169);
+            this.TotalTextEdit.Location = new System.Drawing.Point(89, 145);
             this.TotalTextEdit.MenuManager = this.ribbonControl;
             this.TotalTextEdit.Name = "TotalTextEdit";
             this.TotalTextEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -247,7 +252,7 @@
             // ItemForTotal
             // 
             this.ItemForTotal.Control = this.TotalTextEdit;
-            this.ItemForTotal.Location = new System.Drawing.Point(0, 120);
+            this.ItemForTotal.Location = new System.Drawing.Point(0, 96);
             this.ItemForTotal.Name = "ItemForTotal";
             this.ItemForTotal.Size = new System.Drawing.Size(408, 24);
             this.ItemForTotal.Text = "Total";
@@ -257,7 +262,7 @@
             // 
             this.DateCreatedDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DateCreated", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DateCreatedDateEdit.EditValue = null;
-            this.DateCreatedDateEdit.Location = new System.Drawing.Point(24, 97);
+            this.DateCreatedDateEdit.Location = new System.Drawing.Point(228, 49);
             this.DateCreatedDateEdit.MenuManager = this.ribbonControl;
             this.DateCreatedDateEdit.Name = "DateCreatedDateEdit";
             this.DateCreatedDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -265,16 +270,16 @@
             this.DateCreatedDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DateCreatedDateEdit.Properties.ReadOnly = true;
-            this.DateCreatedDateEdit.Size = new System.Drawing.Size(404, 20);
+            this.DateCreatedDateEdit.Size = new System.Drawing.Size(200, 20);
             this.DateCreatedDateEdit.StyleController = this.dataLayoutControl;
             this.DateCreatedDateEdit.TabIndex = 8;
             // 
             // ItemForDateCreated
             // 
             this.ItemForDateCreated.Control = this.DateCreatedDateEdit;
-            this.ItemForDateCreated.Location = new System.Drawing.Point(0, 48);
+            this.ItemForDateCreated.Location = new System.Drawing.Point(204, 0);
             this.ItemForDateCreated.Name = "ItemForDateCreated";
-            this.ItemForDateCreated.Size = new System.Drawing.Size(408, 24);
+            this.ItemForDateCreated.Size = new System.Drawing.Size(204, 24);
             this.ItemForDateCreated.Text = "Date Created";
             this.ItemForDateCreated.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDateCreated.TextVisible = false;
@@ -282,7 +287,7 @@
             // UnitPriceTextEdit
             // 
             this.UnitPriceTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "UnitPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.UnitPriceTextEdit.Location = new System.Drawing.Point(89, 121);
+            this.UnitPriceTextEdit.Location = new System.Drawing.Point(89, 97);
             this.UnitPriceTextEdit.MenuManager = this.ribbonControl;
             this.UnitPriceTextEdit.Name = "UnitPriceTextEdit";
             this.UnitPriceTextEdit.Properties.Appearance.Options.UseTextOptions = true;
@@ -297,7 +302,7 @@
             // ItemForUnitPrice
             // 
             this.ItemForUnitPrice.Control = this.UnitPriceTextEdit;
-            this.ItemForUnitPrice.Location = new System.Drawing.Point(0, 72);
+            this.ItemForUnitPrice.Location = new System.Drawing.Point(0, 48);
             this.ItemForUnitPrice.Name = "ItemForUnitPrice";
             this.ItemForUnitPrice.Size = new System.Drawing.Size(408, 24);
             this.ItemForUnitPrice.Text = "Unit Price";
@@ -306,7 +311,7 @@
             // MultiplierTextEdit
             // 
             this.MultiplierTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "Multiplier", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MultiplierTextEdit.Location = new System.Drawing.Point(89, 145);
+            this.MultiplierTextEdit.Location = new System.Drawing.Point(89, 121);
             this.MultiplierTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MultiplierTextEdit.MenuManager = this.ribbonControl;
             this.MultiplierTextEdit.Name = "MultiplierTextEdit";
@@ -322,7 +327,7 @@
             // ItemForMultiplier
             // 
             this.ItemForMultiplier.Control = this.MultiplierTextEdit;
-            this.ItemForMultiplier.Location = new System.Drawing.Point(0, 96);
+            this.ItemForMultiplier.Location = new System.Drawing.Point(0, 72);
             this.ItemForMultiplier.Name = "ItemForMultiplier";
             this.ItemForMultiplier.Size = new System.Drawing.Size(408, 24);
             this.ItemForMultiplier.Text = "Multiplier";
@@ -331,7 +336,7 @@
             // ShowUnitPriceCheckEdit
             // 
             this.ShowUnitPriceCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "ShowUnitPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ShowUnitPriceCheckEdit.Location = new System.Drawing.Point(24, 193);
+            this.ShowUnitPriceCheckEdit.Location = new System.Drawing.Point(24, 169);
             this.ShowUnitPriceCheckEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ShowUnitPriceCheckEdit.MenuManager = this.ribbonControl;
             this.ShowUnitPriceCheckEdit.Name = "ShowUnitPriceCheckEdit";
@@ -344,7 +349,7 @@
             // ItemForShowUnitPrice
             // 
             this.ItemForShowUnitPrice.Control = this.ShowUnitPriceCheckEdit;
-            this.ItemForShowUnitPrice.Location = new System.Drawing.Point(0, 144);
+            this.ItemForShowUnitPrice.Location = new System.Drawing.Point(0, 120);
             this.ItemForShowUnitPrice.Name = "ItemForShowUnitPrice";
             this.ItemForShowUnitPrice.Size = new System.Drawing.Size(408, 24);
             this.ItemForShowUnitPrice.Text = "Show Unit Price";
@@ -354,7 +359,7 @@
             // ShowDateCheckEdit
             // 
             this.ShowDateCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "ShowDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ShowDateCheckEdit.Location = new System.Drawing.Point(24, 217);
+            this.ShowDateCheckEdit.Location = new System.Drawing.Point(24, 193);
             this.ShowDateCheckEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ShowDateCheckEdit.MenuManager = this.ribbonControl;
             this.ShowDateCheckEdit.Name = "ShowDateCheckEdit";
@@ -367,19 +372,19 @@
             // ItemForShowDate
             // 
             this.ItemForShowDate.Control = this.ShowDateCheckEdit;
-            this.ItemForShowDate.Location = new System.Drawing.Point(0, 168);
+            this.ItemForShowDate.Location = new System.Drawing.Point(0, 144);
             this.ItemForShowDate.Name = "ItemForShowDate";
             this.ItemForShowDate.Size = new System.Drawing.Size(408, 24);
             this.ItemForShowDate.Text = "Show Date";
             this.ItemForShowDate.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForShowDate.TextVisible = false;
             // 
-            // InvoiceLineEditView
+            // IncomingInvoiceLineEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "InvoiceLineEditView";
+            this.Name = "IncomingInvoiceLineEditView";
             this.Size = new System.Drawing.Size(452, 478);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();

@@ -107,14 +107,19 @@ namespace MoneyScoop.ViewModel
         public readonly static SimpleModuleType MainViewModule = new SimpleModuleType(-4, ObjectDefinitions.DummyDef, -1, "MainView", "Control center");
 
         public readonly static DataListModuleType IncomingInvoiceListModule = new DataListModuleType(-200, ObjectDefinitions.Invoice, 20, "IncomingInvoice");
-        public readonly static DataListModuleType OutgoingInvoiceListModule = new DataListModuleType(-201, ObjectDefinitions.Invoice, 20, "OutgoingInvoice");
-        public readonly static AddEditDataModule IncomingInvoiceEditModule = new AddEditDataModule(-202, ObjectDefinitions.Invoice, 20, "IncomingInvoice");
-        public readonly static AddEditDataModule OutgoingInvoiceEditModule = new AddEditDataModule(-203, ObjectDefinitions.Invoice, 20, "IncomingInvoice");
+        public readonly static AddEditDataModule IncomingInvoiceEditModule = new AddEditDataModule(-201, ObjectDefinitions.Invoice, 20, "IncomingInvoice");
+        public readonly static SimpleModuleType IncomingInvoiceDetailModule = new SimpleModuleType(-202, ObjectDefinitions.Invoice, 20, "IncomingInvoiceDetailView", "Details");
+        
+        public readonly static DataListModuleType OutgoingInvoiceListModule = new DataListModuleType(-250, ObjectDefinitions.Invoice, 20, "OutgoingInvoice");
+        public readonly static AddEditDataModule OutgoingInvoiceEditModule = new AddEditDataModule(-251, ObjectDefinitions.Invoice, 20, "OutgoingInvoice");
+        public readonly static SimpleModuleType OutgoingInvoiceDetailModule = new SimpleModuleType(-252, ObjectDefinitions.Invoice, 20, "OutgoingInvoiceDetailView", "Details");
 
         public readonly static DataListModuleType InvoiceLineListModule = new DataListModuleType(-300, ObjectDefinitions.InvoiceLine, 20, "InvoiceLine");
         public readonly static AddEditDataModule InvoiceLineEditModule = new AddEditDataModule(-302, ObjectDefinitions.InvoiceLine, 20, "InvoiceLine");
 
-        public readonly static DataListModuleType CustomerListModule = new DataListModuleType(-400, ObjectDefinitions.Customer, 20, "Customer");
-        public readonly static AddEditDataModule CustomerEditModule = new AddEditDataModule(-402, ObjectDefinitions.Customer, 20, "Customer");
+        public readonly static DataListModuleType CustomerListModule = new DataListModuleType(-400, ObjectDefinitions.Customer, 11, "Customer");
+        public readonly static AddEditDataModule CustomerEditModule = new AddEditDataModule(-402, ObjectDefinitions.Customer, 11, "Customer");
+
+        public readonly static SimpleModuleType SendMailModule = new SimpleModuleType(-1000, ObjectDefinitions.DummyDef, 20, "SendMailView", "Send mail");
     }
 }

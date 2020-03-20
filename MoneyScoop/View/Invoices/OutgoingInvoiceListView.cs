@@ -2,12 +2,6 @@
 using MoneyScoop.Model;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils.MVVM;
-using MoneyScoop.Reports;
-using System.Collections.Generic;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraPrinting;
-using DevExpress.XtraBars;
-using System.IO;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
@@ -77,6 +71,7 @@ namespace MoneyScoop.View
         {
             fluent = base.InitializeBindings<Invoice, OutgoingInvoiceListViewModel>();
 
+            fluent.BindCommand(bbiRefresh, m => m.Refresh());
         }
     }
 }
