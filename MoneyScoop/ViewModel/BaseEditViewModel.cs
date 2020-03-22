@@ -72,7 +72,7 @@ namespace MoneyScoop.ViewModel
                 // Keep object reference
                 Editable.CopyFrom(Original);
             }
-            // Icon
+            
             DataChangedService.AddListener(this);
         }
 

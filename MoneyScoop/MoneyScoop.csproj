@@ -100,12 +100,15 @@
     <Compile Include="Services\DataChangedService.cs" />
     <Compile Include="Utils\IniFIle.cs" />
     <Compile Include="Utils\ViewHelpers.cs" />
+    <Compile Include="ViewModel\BaseDetailsViewModel.cs" />
     <Compile Include="ViewModel\BaseDocumentViewModel.cs" />
     <Compile Include="ViewModel\BaseEditViewModel.cs" />
     <Compile Include="ViewModel\BaseListViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\Customers\CustomerEditViewModel.cs" />
     <Compile Include="ViewModel\Customers\CustomerListViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\OutgoingInvoiceDetailsViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceDetailsViewModel.cs" />
     <Compile Include="ViewModel\Invoices\OutgoingInvoiceEditViewModel.cs" />
     <Compile Include="ViewModel\Invoices\OutgoingInvoiceListViewModel.cs" />
     <Compile Include="ViewModel\Interfaces.cs" />
@@ -156,6 +159,18 @@
     </Compile>
     <Compile Include="View\Customers\CustomerListView.Designer.cs">
       <DependentUpon>CustomerListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceDetailView.Designer.cs">
+      <DependentUpon>OutgoingInvoiceDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceDetailView.Designer.cs">
+      <DependentUpon>IncomingInvoiceDetailView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Invoices\OutgoingInvoiceEditView.cs">
       <SubType>UserControl</SubType>
@@ -230,6 +245,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Customers\CustomerListView.resx">
       <DependentUpon>CustomerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\OutgoingInvoiceDetailView.resx">
+      <DependentUpon>OutgoingInvoiceDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceDetailView.resx">
+      <DependentUpon>IncomingInvoiceDetailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Invoices\OutgoingInvoiceEditView.resx">
       <DependentUpon>OutgoingInvoiceEditView.cs</DependentUpon>

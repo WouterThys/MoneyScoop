@@ -2,7 +2,6 @@
 using MoneyScoop.ViewModel;
 using MoneyScoop.Model;
 using MoneyScoop.Utils;
-using DevExpress.XtraLayout.Utils;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Data;
 using System.Collections.Generic;

@@ -71,6 +71,8 @@
             this.ic16x16.Images.SetKeyName(21, "mail_forward.png");
             this.ic16x16.Images.SetKeyName(22, "document_ok.png");
             this.ic16x16.Images.SetKeyName(23, "document.png");
+            this.ic16x16.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic16x16.Images.SetKeyName(25, "bookkeeper_ok.png");
             // 
             // ic24x24
             // 
@@ -100,6 +102,8 @@
             this.ic24x24.Images.SetKeyName(21, "mail_forward.png");
             this.ic24x24.Images.SetKeyName(22, "document_ok.png");
             this.ic24x24.Images.SetKeyName(23, "document.png");
+            this.ic24x24.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic24x24.Images.SetKeyName(25, "bookkeeper_ok.png");
             // 
             // ic48x48
             // 
@@ -129,6 +133,8 @@
             this.ic48x48.Images.SetKeyName(21, "mail_forward.png");
             this.ic48x48.Images.SetKeyName(22, "document_ok.png");
             this.ic48x48.Images.SetKeyName(23, "document.png");
+            this.ic48x48.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic48x48.Images.SetKeyName(25, "bookkeeper_ok.png");
             // 
             // BaseUserControl
             // 

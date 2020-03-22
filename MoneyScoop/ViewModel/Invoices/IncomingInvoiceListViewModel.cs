@@ -1,12 +1,10 @@
 ﻿using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
-using DevExpress.XtraReports.UI;
 using MoneyScoop.Model;
-using MoneyScoop.Reports;
+using MoneyScoop.ViewModel.Invoices;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace MoneyScoop.ViewModel
@@ -19,10 +17,15 @@ namespace MoneyScoop.ViewModel
             return ViewModelSource.Create(() => new IncomingInvoiceListViewModel());
         }
 
+        public virtual IncomingInvoiceDetailsViewModel DetailModel { get; protected set; }
+
         public IncomingInvoiceListViewModel() : base(ModuleTypes.IncomingInvoiceListModule, ModuleTypes.IncomingInvoiceEditModule)
         {
+            DetailModel = IncomingInvoiceDetailsViewModel.Create();
+            DetailModel.SetParentViewModel(this);
         }
 
+        #region Base Overrides
         public override IBaseViewModel GetEditViewModel(Invoice baseObject)
         {
             return IncomingInvoiceEditViewModel.Create(baseObject);
@@ -40,8 +43,16 @@ namespace MoneyScoop.ViewModel
             this.RaiseCanExecuteChanged(x => x.SavePdfReports());
             this.RaiseCanExecuteChanged(x => x.SendMailToCustomer());
         }
-        
 
+        public override void OnSelectionChanged()
+        {
+            base.OnSelectionChanged();
+            DetailModel.Entity = Selected;
+        }
+
+        #endregion
+
+        #region Commands
         public virtual bool CanShowInvoicePreviews()
         {
             return !IsLoading && Selection != null;
@@ -61,9 +72,7 @@ namespace MoneyScoop.ViewModel
                 }
             }
         }
-
         
-
 
         public virtual bool CanSavePdfReports()
         {
@@ -97,5 +106,6 @@ namespace MoneyScoop.ViewModel
             viewModel.SetParentViewModel(this);
             ShowDialog(viewModel);
         }
+        #endregion
     }
 }

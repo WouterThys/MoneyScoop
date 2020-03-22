@@ -16,6 +16,7 @@ namespace MoneyScoop.Model
         private DateTime dateCreated;
         private DateTime dateSend;
         private DateTime datePayed;
+        private DateTime dateSendToBooky;
         private decimal total;
         private int vat;
         private bool vatShifted;
@@ -36,6 +37,7 @@ namespace MoneyScoop.Model
             DateCreated = DateTime.Now;
             DateSend = DateTime.MinValue.AddYears(10);
             DatePayed = DateTime.MinValue.AddYears(10);
+            DateSendToBooky = DateTime.MinValue.AddYears(10);
             Code = Guid.NewGuid().ToString();
             VAT = 21;
         }
@@ -57,6 +59,7 @@ namespace MoneyScoop.Model
                 DateCreated = that.DateCreated;
                 DateSend = that.DateSend;
                 DatePayed = that.DatePayed;
+                DateSendToBooky = that.DateSendToBooky;
                 VAT = that.VAT;
                 VATShifted = that.VATShifted;
                 CustomerId = that.CustomerId;
@@ -77,6 +80,7 @@ namespace MoneyScoop.Model
                         DateCreated == that.DateCreated &&
                         DateSend == that.DateSend &&
                         DatePayed == that.DatePayed &&
+                        DateSendToBooky == that.DateSendToBooky &&
                         VAT == that.VAT &&
                         VATShifted == that.VATShifted &&
                         SavePath == that.SavePath &&
@@ -97,6 +101,7 @@ namespace MoneyScoop.Model
             DateCreated = DatabaseAccess.RGetDateTime(reader, "dateCreated");
             DateSend = DatabaseAccess.RGetDateTime(reader, "dateSend");
             DatePayed = DatabaseAccess.RGetDateTime(reader, "datePayed");
+            DateSendToBooky = DatabaseAccess.RGetDateTime(reader, "dateSendToBooky");
             VAT = DatabaseAccess.RGetInt(reader, "vat");
             VATShifted = DatabaseAccess.RGetBool(reader, "vatShifted");
             CustomerId = DatabaseAccess.RGetLong(reader, "customerId");
@@ -111,6 +116,7 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "dateCreated", DateCreated);
             DatabaseAccess.AddDbValue(command, "dateSend", DateSend);
             DatabaseAccess.AddDbValue(command, "datePayed", DatePayed);
+            DatabaseAccess.AddDbValue(command, "dateSendToBooky", DateSendToBooky);
             DatabaseAccess.AddDbValue(command, "vat", VAT);
             DatabaseAccess.AddDbValue(command, "vatShifted", VATShifted);
             DatabaseAccess.AddDbValue(command, "customerId", CustomerId > UNKNOWN_ID ? CustomerId : UNKNOWN_ID);
@@ -270,13 +276,30 @@ namespace MoneyScoop.Model
             }
         }
 
+        public bool IsSendToBooky
+        {
+            get
+            {
+                return DateSendToBooky != null && DateSendToBooky.Year > 2000;
+            }
+            set
+            {
+                DateSendToBooky = value ? DateTime.Now : DateTime.MinValue.AddYears(10);
+                OnPropertyChanged("IsSendToBooky");
+            }
+        }
+
         public bool IsPdfSaved => !string.IsNullOrEmpty(SavePath) && File.Exists(SavePath);
 
         public string DatePayedString => IsPayed ? DatePayed.ToString("dd/MM/yyyy hh:mm") : "";
 
         public string DateSendString => IsSend ? DateSend.ToString("dd/MM/yyyy hh:mm") : "";
 
+        public string DateSendToBookyString => IsSendToBooky ? DateSendToBooky.ToString("dd/MM/yyyy hh:mm") : "";
+
         public string DueDateString => DueDate.ToString("dd/MM/yyyy");
+
+        public string DateModifiedString => LastModified.ToString("dd/MM/yyyy hh:mm");
 
         public string BankAccount => MyInfo.BankAccount;
 
@@ -369,6 +392,16 @@ namespace MoneyScoop.Model
             {
                 datePayed = value;
                 OnPropertyChanged("DatePayed");
+            }
+        }
+
+        public DateTime DateSendToBooky
+        {
+            get => dateSendToBooky;
+            set
+            {
+                dateSendToBooky = value;
+                OnPropertyChanged("DateSendToBooky");
             }
         }
 

@@ -4,6 +4,7 @@ using DevExpress.Mvvm.POCO;
 using DevExpress.XtraReports.UI;
 using MoneyScoop.Model;
 using MoneyScoop.Reports;
+using MoneyScoop.ViewModel.Invoices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,8 +21,12 @@ namespace MoneyScoop.ViewModel
             return ViewModelSource.Create(() => new OutgoingInvoiceListViewModel());
         }
 
+        public virtual OutgoingInvoiceDetailsViewModel DetailModel { get; protected set; }
+
         public OutgoingInvoiceListViewModel() : base(ModuleTypes.OutgoingInvoiceListModule, ModuleTypes.OutgoingInvoiceEditModule)
         {
+            DetailModel = OutgoingInvoiceDetailsViewModel.Create();
+            DetailModel.SetParentViewModel(this);
         }
 
         public override IBaseViewModel GetEditViewModel(Invoice baseObject)
@@ -39,7 +44,13 @@ namespace MoneyScoop.ViewModel
             base.UpdateCommands();
         }
 
-        
+        public override void OnSelectionChanged()
+        {
+            base.OnSelectionChanged();
+            DetailModel.Entity = Selected;
+        }
+
+
         public virtual bool CanRefresh()
         {
             return !IsLoading;

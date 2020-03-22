@@ -2,12 +2,6 @@
 using MoneyScoop.Model;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils.MVVM;
-using MoneyScoop.Reports;
-using System.Collections.Generic;
-using DevExpress.XtraReports.UI;
-using DevExpress.XtraPrinting;
-using DevExpress.XtraBars;
-using System.IO;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
@@ -33,6 +27,7 @@ namespace MoneyScoop.View
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
+            IncomingInvoiceDetailView.InitializeLayouts();
 
             gridControl.ToolTipController = toolTipController;
             toolTipController.GetActiveObjectInfo += ToolTipController_GetActiveObjectInfo;
@@ -68,6 +63,10 @@ namespace MoneyScoop.View
                             invoice = view.GetRow(info.RowHandle) as Invoice;
                             e.Info = new ToolTipControlInfo(cellKey, (invoice != null && invoice.IsPdfSaved) ? invoice.SavePath : "Not yet saved");
                             break;
+                        case "IsSendToBooky":
+                            invoice = view.GetRow(info.RowHandle) as Invoice;
+                            e.Info = new ToolTipControlInfo(cellKey, (invoice != null && invoice.IsSendToBooky) ? invoice.DateSendToBookyString : "Not yet send to booky");
+                            break;
                     }
                 }
             }
@@ -80,6 +79,8 @@ namespace MoneyScoop.View
             fluent.BindCommand(bbiPreviewReports, m => m.ShowInvoicePreviews());
             fluent.BindCommand(bbiSaveReports, m => m.SavePdfReports());
             fluent.BindCommand(bbiMail, m => m.SendMailToCustomer());
+
+            IncomingInvoiceDetailView.InitialiseBindings(fluent.ViewModel.DetailModel);
         }
     }
 }

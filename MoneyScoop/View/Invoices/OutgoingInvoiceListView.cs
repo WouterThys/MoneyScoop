@@ -27,7 +27,7 @@ namespace MoneyScoop.View
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
-
+            OutgoingInvoiceDetailView.InitializeLayouts();
             gridControl.ToolTipController = toolTipController;
             toolTipController.GetActiveObjectInfo += ToolTipController_GetActiveObjectInfo;
         }
@@ -62,6 +62,10 @@ namespace MoneyScoop.View
                             invoice = view.GetRow(info.RowHandle) as Invoice;
                             e.Info = new ToolTipControlInfo(cellKey, (invoice != null && invoice.IsPdfSaved) ? invoice.SavePath : "Not yet saved");
                             break;
+                        case "IsSendToBooky":
+                            invoice = view.GetRow(info.RowHandle) as Invoice;
+                            e.Info = new ToolTipControlInfo(cellKey, (invoice != null && invoice.IsSendToBooky) ? invoice.DateSendToBookyString : "Not yet send to booky");
+                            break;
                     }
                 }
             }
@@ -72,6 +76,7 @@ namespace MoneyScoop.View
             fluent = base.InitializeBindings<Invoice, OutgoingInvoiceListViewModel>();
 
             fluent.BindCommand(bbiRefresh, m => m.Refresh());
+            OutgoingInvoiceDetailView.InitialiseBindings(fluent.ViewModel.DetailModel);
         }
     }
 }

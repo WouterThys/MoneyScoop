@@ -50,6 +50,12 @@
             this.riCheckEditSaved = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.toolTipController = new DevExpress.Utils.ToolTipController(this.components);
             this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.DetailPanel = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.OutgoingInvoiceDetailView = new MoneyScoop.View.Invoices.OutgoingInvoiceDetailView();
+            this.colIsSendToBooky = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riCheckEditSendToBooky = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -61,6 +67,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditPayed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSaved)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
+            this.DetailPanel.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSendToBooky)).BeginInit();
             this.SuspendLayout();
             // 
             // bbiAdd
@@ -92,7 +102,9 @@
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riCheckEditPayed,
             this.riCheckEditSend,
-            this.riCheckEditSaved});
+            this.riCheckEditSaved,
+            this.riCheckEditSendToBooky});
+            this.gridControl.Size = new System.Drawing.Size(557, 362);
             // 
             // gridView
             // 
@@ -107,13 +119,15 @@
             this.colIsSend,
             this.colVAT,
             this.colDueDate,
-            this.colIsPdfSaved});
+            this.colIsPdfSaved,
+            this.colIsSendToBooky});
             this.gridView.DetailHeight = 350;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDateCreated, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colId
             // 
+            this.colId.ColumnEdit = this.riCheckEditSendToBooky;
             this.colId.MinWidth = 21;
             this.colId.Width = 75;
             // 
@@ -183,6 +197,11 @@
             this.ic16x16.Images.SetKeyName(18, "mail_ok.png");
             this.ic16x16.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic16x16.Images.SetKeyName(20, "mail.png");
+            this.ic16x16.Images.SetKeyName(21, "mail_forward.png");
+            this.ic16x16.Images.SetKeyName(22, "document_ok.png");
+            this.ic16x16.Images.SetKeyName(23, "document.png");
+            this.ic16x16.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic16x16.Images.SetKeyName(25, "bookkeeper_ok.png");
             // 
             // ic24x24
             // 
@@ -208,6 +227,11 @@
             this.ic24x24.Images.SetKeyName(18, "mail_ok.png");
             this.ic24x24.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic24x24.Images.SetKeyName(20, "mail.png");
+            this.ic24x24.Images.SetKeyName(21, "mail_forward.png");
+            this.ic24x24.Images.SetKeyName(22, "document_ok.png");
+            this.ic24x24.Images.SetKeyName(23, "document.png");
+            this.ic24x24.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic24x24.Images.SetKeyName(25, "bookkeeper_ok.png");
             // 
             // ic48x48
             // 
@@ -233,6 +257,11 @@
             this.ic48x48.Images.SetKeyName(18, "mail_ok.png");
             this.ic48x48.Images.SetKeyName(19, "moneybag2_ok.png");
             this.ic48x48.Images.SetKeyName(20, "mail.png");
+            this.ic48x48.Images.SetKeyName(21, "mail_forward.png");
+            this.ic48x48.Images.SetKeyName(22, "document_ok.png");
+            this.ic48x48.Images.SetKeyName(23, "document.png");
+            this.ic48x48.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic48x48.Images.SetKeyName(25, "bookkeeper_ok.png");
             // 
             // colCustomerCode
             // 
@@ -402,12 +431,81 @@
             this.bbiRefresh.ImageOptions.LargeImageIndex = 6;
             this.bbiRefresh.Name = "bbiRefresh";
             // 
+            // dockManager
+            // 
+            this.dockManager.Form = this;
+            this.dockManager.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.DetailPanel});
+            this.dockManager.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl",
+            "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
+            "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
+            // 
+            // DetailPanel
+            // 
+            this.DetailPanel.Controls.Add(this.dockPanel1_Container);
+            this.DetailPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.DetailPanel.ID = new System.Guid("37091cb3-08a8-43b2-8eb9-c95286da5f4d");
+            this.DetailPanel.Location = new System.Drawing.Point(557, 158);
+            this.DetailPanel.Name = "DetailPanel";
+            this.DetailPanel.OriginalSize = new System.Drawing.Size(350, 200);
+            this.DetailPanel.Size = new System.Drawing.Size(350, 362);
+            this.DetailPanel.Text = "Details";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.OutgoingInvoiceDetailView);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(343, 329);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // OutgoingInvoiceDetailView
+            // 
+            this.OutgoingInvoiceDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OutgoingInvoiceDetailView.Location = new System.Drawing.Point(0, 0);
+            this.OutgoingInvoiceDetailView.Name = "OutgoingInvoiceDetailView";
+            this.OutgoingInvoiceDetailView.Size = new System.Drawing.Size(343, 329);
+            this.OutgoingInvoiceDetailView.TabIndex = 0;
+            // 
+            // colIsSendToBooky
+            // 
+            this.colIsSendToBooky.Caption = " ";
+            this.colIsSendToBooky.FieldName = "IsSendToBooky";
+            this.colIsSendToBooky.MaxWidth = 30;
+            this.colIsSendToBooky.MinWidth = 30;
+            this.colIsSendToBooky.Name = "colIsSendToBooky";
+            this.colIsSendToBooky.Visible = true;
+            this.colIsSendToBooky.VisibleIndex = 7;
+            this.colIsSendToBooky.Width = 30;
+            // 
+            // riCheckEditSendToBooky
+            // 
+            this.riCheckEditSendToBooky.AutoHeight = false;
+            this.riCheckEditSendToBooky.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Custom;
+            this.riCheckEditSendToBooky.ImageOptions.ImageIndexChecked = 25;
+            this.riCheckEditSendToBooky.ImageOptions.Images = this.ic16x16;
+            this.riCheckEditSendToBooky.Name = "riCheckEditSendToBooky";
+            // 
             // OutgoingInvoiceListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DetailPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "OutgoingInvoiceListView";
+            this.Controls.SetChildIndex(this.ribbonControl, 0);
+            this.Controls.SetChildIndex(this.DetailPanel, 0);
+            this.Controls.SetChildIndex(this.gridControl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -419,6 +517,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditPayed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSaved)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
+            this.DetailPanel.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSendToBooky)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,5 +548,11 @@
         private DevExpress.Utils.ToolTipController toolTipController;
         private DevExpress.XtraBars.BarButtonItem bbiMail;
         private DevExpress.XtraBars.BarButtonItem bbiRefresh;
+        private DevExpress.XtraBars.Docking.DockManager dockManager;
+        private DevExpress.XtraBars.Docking.DockPanel DetailPanel;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private Invoices.OutgoingInvoiceDetailView OutgoingInvoiceDetailView;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditSendToBooky;
+        private DevExpress.XtraGrid.Columns.GridColumn colIsSendToBooky;
     }
 }
