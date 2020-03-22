@@ -15,7 +15,6 @@ namespace MoneyScoop.ViewModel
         ObjectDefinition ObjectDefinition { get; }
         long Id { get; }
         Guid GetGuid(long id);
-        int ImageId { get; }
     }
 
     public interface IBaseViewModel
@@ -44,7 +43,6 @@ namespace MoneyScoop.ViewModel
     public interface IBaseListViewModel<TEntity> : IBaseViewModel
         where TEntity : IBaseObject, new()
     {
-        IModuleType EditModule { get; }
         BindingList<TEntity> Entities { get; set; }
         List<TEntity> Selection { get; set; }
 

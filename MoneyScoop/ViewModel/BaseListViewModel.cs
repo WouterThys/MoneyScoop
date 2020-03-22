@@ -16,13 +16,12 @@ namespace MoneyScoop.ViewModel
     public abstract class BaseListViewModel<TEntity> : BaseDocumentViewModel, IBaseListViewModel<TEntity>, IDataChanged<TEntity> where TEntity : IBaseObject, new()
     {
         // Variables for entity
-        public virtual IModuleType EditModule { get; }
         public virtual BindingList<TEntity> Entities { get; set; }
         public virtual List<TEntity> Selection { get; set; }
 
-        protected BaseListViewModel(IModuleType module, IModuleType editModule) : base(module)
+        protected BaseListViewModel(IModuleType module) : base(module)
         {
-            EditModule = editModule;
+
         }
 
         public abstract IBaseViewModel GetEditViewModel(TEntity baseObject);

@@ -19,7 +19,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual IncomingInvoiceDetailsViewModel DetailModel { get; protected set; }
 
-        public IncomingInvoiceListViewModel() : base(ModuleTypes.IncomingInvoiceListModule, ModuleTypes.IncomingInvoiceEditModule)
+        public IncomingInvoiceListViewModel() : base(ModuleTypes.IncomingInvoiceListModule)
         {
             DetailModel = IncomingInvoiceDetailsViewModel.Create();
             DetailModel.SetParentViewModel(this);

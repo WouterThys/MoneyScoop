@@ -16,7 +16,7 @@ namespace MoneyScoop.ViewModel.Invoices
 
         public virtual BindingList<InvoiceLine> InvoiceLines { get; set; }
 
-        protected IncomingInvoiceDetailsViewModel() : base(ModuleTypes.IncomingInvoiceDetailModule)
+        protected IncomingInvoiceDetailsViewModel() : base(ModuleTypes.IncomingInvoiceDetailsModule)
         {
         }
 

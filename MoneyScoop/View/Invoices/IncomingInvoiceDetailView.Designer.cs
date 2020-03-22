@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomingInvoiceDetailView));
             this.HeaderPanel = new DevExpress.XtraEditors.PanelControl();
             this.dataLayoutControl = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.CustomerCodeTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -59,12 +59,12 @@
             this.SendLabel = new DevExpress.XtraEditors.LabelControl();
             this.PayedLabel = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.ItemForPayed = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForSend = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForCreated = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForSendToBooky = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.ItemForCreated = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ItemForPayed = new DevExpress.XtraLayout.LayoutControlItem();
             this.gcInvoiceLines = new DevExpress.XtraGrid.GridControl();
             this.bsInvoiceLines = new System.Windows.Forms.BindingSource(this.components);
             this.gvInvoiceLines = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -114,19 +114,129 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconLayoutControl)).BeginInit();
             this.IconLayoutControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForPayed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSend)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForCreated)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSendToBooky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCreated)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPayed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoiceLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsInvoiceLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riDateEdit.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
-            
+            // 
+            // ic16x16
+            // 
+            this.ic16x16.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic16x16.ImageStream")));
+            this.ic16x16.Images.SetKeyName(0, "add.png");
+            this.ic16x16.Images.SetKeyName(1, "pencil.png");
+            this.ic16x16.Images.SetKeyName(2, "delete.png");
+            this.ic16x16.Images.SetKeyName(3, "copy.png");
+            this.ic16x16.Images.SetKeyName(4, "cut.png");
+            this.ic16x16.Images.SetKeyName(5, "paste.png");
+            this.ic16x16.Images.SetKeyName(6, "refresh.png");
+            this.ic16x16.Images.SetKeyName(7, "undo.png");
+            this.ic16x16.Images.SetKeyName(8, "redo.png");
+            this.ic16x16.Images.SetKeyName(9, "floppy_disk.png");
+            this.ic16x16.Images.SetKeyName(10, "floppy_disk_ok.png");
+            this.ic16x16.Images.SetKeyName(11, "hand_money.png");
+            this.ic16x16.Images.SetKeyName(12, "invoice_euro.png");
+            this.ic16x16.Images.SetKeyName(13, "table_row.png");
+            this.ic16x16.Images.SetKeyName(14, "cashier.png");
+            this.ic16x16.Images.SetKeyName(15, "table_row_add.png");
+            this.ic16x16.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic16x16.Images.SetKeyName(17, "table_row_delete.png");
+            this.ic16x16.Images.SetKeyName(18, "mail_ok.png");
+            this.ic16x16.Images.SetKeyName(19, "moneybag2_ok.png");
+            this.ic16x16.Images.SetKeyName(20, "mail.png");
+            this.ic16x16.Images.SetKeyName(21, "mail_forward.png");
+            this.ic16x16.Images.SetKeyName(22, "document_ok.png");
+            this.ic16x16.Images.SetKeyName(23, "document.png");
+            this.ic16x16.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic16x16.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic16x16.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic16x16.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic16x16.Images.SetKeyName(28, "money_bills.png");
+            this.ic16x16.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic16x16.Images.SetKeyName(30, "information.png");
+            this.ic16x16.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic16x16.Images.SetKeyName(32, "telephone2.png");
+            // 
+            // ic24x24
+            // 
+            this.ic24x24.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic24x24.ImageStream")));
+            this.ic24x24.Images.SetKeyName(0, "add.png");
+            this.ic24x24.Images.SetKeyName(1, "pencil.png");
+            this.ic24x24.Images.SetKeyName(2, "delete.png");
+            this.ic24x24.Images.SetKeyName(3, "copy.png");
+            this.ic24x24.Images.SetKeyName(4, "cut.png");
+            this.ic24x24.Images.SetKeyName(5, "paste.png");
+            this.ic24x24.Images.SetKeyName(6, "refresh.png");
+            this.ic24x24.Images.SetKeyName(7, "undo.png");
+            this.ic24x24.Images.SetKeyName(8, "redo.png");
+            this.ic24x24.Images.SetKeyName(9, "floppy_disk.png");
+            this.ic24x24.Images.SetKeyName(10, "floppy_disk_ok.png");
+            this.ic24x24.Images.SetKeyName(11, "hand_money.png");
+            this.ic24x24.Images.SetKeyName(12, "invoice_euro.png");
+            this.ic24x24.Images.SetKeyName(13, "table_row.png");
+            this.ic24x24.Images.SetKeyName(14, "cashier.png");
+            this.ic24x24.Images.SetKeyName(15, "table_row_add.png");
+            this.ic24x24.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic24x24.Images.SetKeyName(17, "table_row_delete.png");
+            this.ic24x24.Images.SetKeyName(18, "mail_ok.png");
+            this.ic24x24.Images.SetKeyName(19, "moneybag2_ok.png");
+            this.ic24x24.Images.SetKeyName(20, "mail.png");
+            this.ic24x24.Images.SetKeyName(21, "mail_forward.png");
+            this.ic24x24.Images.SetKeyName(22, "document_ok.png");
+            this.ic24x24.Images.SetKeyName(23, "document.png");
+            this.ic24x24.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic24x24.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic24x24.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic24x24.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic24x24.Images.SetKeyName(28, "money_bills.png");
+            this.ic24x24.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic24x24.Images.SetKeyName(30, "information.png");
+            this.ic24x24.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic24x24.Images.SetKeyName(32, "telephone2.png");
+            // 
+            // ic48x48
+            // 
+            this.ic48x48.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic48x48.ImageStream")));
+            this.ic48x48.Images.SetKeyName(0, "add.png");
+            this.ic48x48.Images.SetKeyName(1, "pencil.png");
+            this.ic48x48.Images.SetKeyName(2, "delete.png");
+            this.ic48x48.Images.SetKeyName(3, "copy.png");
+            this.ic48x48.Images.SetKeyName(4, "cut.png");
+            this.ic48x48.Images.SetKeyName(5, "paste.png");
+            this.ic48x48.Images.SetKeyName(6, "refresh.png");
+            this.ic48x48.Images.SetKeyName(7, "undo.png");
+            this.ic48x48.Images.SetKeyName(8, "redo.png");
+            this.ic48x48.Images.SetKeyName(9, "floppy_disk.png");
+            this.ic48x48.Images.SetKeyName(10, "floppy_disk_ok.png");
+            this.ic48x48.Images.SetKeyName(11, "hand_money.png");
+            this.ic48x48.Images.SetKeyName(12, "invoice_euro.png");
+            this.ic48x48.Images.SetKeyName(13, "table_row.png");
+            this.ic48x48.Images.SetKeyName(14, "cashier.png");
+            this.ic48x48.Images.SetKeyName(15, "table_row_add.png");
+            this.ic48x48.Images.SetKeyName(16, "table_row_edit.png");
+            this.ic48x48.Images.SetKeyName(17, "table_row_delete.png");
+            this.ic48x48.Images.SetKeyName(18, "mail_ok.png");
+            this.ic48x48.Images.SetKeyName(19, "moneybag2_ok.png");
+            this.ic48x48.Images.SetKeyName(20, "mail.png");
+            this.ic48x48.Images.SetKeyName(21, "mail_forward.png");
+            this.ic48x48.Images.SetKeyName(22, "document_ok.png");
+            this.ic48x48.Images.SetKeyName(23, "document.png");
+            this.ic48x48.Images.SetKeyName(24, "bookkeeper.png");
+            this.ic48x48.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic48x48.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic48x48.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic48x48.Images.SetKeyName(28, "money_bills.png");
+            this.ic48x48.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic48x48.Images.SetKeyName(30, "information.png");
+            this.ic48x48.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic48x48.Images.SetKeyName(32, "telephone2.png");
             // 
             // HeaderPanel
             // 
@@ -150,6 +260,7 @@
             this.dataLayoutControl.Controls.Add(this.InfoMemoEdit);
             this.dataLayoutControl.DataSource = this.bsInvoice;
             this.dataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataLayoutControl.Images = this.ic16x16;
             this.dataLayoutControl.Location = new System.Drawing.Point(2, 75);
             this.dataLayoutControl.Name = "dataLayoutControl";
             this.dataLayoutControl.Root = this.Root;
@@ -160,10 +271,10 @@
             // CustomerCodeTextEdit
             // 
             this.CustomerCodeTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsInvoice, "CustomerCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CustomerCodeTextEdit.Location = new System.Drawing.Point(71, 12);
+            this.CustomerCodeTextEdit.Location = new System.Drawing.Point(39, 12);
             this.CustomerCodeTextEdit.Name = "CustomerCodeTextEdit";
             this.CustomerCodeTextEdit.Properties.ReadOnly = true;
-            this.CustomerCodeTextEdit.Size = new System.Drawing.Size(141, 20);
+            this.CustomerCodeTextEdit.Size = new System.Drawing.Size(173, 20);
             this.CustomerCodeTextEdit.StyleController = this.dataLayoutControl;
             this.CustomerCodeTextEdit.TabIndex = 4;
             // 
@@ -175,51 +286,51 @@
             // 
             this.DueDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsInvoice, "DueDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DueDateDateEdit.EditValue = null;
-            this.DueDateDateEdit.Location = new System.Drawing.Point(275, 12);
+            this.DueDateDateEdit.Location = new System.Drawing.Point(243, 12);
             this.DueDateDateEdit.Name = "DueDateDateEdit";
             this.DueDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DueDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DueDateDateEdit.Properties.ReadOnly = true;
-            this.DueDateDateEdit.Size = new System.Drawing.Size(134, 20);
+            this.DueDateDateEdit.Size = new System.Drawing.Size(166, 20);
             this.DueDateDateEdit.StyleController = this.dataLayoutControl;
             this.DueDateDateEdit.TabIndex = 5;
             // 
             // SubTotalTextEdit
             // 
             this.SubTotalTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsInvoice, "SubTotal", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.SubTotalTextEdit.Location = new System.Drawing.Point(71, 36);
+            this.SubTotalTextEdit.Location = new System.Drawing.Point(39, 36);
             this.SubTotalTextEdit.Name = "SubTotalTextEdit";
             this.SubTotalTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.SubTotalTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.SubTotalTextEdit.Properties.Mask.EditMask = "G";
+            this.SubTotalTextEdit.Properties.Mask.EditMask = "C";
             this.SubTotalTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.SubTotalTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.SubTotalTextEdit.Properties.ReadOnly = true;
-            this.SubTotalTextEdit.Size = new System.Drawing.Size(141, 20);
+            this.SubTotalTextEdit.Size = new System.Drawing.Size(173, 20);
             this.SubTotalTextEdit.StyleController = this.dataLayoutControl;
             this.SubTotalTextEdit.TabIndex = 6;
             // 
             // TotalTextEdit
             // 
             this.TotalTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsInvoice, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TotalTextEdit.Location = new System.Drawing.Point(275, 36);
+            this.TotalTextEdit.Location = new System.Drawing.Point(243, 36);
             this.TotalTextEdit.Name = "TotalTextEdit";
             this.TotalTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.TotalTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.TotalTextEdit.Properties.Mask.EditMask = "G";
+            this.TotalTextEdit.Properties.Mask.EditMask = "C";
             this.TotalTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.TotalTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.TotalTextEdit.Properties.ReadOnly = true;
-            this.TotalTextEdit.Size = new System.Drawing.Size(134, 20);
+            this.TotalTextEdit.Size = new System.Drawing.Size(166, 20);
             this.TotalTextEdit.StyleController = this.dataLayoutControl;
             this.TotalTextEdit.TabIndex = 7;
             // 
             // VATTextEdit
             // 
             this.VATTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsInvoice, "VAT", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.VATTextEdit.Location = new System.Drawing.Point(71, 60);
+            this.VATTextEdit.Location = new System.Drawing.Point(39, 60);
             this.VATTextEdit.Name = "VATTextEdit";
             this.VATTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.VATTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -227,29 +338,29 @@
             this.VATTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.VATTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.VATTextEdit.Properties.ReadOnly = true;
-            this.VATTextEdit.Size = new System.Drawing.Size(141, 20);
+            this.VATTextEdit.Size = new System.Drawing.Size(173, 20);
             this.VATTextEdit.StyleController = this.dataLayoutControl;
             this.VATTextEdit.TabIndex = 8;
             // 
             // VATShiftedCheckEdit
             // 
             this.VATShiftedCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsInvoice, "VATShifted", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.VATShiftedCheckEdit.Location = new System.Drawing.Point(275, 60);
+            this.VATShiftedCheckEdit.Location = new System.Drawing.Point(216, 60);
             this.VATShiftedCheckEdit.Name = "VATShiftedCheckEdit";
-            this.VATShiftedCheckEdit.Properties.Caption = " ";
+            this.VATShiftedCheckEdit.Properties.Caption = " VAT Shifted";
             this.VATShiftedCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.VATShiftedCheckEdit.Properties.ReadOnly = true;
-            this.VATShiftedCheckEdit.Size = new System.Drawing.Size(134, 20);
+            this.VATShiftedCheckEdit.Size = new System.Drawing.Size(193, 20);
             this.VATShiftedCheckEdit.StyleController = this.dataLayoutControl;
             this.VATShiftedCheckEdit.TabIndex = 9;
             // 
             // DescriptionTextEdit
             // 
             this.DescriptionTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsInvoice, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.DescriptionTextEdit.Location = new System.Drawing.Point(71, 84);
+            this.DescriptionTextEdit.Location = new System.Drawing.Point(39, 84);
             this.DescriptionTextEdit.Name = "DescriptionTextEdit";
             this.DescriptionTextEdit.Properties.ReadOnly = true;
-            this.DescriptionTextEdit.Size = new System.Drawing.Size(338, 20);
+            this.DescriptionTextEdit.Size = new System.Drawing.Size(370, 20);
             this.DescriptionTextEdit.StyleController = this.dataLayoutControl;
             this.DescriptionTextEdit.TabIndex = 10;
             // 
@@ -293,38 +404,46 @@
             // ItemForCustomerCode
             // 
             this.ItemForCustomerCode.Control = this.CustomerCodeTextEdit;
+            this.ItemForCustomerCode.ImageOptions.ImageIndex = 11;
             this.ItemForCustomerCode.Location = new System.Drawing.Point(0, 0);
             this.ItemForCustomerCode.Name = "ItemForCustomerCode";
+            this.ItemForCustomerCode.OptionsToolTip.ToolTip = "Customer";
             this.ItemForCustomerCode.Size = new System.Drawing.Size(204, 24);
-            this.ItemForCustomerCode.Text = "Customer";
-            this.ItemForCustomerCode.TextSize = new System.Drawing.Size(56, 13);
+            this.ItemForCustomerCode.Text = " ";
+            this.ItemForCustomerCode.TextSize = new System.Drawing.Size(24, 16);
             // 
             // ItemForSubTotal
             // 
             this.ItemForSubTotal.Control = this.SubTotalTextEdit;
+            this.ItemForSubTotal.ImageOptions.ImageIndex = 28;
             this.ItemForSubTotal.Location = new System.Drawing.Point(0, 24);
             this.ItemForSubTotal.Name = "ItemForSubTotal";
+            this.ItemForSubTotal.OptionsToolTip.ToolTip = "Sub total";
             this.ItemForSubTotal.Size = new System.Drawing.Size(204, 24);
-            this.ItemForSubTotal.Text = "Sub Total";
-            this.ItemForSubTotal.TextSize = new System.Drawing.Size(56, 13);
+            this.ItemForSubTotal.Text = " ";
+            this.ItemForSubTotal.TextSize = new System.Drawing.Size(24, 16);
             // 
             // ItemForVAT
             // 
             this.ItemForVAT.Control = this.VATTextEdit;
+            this.ItemForVAT.ImageOptions.ImageIndex = 26;
             this.ItemForVAT.Location = new System.Drawing.Point(0, 48);
             this.ItemForVAT.Name = "ItemForVAT";
+            this.ItemForVAT.OptionsToolTip.ToolTip = "VAT";
             this.ItemForVAT.Size = new System.Drawing.Size(204, 24);
-            this.ItemForVAT.Text = "VAT";
-            this.ItemForVAT.TextSize = new System.Drawing.Size(56, 13);
+            this.ItemForVAT.Text = " ";
+            this.ItemForVAT.TextSize = new System.Drawing.Size(24, 16);
             // 
             // ItemForDescription
             // 
             this.ItemForDescription.Control = this.DescriptionTextEdit;
+            this.ItemForDescription.ImageOptions.ImageIndex = 30;
             this.ItemForDescription.Location = new System.Drawing.Point(0, 72);
             this.ItemForDescription.Name = "ItemForDescription";
+            this.ItemForDescription.OptionsToolTip.ToolTip = "Description";
             this.ItemForDescription.Size = new System.Drawing.Size(401, 24);
-            this.ItemForDescription.Text = "Description";
-            this.ItemForDescription.TextSize = new System.Drawing.Size(56, 13);
+            this.ItemForDescription.Text = " ";
+            this.ItemForDescription.TextSize = new System.Drawing.Size(24, 16);
             // 
             // ItemForInfo
             // 
@@ -344,25 +463,30 @@
             this.ItemForVATShifted.Name = "ItemForVATShifted";
             this.ItemForVATShifted.Size = new System.Drawing.Size(197, 24);
             this.ItemForVATShifted.Text = "VAT Shifted";
-            this.ItemForVATShifted.TextSize = new System.Drawing.Size(56, 13);
+            this.ItemForVATShifted.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForVATShifted.TextVisible = false;
             // 
             // ItemForTotal
             // 
             this.ItemForTotal.Control = this.TotalTextEdit;
+            this.ItemForTotal.ImageOptions.ImageIndex = 29;
             this.ItemForTotal.Location = new System.Drawing.Point(204, 24);
             this.ItemForTotal.Name = "ItemForTotal";
+            this.ItemForTotal.OptionsToolTip.ToolTip = "Total";
             this.ItemForTotal.Size = new System.Drawing.Size(197, 24);
-            this.ItemForTotal.Text = "Total";
-            this.ItemForTotal.TextSize = new System.Drawing.Size(56, 13);
+            this.ItemForTotal.Text = " ";
+            this.ItemForTotal.TextSize = new System.Drawing.Size(24, 16);
             // 
             // ItemForDueDate
             // 
             this.ItemForDueDate.Control = this.DueDateDateEdit;
+            this.ItemForDueDate.ImageOptions.ImageIndex = 27;
             this.ItemForDueDate.Location = new System.Drawing.Point(204, 0);
             this.ItemForDueDate.Name = "ItemForDueDate";
+            this.ItemForDueDate.OptionsToolTip.ToolTip = "Due date";
             this.ItemForDueDate.Size = new System.Drawing.Size(197, 24);
-            this.ItemForDueDate.Text = "Due Date";
-            this.ItemForDueDate.TextSize = new System.Drawing.Size(56, 13);
+            this.ItemForDueDate.Text = " ";
+            this.ItemForDueDate.TextSize = new System.Drawing.Size(24, 16);
             // 
             // TitlePanel
             // 
@@ -465,17 +589,6 @@
             this.layoutControlGroup2.Size = new System.Drawing.Size(417, 40);
             this.layoutControlGroup2.TextVisible = false;
             // 
-            // ItemForPayed
-            // 
-            this.ItemForPayed.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ItemForPayed.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.ItemForPayed.Control = this.PayedLabel;
-            this.ItemForPayed.Location = new System.Drawing.Point(202, 0);
-            this.ItemForPayed.Name = "ItemForPayed";
-            this.ItemForPayed.Size = new System.Drawing.Size(20, 20);
-            this.ItemForPayed.TextSize = new System.Drawing.Size(0, 0);
-            this.ItemForPayed.TextVisible = false;
-            // 
             // ItemForSend
             // 
             this.ItemForSend.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -486,17 +599,6 @@
             this.ItemForSend.Size = new System.Drawing.Size(20, 20);
             this.ItemForSend.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForSend.TextVisible = false;
-            // 
-            // ItemForCreated
-            // 
-            this.ItemForCreated.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.ItemForCreated.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.ItemForCreated.Control = this.CreatedLabel;
-            this.ItemForCreated.Location = new System.Drawing.Point(162, 0);
-            this.ItemForCreated.Name = "ItemForCreated";
-            this.ItemForCreated.Size = new System.Drawing.Size(20, 20);
-            this.ItemForCreated.TextSize = new System.Drawing.Size(0, 0);
-            this.ItemForCreated.TextVisible = false;
             // 
             // ItemForSendToBooky
             // 
@@ -524,6 +626,28 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(162, 20);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // ItemForCreated
+            // 
+            this.ItemForCreated.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ItemForCreated.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.ItemForCreated.Control = this.CreatedLabel;
+            this.ItemForCreated.Location = new System.Drawing.Point(162, 0);
+            this.ItemForCreated.Name = "ItemForCreated";
+            this.ItemForCreated.Size = new System.Drawing.Size(20, 20);
+            this.ItemForCreated.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForCreated.TextVisible = false;
+            // 
+            // ItemForPayed
+            // 
+            this.ItemForPayed.ContentHorzAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.ItemForPayed.ContentVertAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.ItemForPayed.Control = this.PayedLabel;
+            this.ItemForPayed.Location = new System.Drawing.Point(202, 0);
+            this.ItemForPayed.Name = "ItemForPayed";
+            this.ItemForPayed.Size = new System.Drawing.Size(20, 20);
+            this.ItemForPayed.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForPayed.TextVisible = false;
             // 
             // gcInvoiceLines
             // 
@@ -693,12 +817,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconLayoutControl)).EndInit();
             this.IconLayoutControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForPayed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSend)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForCreated)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSendToBooky)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCreated)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForPayed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoiceLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsInvoiceLines)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoiceLines)).EndInit();

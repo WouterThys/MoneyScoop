@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerListView));
             this.colAddressLine1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAddressLine2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVATNumber = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dockManager = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.DetailsPanel = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.CustomerDetailView = new MoneyScoop.View.Customers.CustomerDetailView();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -42,6 +47,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
+            this.DetailsPanel.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
             this.SuspendLayout();
             // 
             // bbiAdd
@@ -66,6 +74,7 @@
             // gridControl
             // 
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl.Size = new System.Drawing.Size(507, 362);
             // 
             // gridView
             // 
@@ -215,12 +224,63 @@
             this.colVATNumber.Name = "colVATNumber";
             this.colVATNumber.Width = 94;
             // 
+            // dockManager
+            // 
+            this.dockManager.Form = this;
+            this.dockManager.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.DetailsPanel});
+            this.dockManager.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl",
+            "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl",
+            "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl"});
+            // 
+            // DetailsPanel
+            // 
+            this.DetailsPanel.Controls.Add(this.dockPanel1_Container);
+            this.DetailsPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.DetailsPanel.ID = new System.Guid("52686837-0f87-4f75-b63a-2b0680c1e248");
+            this.DetailsPanel.Location = new System.Drawing.Point(507, 158);
+            this.DetailsPanel.Name = "DetailsPanel";
+            this.DetailsPanel.Options.ShowCloseButton = false;
+            this.DetailsPanel.OriginalSize = new System.Drawing.Size(400, 200);
+            this.DetailsPanel.Size = new System.Drawing.Size(400, 362);
+            this.DetailsPanel.Text = "Details";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.CustomerDetailView);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(393, 329);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // CustomerDetailView
+            // 
+            this.CustomerDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomerDetailView.Location = new System.Drawing.Point(0, 0);
+            this.CustomerDetailView.Name = "CustomerDetailView";
+            this.CustomerDetailView.Size = new System.Drawing.Size(393, 329);
+            this.CustomerDetailView.TabIndex = 0;
+            // 
             // CustomerListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DetailsPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CustomerListView";
+            this.Controls.SetChildIndex(this.ribbonControl, 0);
+            this.Controls.SetChildIndex(this.DetailsPanel, 0);
+            this.Controls.SetChildIndex(this.gridControl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -229,6 +289,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
+            this.DetailsPanel.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +304,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colEmail;
         private DevExpress.XtraGrid.Columns.GridColumn colPhone;
         private DevExpress.XtraGrid.Columns.GridColumn colVATNumber;
+        private DevExpress.XtraBars.Docking.DockManager dockManager;
+        private DevExpress.XtraBars.Docking.DockPanel DetailsPanel;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private Customers.CustomerDetailView CustomerDetailView;
     }
 }

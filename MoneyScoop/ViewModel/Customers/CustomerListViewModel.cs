@@ -13,8 +13,12 @@ namespace MoneyScoop.ViewModel
             return ViewModelSource.Create(() => new CustomerListViewModel());
         }
 
-        public CustomerListViewModel() : base(ModuleTypes.CustomerListModule, ModuleTypes.CustomerEditModule)
+        public virtual CustomerDetialsViewModel DetailModel { get; protected set; }
+
+        public CustomerListViewModel() : base(ModuleTypes.CustomerListModule)
         {
+            DetailModel = CustomerDetialsViewModel.Create();
+            DetailModel.SetParentViewModel(this);
         }
 
         public override IBaseViewModel GetEditViewModel(Customer baseObject)
@@ -25,6 +29,12 @@ namespace MoneyScoop.ViewModel
         public override IEnumerable<Customer> Source()
         {
             return DataSource.Ds.Customers;
+        }
+
+        public override void OnSelectionChanged()
+        {
+            base.OnSelectionChanged();
+            DetailModel.Entity = Selected;
         }
     }
 }

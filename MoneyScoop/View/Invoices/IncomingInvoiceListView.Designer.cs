@@ -469,6 +469,7 @@
             this.DetailsPanel.ID = new System.Guid("453794e6-d192-43ec-bb05-97c03565e95d");
             this.DetailsPanel.Location = new System.Drawing.Point(930, 158);
             this.DetailsPanel.Name = "DetailsPanel";
+            this.DetailsPanel.Options.ShowCloseButton = false;
             this.DetailsPanel.OriginalSize = new System.Drawing.Size(400, 200);
             this.DetailsPanel.Size = new System.Drawing.Size(400, 362);
             this.DetailsPanel.Text = "Details";

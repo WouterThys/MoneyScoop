@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Model\BaseObject.cs" />
+    <Compile Include="Model\BookKeeper.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Data\DataList.cs" />
     <Compile Include="Model\DataSource.cs" />
@@ -105,6 +106,8 @@
     <Compile Include="ViewModel\BaseEditViewModel.cs" />
     <Compile Include="ViewModel\BaseListViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\BookKeeper\BookKeeperListViewModel.cs" />
+    <Compile Include="ViewModel\Customers\CustomerDetialsViewModel.cs" />
     <Compile Include="ViewModel\Customers\CustomerEditViewModel.cs" />
     <Compile Include="ViewModel\Customers\CustomerListViewModel.cs" />
     <Compile Include="ViewModel\Invoices\OutgoingInvoiceDetailsViewModel.cs" />
@@ -147,6 +150,18 @@
     </Compile>
     <Compile Include="View\BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperListView.Designer.cs">
+      <DependentUpon>BookKeeperListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customers\CustomerDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Customers\CustomerDetailView.Designer.cs">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Customers\CustomerEditView.cs">
       <SubType>UserControl</SubType>
@@ -239,6 +254,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\BaseUserControl.resx">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BookKeeper\BookKeeperListView.resx">
+      <DependentUpon>BookKeeperListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Customers\CustomerDetailView.resx">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Customers\CustomerEditView.resx">
       <DependentUpon>CustomerEditView.cs</DependentUpon>

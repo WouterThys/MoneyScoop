@@ -59,7 +59,7 @@ namespace MoneyScoop.Model
         public static readonly ObjectDefinition Invoice = new ObjectDefinition(typeof(Invoice), "invoices", 10);
         public static readonly ObjectDefinition InvoiceLine = new ObjectDefinition(typeof(InvoiceLine), "invoicelines", 10);
         public static readonly ObjectDefinition Customer = new ObjectDefinition(typeof(Customer), "customers", 10);
-
+        public static readonly ObjectDefinition BookKeeper = new ObjectDefinition(typeof(BookKeeper), "", 24);
 
         public static List<ObjectDefinition> Definitions = new List<ObjectDefinition>()
         {

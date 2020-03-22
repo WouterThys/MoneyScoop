@@ -8,40 +8,50 @@ namespace MoneyScoop
 {
     public class Context
     {
-        // Consts
-        public const string SECTION_MAIN = "Main";
-        public const string KEY_DEBUG = "Debug";
-        public const string KEY_MAX_OBJECT_CODE_LENGTH = "MaxObjectCodeLength";
-        public const string KEY_MIN_OBJECT_CODE_LENGTH = "MinObjectCodeLength";
-        public const string KEY_MAX_OBJECT_DESC_LENGTH = "MaxObjectDescLength";
-        public const string KEY_MAX_OBJECT_INFO_LENGTH = "MaxObjectInfoLength";
-        public const string KEY_DUE_DAYS = "DueDays";
-        public const string KEY_SAVE_PATH = "SavePdfPath";
-        public const string KEY_READ_PATH = "ReadPdfPath";
+        #region Constants
+        private const string SECTION_MAIN = "Main";
+        private const string KEY_DEBUG = "Debug";
+        private const string KEY_MAX_OBJECT_CODE_LENGTH = "MaxObjectCodeLength";
+        private const string KEY_MIN_OBJECT_CODE_LENGTH = "MinObjectCodeLength";
+        private const string KEY_MAX_OBJECT_DESC_LENGTH = "MaxObjectDescLength";
+        private const string KEY_MAX_OBJECT_INFO_LENGTH = "MaxObjectInfoLength";
+        private const string KEY_DUE_DAYS = "DueDays";
+        private const string KEY_SAVE_PATH = "SavePdfPath";
+        private const string KEY_READ_PATH = "ReadPdfPath";
 
-        public const string SECTION_DATABASE = "Database";
-        public const string KEY_DB_SERVER = "DbServer";
-        public const string KEY_DB_SCHEMA = "DbSchema";
-        public const string KEY_DB_USER = "DbUser";
-        public const string KEY_DB_PASSWORD = "DbPassword";
-        public const string KEY_DB_PROVIDER = "Provider";
+        private const string SECTION_DATABASE = "Database";
+        private const string KEY_DB_SERVER = "DbServer";
+        private const string KEY_DB_SCHEMA = "DbSchema";
+        private const string KEY_DB_USER = "DbUser";
+        private const string KEY_DB_PASSWORD = "DbPassword";
+        private const string KEY_DB_PROVIDER = "Provider";
 
-        public const string SECTION_INFO = "Info";
-        public const string KEY_INFO_NAME = "Name";
-        public const string KEY_INFO_ADR1 = "AdressLine1";
-        public const string KEY_INFO_ADR2 = "AdressLine2";
-        public const string KEY_INFO_VAT = "VAT";
-        public const string KEY_INFO_EMAIL = "Email";
-        public const string KEY_INFO_PHONE = "Phone";
-        public const string KEY_INFO_BANK = "BankAccount";
-        
-        public const string SECTION_MAIL = "Mail";
-        public const string KEY_MAIL_EMAIL = "Email";
-        public const string KEY_MAIL_SMTP_SERVER = "SMTPServer";
-        public const string KEY_MAIL_SMTP_PORT = "SMTPPort";
-        public const string KEY_MAIL_SMTP_USER = "SMTPUser";
-        public const string KEY_MAIL_SMTP_PASSWORD = "SMTPPassword";
-        
+        private const string SECTION_INFO = "Info";
+        private const string KEY_INFO_NAME = "Name";
+        private const string KEY_INFO_ADR1 = "AdressLine1";
+        private const string KEY_INFO_ADR2 = "AdressLine2";
+        private const string KEY_INFO_VAT = "VAT";
+        private const string KEY_INFO_EMAIL = "Email";
+        private const string KEY_INFO_PHONE = "Phone";
+        private const string KEY_INFO_BANK = "BankAccount";
+
+        private const string SECTION_MAIL = "Mail";
+        private const string KEY_MAIL_EMAIL = "Email";
+        private const string KEY_MAIL_SMTP_SERVER = "SMTPServer";
+        private const string KEY_MAIL_SMTP_PORT = "SMTPPort";
+        private const string KEY_MAIL_SMTP_USER = "SMTPUser";
+        private const string KEY_MAIL_SMTP_PASSWORD = "SMTPPassword";
+
+        private const string SECTION_BOOK_KEEPER = "BookKeeper";
+        private const string KEY_BOOKEY_NAME = "Name";
+        private const string KEY_BOOKEY_COMPANY = "Company";
+        private const string KEY_BOOKEY_INFO = "Info";
+        private const string KEY_BOOKEY_EMAIL = "Email";
+        private const string KEY_BOOKEY_PHONE = "Phone";
+        private const string KEY_BOOKEY_VAT = "VAT";
+        private const string KEY_BOOKEY_BANK_ACCOUNT = "BankAccount";
+        #endregion
+
 
         // Singleton
         private static readonly Context INSTANCE = new Context();
@@ -76,6 +86,9 @@ namespace MoneyScoop
         private string sMTPUser;
         private string sMTPPassword;
 
+        // Booky
+        public BookKeeper BookKeeper { get; private set; }
+
         #region Initialisation
         public void Initialize(IDatabaseAccess dbLogBack)
         {
@@ -84,10 +97,10 @@ namespace MoneyScoop
                 // Config
                 iniFile = new IniFile(@"Config\settings.ini");
                 InitializeSettings(iniFile);
-                
+
                 // Database
                 InitializeDatabase(iniFile, dbLogBack);
-                
+
             }
             catch (Exception e)
             {
@@ -103,7 +116,7 @@ namespace MoneyScoop
         }
         #endregion
 
-        #region Settings
+        #region Read ini file
 
         private void InitializeSettings(IniFile iniFile)
         {
@@ -116,6 +129,17 @@ namespace MoneyScoop
                 Email = iniFile.ReadString(SECTION_INFO, KEY_INFO_EMAIL),
                 Phone = iniFile.ReadString(SECTION_INFO, KEY_INFO_PHONE),
                 BankAccount = iniFile.ReadString(SECTION_INFO, KEY_INFO_BANK)
+            };
+
+            BookKeeper = new BookKeeper()
+            {
+                Name = iniFile.ReadString(SECTION_BOOK_KEEPER, KEY_BOOKEY_NAME),
+                Company = iniFile.ReadString(SECTION_BOOK_KEEPER, KEY_BOOKEY_COMPANY),
+                Info = iniFile.ReadString(SECTION_BOOK_KEEPER, KEY_BOOKEY_INFO),
+                Email = iniFile.ReadString(SECTION_BOOK_KEEPER, KEY_BOOKEY_EMAIL),
+                Phone = iniFile.ReadString(SECTION_BOOK_KEEPER, KEY_BOOKEY_PHONE),
+                VAT = iniFile.ReadString(SECTION_BOOK_KEEPER, KEY_BOOKEY_VAT),
+                BankAccount = iniFile.ReadString(SECTION_BOOK_KEEPER, KEY_BOOKEY_BANK_ACCOUNT)
             };
 
             Debug = iniFile.ReadBool(SECTION_MAIN, KEY_DEBUG);
@@ -133,6 +157,10 @@ namespace MoneyScoop
             SMTPUser = iniFile.ReadString(SECTION_MAIL, KEY_MAIL_SMTP_USER);
             SMTPPassword = iniFile.ReadString(SECTION_MAIL, KEY_MAIL_SMTP_PASSWORD);
         }
+
+        #endregion
+
+        #region Properties
 
         public bool Debug
         {

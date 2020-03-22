@@ -12,7 +12,7 @@ namespace MoneyScoop.ViewModel.Invoices
             return ViewModelSource.Create(() => new OutgoingInvoiceDetailsViewModel());
         }
 
-        protected OutgoingInvoiceDetailsViewModel() : base(ModuleTypes.OutgoingInvoiceDetailModule)
+        protected OutgoingInvoiceDetailsViewModel() : base(ModuleTypes.OutgoingInvoiceDetailsModule)
         {
             
         }

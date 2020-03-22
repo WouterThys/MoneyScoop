@@ -104,7 +104,7 @@
             this.riCheckEditSend,
             this.riCheckEditSaved,
             this.riCheckEditSendToBooky});
-            this.gridControl.Size = new System.Drawing.Size(557, 362);
+            this.gridControl.Size = new System.Drawing.Size(507, 362);
             // 
             // gridView
             // 
@@ -455,10 +455,11 @@
             this.DetailPanel.Controls.Add(this.dockPanel1_Container);
             this.DetailPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.DetailPanel.ID = new System.Guid("37091cb3-08a8-43b2-8eb9-c95286da5f4d");
-            this.DetailPanel.Location = new System.Drawing.Point(557, 158);
+            this.DetailPanel.Location = new System.Drawing.Point(507, 158);
             this.DetailPanel.Name = "DetailPanel";
-            this.DetailPanel.OriginalSize = new System.Drawing.Size(350, 200);
-            this.DetailPanel.Size = new System.Drawing.Size(350, 362);
+            this.DetailPanel.Options.ShowCloseButton = false;
+            this.DetailPanel.OriginalSize = new System.Drawing.Size(400, 200);
+            this.DetailPanel.Size = new System.Drawing.Size(400, 362);
             this.DetailPanel.Text = "Details";
             // 
             // dockPanel1_Container
@@ -466,7 +467,7 @@
             this.dockPanel1_Container.Controls.Add(this.OutgoingInvoiceDetailView);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(343, 329);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(393, 329);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // OutgoingInvoiceDetailView
@@ -474,7 +475,7 @@
             this.OutgoingInvoiceDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OutgoingInvoiceDetailView.Location = new System.Drawing.Point(0, 0);
             this.OutgoingInvoiceDetailView.Name = "OutgoingInvoiceDetailView";
-            this.OutgoingInvoiceDetailView.Size = new System.Drawing.Size(343, 329);
+            this.OutgoingInvoiceDetailView.Size = new System.Drawing.Size(393, 329);
             this.OutgoingInvoiceDetailView.TabIndex = 0;
             // 
             // colIsSendToBooky

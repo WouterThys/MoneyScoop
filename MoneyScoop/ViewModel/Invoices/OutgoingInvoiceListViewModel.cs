@@ -23,7 +23,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual OutgoingInvoiceDetailsViewModel DetailModel { get; protected set; }
 
-        public OutgoingInvoiceListViewModel() : base(ModuleTypes.OutgoingInvoiceListModule, ModuleTypes.OutgoingInvoiceEditModule)
+        public OutgoingInvoiceListViewModel() : base(ModuleTypes.OutgoingInvoiceListModule)
         {
             DetailModel = OutgoingInvoiceDetailsViewModel.Create();
             DetailModel.SetParentViewModel(this);

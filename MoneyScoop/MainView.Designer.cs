@@ -43,6 +43,7 @@
             this.aceInvoiceIncoming = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceInvoiceOutgoing = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceCusomers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceBookKeeper = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
@@ -132,7 +133,8 @@
             this.aceGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.aceInvoiceIncoming,
             this.aceInvoiceOutgoing,
-            this.aceCusomers});
+            this.aceCusomers,
+            this.aceBookKeeper});
             this.aceGroup.Expanded = true;
             this.aceGroup.Name = "aceGroup";
             this.aceGroup.Text = "Select";
@@ -157,6 +159,13 @@
             this.aceCusomers.Name = "aceCusomers";
             this.aceCusomers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceCusomers.Text = "Customers";
+            // 
+            // aceBookKeeper
+            // 
+            this.aceBookKeeper.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceBookKeeper.ImageOptions.Image")));
+            this.aceBookKeeper.Name = "aceBookKeeper";
+            this.aceBookKeeper.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceBookKeeper.Text = "Booky";
             // 
             // MainView
             // 
@@ -200,6 +209,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceInvoiceIncoming;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceInvoiceOutgoing;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceCusomers;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceBookKeeper;
     }
 }
 

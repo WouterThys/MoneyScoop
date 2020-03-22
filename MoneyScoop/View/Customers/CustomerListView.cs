@@ -19,6 +19,12 @@ namespace MoneyScoop.View
             }
         }
 
+        public override void InitializeLayouts()
+        {
+            base.InitializeLayouts();
+            CustomerDetailView.InitializeLayouts();
+        }
+
         private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
             CreateDefaultPopupMenu<Customer, CustomerListViewModel>(sender, e);
@@ -27,6 +33,7 @@ namespace MoneyScoop.View
         private void InitializeBindings()
         {
             var fluent = base.InitializeBindings<Customer, CustomerListViewModel>();
+            CustomerDetailView.InitializeBindings(fluent.ViewModel.DetailModel);
         }
     }
 }

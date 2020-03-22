@@ -73,6 +73,15 @@
             this.ic16x16.Images.SetKeyName(23, "document.png");
             this.ic16x16.Images.SetKeyName(24, "bookkeeper.png");
             this.ic16x16.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic16x16.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic16x16.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic16x16.Images.SetKeyName(28, "money_bills.png");
+            this.ic16x16.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic16x16.Images.SetKeyName(30, "information.png");
+            this.ic16x16.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic16x16.Images.SetKeyName(32, "telephone2.png");
+            this.ic16x16.Images.SetKeyName(33, "chest_into.png");
+            this.ic16x16.Images.SetKeyName(34, "chest_out.png");
             // 
             // ic24x24
             // 
@@ -104,6 +113,15 @@
             this.ic24x24.Images.SetKeyName(23, "document.png");
             this.ic24x24.Images.SetKeyName(24, "bookkeeper.png");
             this.ic24x24.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic24x24.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic24x24.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic24x24.Images.SetKeyName(28, "money_bills.png");
+            this.ic24x24.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic24x24.Images.SetKeyName(30, "information.png");
+            this.ic24x24.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic24x24.Images.SetKeyName(32, "telephone2.png");
+            this.ic24x24.Images.SetKeyName(33, "chest_into.png");
+            this.ic24x24.Images.SetKeyName(34, "chest_out.png");
             // 
             // ic48x48
             // 
@@ -135,6 +153,15 @@
             this.ic48x48.Images.SetKeyName(23, "document.png");
             this.ic48x48.Images.SetKeyName(24, "bookkeeper.png");
             this.ic48x48.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic48x48.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic48x48.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic48x48.Images.SetKeyName(28, "money_bills.png");
+            this.ic48x48.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic48x48.Images.SetKeyName(30, "information.png");
+            this.ic48x48.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic48x48.Images.SetKeyName(32, "telephone2.png");
+            this.ic48x48.Images.SetKeyName(33, "chest_into.png");
+            this.ic48x48.Images.SetKeyName(34, "chest_out.png");
             // 
             // BaseUserControl
             // 

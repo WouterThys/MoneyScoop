@@ -41,6 +41,7 @@ namespace MoneyScoop
             aceInvoiceIncoming.Tag = ModuleTypes.IncomingInvoiceListModule;
             aceInvoiceOutgoing.Tag = ModuleTypes.OutgoingInvoiceListModule;
             aceCusomers.Tag = ModuleTypes.CustomerListModule;
+            aceBookKeeper.Tag = ModuleTypes.BookKeeperListModule;
         }
 
         private void InitializeServices()
