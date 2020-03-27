@@ -49,6 +49,7 @@
             this.colSubTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOutGoing = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riCheckEditOutgoing = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colDateCreated = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDateSend = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDatePayed = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,7 +62,9 @@
             this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLastModified = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.riCheckEditOutgoing = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.colDateSendToBookyDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpgMain = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiOverview = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
@@ -82,6 +85,9 @@
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
+            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.bbiOverview});
+            this.ribbonControl.MaxItemId = 2;
             // 
             // 
             // 
@@ -91,6 +97,11 @@
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.SearchEditItem.UseEditorPadding = false;
             this.ribbonControl.Size = new System.Drawing.Size(1089, 158);
+            // 
+            // MainRibbonPage
+            // 
+            this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgMain});
             // 
             // ic16x16
             // 
@@ -258,19 +269,20 @@
             this.colId,
             this.colDescription,
             this.colInfo,
-            this.colLastModified});
+            this.colLastModified,
+            this.colDateSendToBookyDate});
             this.gridView.GridControl = this.gridControl;
             this.gridView.GroupCount = 1;
             this.gridView.Name = "gridView";
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colOutGoing, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDateSendToBookyDate, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colCode
             // 
             this.colCode.FieldName = "Code";
             this.colCode.Name = "colCode";
             this.colCode.Visible = true;
-            this.colCode.VisibleIndex = 0;
+            this.colCode.VisibleIndex = 1;
             this.colCode.Width = 109;
             // 
             // colCustomerCode
@@ -279,7 +291,7 @@
             this.colCustomerCode.Name = "colCustomerCode";
             this.colCustomerCode.OptionsColumn.ReadOnly = true;
             this.colCustomerCode.Visible = true;
-            this.colCustomerCode.VisibleIndex = 2;
+            this.colCustomerCode.VisibleIndex = 3;
             this.colCustomerCode.Width = 109;
             // 
             // colDueDate
@@ -289,7 +301,7 @@
             this.colDueDate.Name = "colDueDate";
             this.colDueDate.OptionsColumn.ReadOnly = true;
             this.colDueDate.Visible = true;
-            this.colDueDate.VisibleIndex = 3;
+            this.colDueDate.VisibleIndex = 4;
             this.colDueDate.Width = 109;
             // 
             // riDateEdit
@@ -310,7 +322,7 @@
             this.colIsPayed.MinWidth = 30;
             this.colIsPayed.Name = "colIsPayed";
             this.colIsPayed.Visible = true;
-            this.colIsPayed.VisibleIndex = 5;
+            this.colIsPayed.VisibleIndex = 6;
             this.colIsPayed.Width = 30;
             // 
             // riCheckEditPayed
@@ -330,7 +342,7 @@
             this.colIsSend.MinWidth = 30;
             this.colIsSend.Name = "colIsSend";
             this.colIsSend.Visible = true;
-            this.colIsSend.VisibleIndex = 6;
+            this.colIsSend.VisibleIndex = 7;
             this.colIsSend.Width = 30;
             // 
             // riCheckEditSend
@@ -350,7 +362,7 @@
             this.colIsSendToBooky.MinWidth = 30;
             this.colIsSendToBooky.Name = "colIsSendToBooky";
             this.colIsSendToBooky.Visible = true;
-            this.colIsSendToBooky.VisibleIndex = 7;
+            this.colIsSendToBooky.VisibleIndex = 8;
             this.colIsSendToBooky.Width = 30;
             // 
             // riCheckEditBooky
@@ -371,7 +383,7 @@
             this.colIsPdfSaved.Name = "colIsPdfSaved";
             this.colIsPdfSaved.OptionsColumn.ReadOnly = true;
             this.colIsPdfSaved.Visible = true;
-            this.colIsPdfSaved.VisibleIndex = 8;
+            this.colIsPdfSaved.VisibleIndex = 9;
             this.colIsPdfSaved.Width = 30;
             // 
             // riCheckEditCreated
@@ -403,7 +415,7 @@
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.Visible = true;
-            this.colTotal.VisibleIndex = 4;
+            this.colTotal.VisibleIndex = 5;
             this.colTotal.Width = 128;
             // 
             // colOutGoing
@@ -415,8 +427,17 @@
             this.colOutGoing.MinWidth = 30;
             this.colOutGoing.Name = "colOutGoing";
             this.colOutGoing.Visible = true;
-            this.colOutGoing.VisibleIndex = 5;
-            this.colOutGoing.Width = 30;
+            this.colOutGoing.VisibleIndex = 0;
+            this.colOutGoing.Width = 72;
+            // 
+            // riCheckEditOutgoing
+            // 
+            this.riCheckEditOutgoing.AutoHeight = false;
+            this.riCheckEditOutgoing.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Custom;
+            this.riCheckEditOutgoing.ImageOptions.ImageIndexChecked = 34;
+            this.riCheckEditOutgoing.ImageOptions.ImageIndexUnchecked = 33;
+            this.riCheckEditOutgoing.ImageOptions.Images = this.ic16x16;
+            this.riCheckEditOutgoing.Name = "riCheckEditOutgoing";
             // 
             // colDateCreated
             // 
@@ -472,7 +493,7 @@
             this.colDescription.FieldName = "Description";
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
-            this.colDescription.VisibleIndex = 1;
+            this.colDescription.VisibleIndex = 2;
             this.colDescription.Width = 109;
             // 
             // colInfo
@@ -485,14 +506,24 @@
             this.colLastModified.FieldName = "LastModified";
             this.colLastModified.Name = "colLastModified";
             // 
-            // riCheckEditOutgoing
+            // colDateSendToBookyDate
             // 
-            this.riCheckEditOutgoing.AutoHeight = false;
-            this.riCheckEditOutgoing.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Custom;
-            this.riCheckEditOutgoing.ImageOptions.ImageIndexChecked = 34;
-            this.riCheckEditOutgoing.ImageOptions.ImageIndexUnchecked = 33;
-            this.riCheckEditOutgoing.ImageOptions.Images = this.ic16x16;
-            this.riCheckEditOutgoing.Name = "riCheckEditOutgoing";
+            this.colDateSendToBookyDate.FieldName = "DateSendToBookyDate";
+            this.colDateSendToBookyDate.Name = "colDateSendToBookyDate";
+            this.colDateSendToBookyDate.Visible = true;
+            this.colDateSendToBookyDate.VisibleIndex = 10;
+            // 
+            // rpgMain
+            // 
+            this.rpgMain.ItemLinks.Add(this.bbiOverview);
+            this.rpgMain.Name = "rpgMain";
+            this.rpgMain.Text = "Actions";
+            // 
+            // bbiOverview
+            // 
+            this.bbiOverview.Caption = "Overview";
+            this.bbiOverview.Id = 1;
+            this.bbiOverview.Name = "bbiOverview";
             // 
             // BookKeeperListView
             // 
@@ -557,5 +588,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditSend;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditBooky;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditCreated;
+        private DevExpress.XtraGrid.Columns.GridColumn colDateSendToBookyDate;
+        private DevExpress.XtraBars.BarButtonItem bbiOverview;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgMain;
     }
 }

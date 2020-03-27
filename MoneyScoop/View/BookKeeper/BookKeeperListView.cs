@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Windows.Forms;
 using MoneyScoop.Utils;
 using DevExpress.Utils.MVVM.Services;
-using DevExpress.Utils.MVVM;
 using MoneyScoop.Model;
-using MoneyScoop.ViewModel;
-using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Data;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.Utils.Menu;
 using MoneyScoop.ViewModel.BookKeeper;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace MoneyScoop.View.BookKeeper
 {
@@ -61,25 +56,19 @@ namespace MoneyScoop.View.BookKeeper
             fluent.SetBinding(gridView, gv => gv.LoadingPanelVisible, m => m.IsLoading);
             fluent.SetObjectDataSourceBinding(bsInvoices, m => m.Invoices, m => m.UpdateCommands());
 
-            //// GridView - Row double clicked
-            //fluent.WithEvent<RowClickEventArgs>(gridView, "RowClick").EventToCommand(
-            //        m => m.Edit(null),
-            //        m => m.Selected,
-            //        args => (args.Clicks == 2) && (args.Button == MouseButtons.Left));
+            // GridView - Row double clicked
+            fluent.WithEvent<RowClickEventArgs>(gridView, "RowClick").EventToCommand(
+                    m => m.ShowInvoice(null),
+                    m => m.Selected,
+                    args => (args.Clicks == 2) && (args.Button == System.Windows.Forms.MouseButtons.Left));
 
             // GridView - Multiple selected
             fluent.WithEvent<SelectionChangedEventArgs>(gridView, "SelectionChanged").SetBinding(
                 m => m.Selection,
                 e => new List<Invoice>(gridView.GetSelectedRows().Select(r => gridView.GetRow(r) as Invoice)));
 
-            //// GridView - Keys
-            //fluent.WithEvent<KeyEventArgs>(gridView, "KeyDown").EventToCommand(
-            //    m => m.KeyPressed(null));
-
             // Ribbon
-            //fluent.BindCommand(bbiAdd, m => m.Add());
-            //fluent.BindCommand(bbiEdit, m => m.Edit(null), m => m.Selected);
-            //fluent.BindCommand(bbiDelete, m => m.Delete(null), m => m.Selection);
+            fluent.BindCommand(bbiOverview, m => m.ShowOverview());
 
 
         }

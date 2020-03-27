@@ -35,7 +35,6 @@ namespace MoneyScoop.View
                 var fluent = InitBindings<Invoice, OutgoingInvoiceEditViewModel>();
 
                 fluent.SetObjectDataSourceBinding(bsCustomers, m => m.Customers);
-
                 fluent.SetBinding(PdfViewer, pdf => pdf.DocumentFilePath, m => m.Editable.SavePath);
             }
         }

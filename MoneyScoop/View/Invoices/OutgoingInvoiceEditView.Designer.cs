@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutgoingInvoiceEditView));
+            
             this.IsPayedCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.ItemForIsPayed = new DevExpress.XtraLayout.LayoutControlItem();
             this.CustomerIdSearchLookUpEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -51,11 +51,9 @@
             this.DateCreatedDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.ItemForDateCreated = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
-            this.rpgInvoiceLines = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiAddLine = new DevExpress.XtraBars.BarButtonItem();
             this.bbiEditLine = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDeleteLine = new DevExpress.XtraBars.BarButtonItem();
-            this.rpgReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPreview = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSavePdf = new DevExpress.XtraBars.BarButtonItem();
             this.bbiMailToCustomer = new DevExpress.XtraBars.BarButtonItem();
@@ -216,87 +214,6 @@
             this.ribbonControl.SearchEditItem.UseEditorPadding = false;
             this.ribbonControl.Size = new System.Drawing.Size(1057, 158);
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
-            // 
-            // MainRibbonPage
-            // 
-            this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgInvoiceLines,
-            this.rpgReport});
-            // 
-            // ic16x16
-            // 
-            this.ic16x16.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic16x16.ImageStream")));
-            this.ic16x16.Images.SetKeyName(0, "add.png");
-            this.ic16x16.Images.SetKeyName(1, "pencil.png");
-            this.ic16x16.Images.SetKeyName(2, "delete.png");
-            this.ic16x16.Images.SetKeyName(3, "copy.png");
-            this.ic16x16.Images.SetKeyName(4, "cut.png");
-            this.ic16x16.Images.SetKeyName(5, "paste.png");
-            this.ic16x16.Images.SetKeyName(6, "refresh.png");
-            this.ic16x16.Images.SetKeyName(7, "undo.png");
-            this.ic16x16.Images.SetKeyName(8, "redo.png");
-            this.ic16x16.Images.SetKeyName(9, "floppy_disk.png");
-            this.ic16x16.Images.SetKeyName(10, "floppy_disk_ok.png");
-            this.ic16x16.Images.SetKeyName(11, "hand_money.png");
-            this.ic16x16.Images.SetKeyName(12, "invoice_euro.png");
-            this.ic16x16.Images.SetKeyName(13, "table_row.png");
-            this.ic16x16.Images.SetKeyName(14, "cashier.png");
-            this.ic16x16.Images.SetKeyName(15, "table_row_add.png");
-            this.ic16x16.Images.SetKeyName(16, "table_row_edit.png");
-            this.ic16x16.Images.SetKeyName(17, "table_row_delete.png");
-            this.ic16x16.Images.SetKeyName(18, "mail_ok.png");
-            this.ic16x16.Images.SetKeyName(19, "moneybag2_ok.png");
-            this.ic16x16.Images.SetKeyName(20, "mail.png");
-            // 
-            // ic24x24
-            // 
-            this.ic24x24.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic24x24.ImageStream")));
-            this.ic24x24.Images.SetKeyName(0, "add.png");
-            this.ic24x24.Images.SetKeyName(1, "pencil.png");
-            this.ic24x24.Images.SetKeyName(2, "delete.png");
-            this.ic24x24.Images.SetKeyName(3, "copy.png");
-            this.ic24x24.Images.SetKeyName(4, "cut.png");
-            this.ic24x24.Images.SetKeyName(5, "paste.png");
-            this.ic24x24.Images.SetKeyName(6, "refresh.png");
-            this.ic24x24.Images.SetKeyName(7, "undo.png");
-            this.ic24x24.Images.SetKeyName(8, "redo.png");
-            this.ic24x24.Images.SetKeyName(9, "floppy_disk.png");
-            this.ic24x24.Images.SetKeyName(10, "floppy_disk_ok.png");
-            this.ic24x24.Images.SetKeyName(11, "hand_money.png");
-            this.ic24x24.Images.SetKeyName(12, "invoice_euro.png");
-            this.ic24x24.Images.SetKeyName(13, "table_row.png");
-            this.ic24x24.Images.SetKeyName(14, "cashier.png");
-            this.ic24x24.Images.SetKeyName(15, "table_row_add.png");
-            this.ic24x24.Images.SetKeyName(16, "table_row_edit.png");
-            this.ic24x24.Images.SetKeyName(17, "table_row_delete.png");
-            this.ic24x24.Images.SetKeyName(18, "mail_ok.png");
-            this.ic24x24.Images.SetKeyName(19, "moneybag2_ok.png");
-            this.ic24x24.Images.SetKeyName(20, "mail.png");
-            // 
-            // ic48x48
-            // 
-            this.ic48x48.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("ic48x48.ImageStream")));
-            this.ic48x48.Images.SetKeyName(0, "add.png");
-            this.ic48x48.Images.SetKeyName(1, "pencil.png");
-            this.ic48x48.Images.SetKeyName(2, "delete.png");
-            this.ic48x48.Images.SetKeyName(3, "copy.png");
-            this.ic48x48.Images.SetKeyName(4, "cut.png");
-            this.ic48x48.Images.SetKeyName(5, "paste.png");
-            this.ic48x48.Images.SetKeyName(6, "refresh.png");
-            this.ic48x48.Images.SetKeyName(7, "undo.png");
-            this.ic48x48.Images.SetKeyName(8, "redo.png");
-            this.ic48x48.Images.SetKeyName(9, "floppy_disk.png");
-            this.ic48x48.Images.SetKeyName(10, "floppy_disk_ok.png");
-            this.ic48x48.Images.SetKeyName(11, "hand_money.png");
-            this.ic48x48.Images.SetKeyName(12, "invoice_euro.png");
-            this.ic48x48.Images.SetKeyName(13, "table_row.png");
-            this.ic48x48.Images.SetKeyName(14, "cashier.png");
-            this.ic48x48.Images.SetKeyName(15, "table_row_add.png");
-            this.ic48x48.Images.SetKeyName(16, "table_row_edit.png");
-            this.ic48x48.Images.SetKeyName(17, "table_row_delete.png");
-            this.ic48x48.Images.SetKeyName(18, "mail_ok.png");
-            this.ic48x48.Images.SetKeyName(19, "moneybag2_ok.png");
-            this.ic48x48.Images.SetKeyName(20, "mail.png");
             // 
             // IsPayedCheckEdit
             // 
@@ -506,14 +423,6 @@
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(10, 630);
             // 
-            // rpgInvoiceLines
-            // 
-            this.rpgInvoiceLines.ItemLinks.Add(this.bbiAddLine);
-            this.rpgInvoiceLines.ItemLinks.Add(this.bbiEditLine);
-            this.rpgInvoiceLines.ItemLinks.Add(this.bbiDeleteLine);
-            this.rpgInvoiceLines.Name = "rpgInvoiceLines";
-            this.rpgInvoiceLines.Text = "Lines";
-            // 
             // bbiAddLine
             // 
             this.bbiAddLine.Caption = "Add";
@@ -537,14 +446,6 @@
             this.bbiDeleteLine.ImageOptions.ImageIndex = 17;
             this.bbiDeleteLine.ImageOptions.LargeImageIndex = 17;
             this.bbiDeleteLine.Name = "bbiDeleteLine";
-            // 
-            // rpgReport
-            // 
-            this.rpgReport.ItemLinks.Add(this.bbiPreview);
-            this.rpgReport.ItemLinks.Add(this.bbiSavePdf);
-            this.rpgReport.ItemLinks.Add(this.bbiMailToCustomer);
-            this.rpgReport.Name = "rpgReport";
-            this.rpgReport.Text = "Report";
             // 
             // bbiPreview
             // 
@@ -676,13 +577,11 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForDatePayedString;
         private DevExpress.XtraLayout.LayoutControlItem ItemForDateCreated;
         private DevExpress.XtraLayout.SplitterItem splitterItem1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInvoiceLines;
         private DevExpress.XtraBars.BarButtonItem bbiAddLine;
         private DevExpress.XtraBars.BarButtonItem bbiEditLine;
         private DevExpress.XtraBars.BarButtonItem bbiDeleteLine;
         private DevExpress.XtraBars.BarButtonItem bbiPreview;
         private DevExpress.XtraBars.BarButtonItem bbiSavePdf;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReport;
         private DevExpress.XtraBars.BarButtonItem bbiMailToCustomer;
         private DevExpress.XtraPdfViewer.PdfViewer PdfViewer;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;

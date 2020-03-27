@@ -59,6 +59,12 @@
     <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -107,6 +113,8 @@
     <Compile Include="ViewModel\BaseListViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BookKeeper\BookKeeperListViewModel.cs" />
+    <Compile Include="ViewModel\BookKeeper\BookKeeperOverviewModel.cs" />
+    <Compile Include="ViewModel\BookKeeper\CheckedInvoice.cs" />
     <Compile Include="ViewModel\Customers\CustomerDetialsViewModel.cs" />
     <Compile Include="ViewModel\Customers\CustomerEditViewModel.cs" />
     <Compile Include="ViewModel\Customers\CustomerListViewModel.cs" />
@@ -115,7 +123,8 @@
     <Compile Include="ViewModel\Invoices\OutgoingInvoiceEditViewModel.cs" />
     <Compile Include="ViewModel\Invoices\OutgoingInvoiceListViewModel.cs" />
     <Compile Include="ViewModel\Interfaces.cs" />
-    <Compile Include="ViewModel\Other\InvoiceActionHelper.cs" />
+    <Compile Include="ViewModel\Other\MailAttachment.cs" />
+    <Compile Include="ViewModel\Utils.cs" />
     <Compile Include="ViewModel\Invoices\IncomingInvoiceEditViewModel.cs" />
     <Compile Include="ViewModel\Invoices\IncomingInvoiceLineEditViewModel.cs" />
     <Compile Include="ViewModel\Invoices\IncomingInvoiceListViewModel.cs" />
@@ -156,6 +165,12 @@
     </Compile>
     <Compile Include="View\BookKeeper\BookKeeperListView.Designer.cs">
       <DependentUpon>BookKeeperListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperOverviewView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperOverviewView.Designer.cs">
+      <DependentUpon>BookKeeperOverviewView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Customers\CustomerDetailView.cs">
       <SubType>UserControl</SubType>
@@ -258,6 +273,9 @@
     <EmbeddedResource Include="View\BookKeeper\BookKeeperListView.resx">
       <DependentUpon>BookKeeperListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\BookKeeper\BookKeeperOverviewView.resx">
+      <DependentUpon>BookKeeperOverviewView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Customers\CustomerDetailView.resx">
       <DependentUpon>CustomerDetailView.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,10 +313,12 @@
     <None Include="Config\settings.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\MoneyScoop.Model.BaseObject.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.Customer.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.Invoice.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.InvoiceLine.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.ViewModel.BookKeeper.CheckedInvoice.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.ViewModel.SendMailViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -310,12 +330,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{481378DF-59C1-4AEC-99A5-F9AA6A0B5B60}</Project>
       <Name>Database</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

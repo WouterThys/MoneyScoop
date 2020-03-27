@@ -5,6 +5,7 @@ using MoneyScoop.Model;
 using MoneyScoop.Model.Data;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MoneyScoop.ViewModel.BookKeeper
@@ -32,7 +33,7 @@ namespace MoneyScoop.ViewModel.BookKeeper
             IsLoading = true;
             return Task.Factory.StartNew((disp) => 
             {
-                List<Invoice> invoices = new List<Invoice>(DataSource.Ds.Invoices);
+                List<Invoice> invoices = new List<Invoice>(DataSource.Ds.Invoices.Where(i => i.IsSaved));
                 
                 ((IDispatcherService)disp).BeginInvoke(() => 
                 {
@@ -64,12 +65,48 @@ namespace MoneyScoop.ViewModel.BookKeeper
             }
         }
 
+        #endregion
+
+        #region Commands
+
         public virtual void UpdateCommands()
         {
-            //this.RaiseCanExecuteChanged(x => x.Add());
-            //this.RaiseCanExecuteChanged(x => x.Edit(Selected));
-            //this.RaiseCanExecuteChanged(x => x.Delete(Selection));
-            //this.RaiseCanExecuteChanged(x => x.Copy(Selected));
+            this.RaiseCanExecuteChanged(x => x.ShowOverview());
+            this.RaiseCanExecuteChanged(x => x.ShowInvoice(Selected));
+        }
+
+
+        public virtual bool CanShowInvoice(Invoice invoice)
+        {
+            return !IsLoading && invoice != null;
+        }
+
+        public virtual void ShowInvoice(Invoice invoice)
+        {
+            BaseViewModel model;
+            if (invoice.OutGoing)
+            {
+                model = OutgoingInvoiceEditViewModel.Create(invoice);
+            }
+            else
+            {
+                model = IncomingInvoiceEditViewModel.Create(invoice);
+            }
+            model.SetParentViewModel(this);
+            ShowDocument(model);
+        }
+
+
+        public virtual bool CanShowOverview()
+        {
+            return !IsLoading;
+        }
+
+        public virtual void ShowOverview()
+        {
+            BookKeeperOverviewModel model = BookKeeperOverviewModel.Create();
+            model.SetParentViewModel(this);
+            ShowDocument(model);
         }
 
         #endregion

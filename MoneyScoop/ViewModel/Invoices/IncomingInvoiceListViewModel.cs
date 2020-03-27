@@ -6,6 +6,7 @@ using MoneyScoop.ViewModel.Invoices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MoneyScoop.ViewModel
 {
@@ -64,7 +65,7 @@ namespace MoneyScoop.ViewModel
             {
                 try
                 {
-                    InvoiceActionHelper.ShowPreview(invoice);
+                    Utils.ShowPreview(invoice);
                 }
                 catch (Exception e)
                 {
@@ -85,7 +86,7 @@ namespace MoneyScoop.ViewModel
             {
                 try
                 {
-                    InvoiceActionHelper.SaveToPdf(invoice);
+                    Utils.SaveToPdf(invoice);
                 }
                 catch (Exception e)
                 {
@@ -102,10 +103,18 @@ namespace MoneyScoop.ViewModel
 
         public virtual void SendMailToCustomer()
         {
-            SendMailViewModel viewModel = SendMailViewModel.Create(Selected);
+            SendMailViewModel viewModel = SendMailViewModel.CreateForCustomer(Selected);
             viewModel.SetParentViewModel(this);
-            ShowDialog(viewModel);
+
+            var res = DialogService.ShowDialog(MessageButton.OKCancel, "Mail", viewModel);
+            if (res == MessageResult.OK)
+            {
+                viewModel.SendMail();
+            }
         }
+
+
+       
         #endregion
     }
 }

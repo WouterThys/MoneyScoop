@@ -2,17 +2,18 @@
 using MoneyScoop.ViewModel;
 using DevExpress.Utils.MVVM.Services;
 using System.Windows.Forms;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace MoneyScoop.View
 {
-    public partial class SendMailView : BaseRibbonControl
+    public partial class SendMailView : BaseUserControl
     {
         public SendMailView()
         {
-            InitializeModel(typeof(SendMailViewModel));
             InitializeComponent();
             if (!DesignMode)
             {
+                InitializeModel(typeof(SendMailViewModel));
                 InitializeLayouts();
                 InitializeServices();
             }
@@ -21,6 +22,7 @@ namespace MoneyScoop.View
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
+            
         }
 
         protected override void InitializeServices()
@@ -37,10 +39,19 @@ namespace MoneyScoop.View
                 var fluent = mvvmContext.OfType<SendMailViewModel>();
 
                 fluent.SetObjectDataSourceBinding(bsModel);
-                fluent.BindCommand(bbiSend, m => m.SendMail());
 
                 fluent.SetBinding(this, t => t.Cursor, m => m.IsLoading, (loading) => loading ? Cursors.WaitCursor : Cursors.Default);
             }
+        }
+
+        public void InitializeBindings(SendMailViewModel viewModel)
+        {
+            InitializeModel(typeof(SendMailViewModel), viewModel);
+            var fluent = mvvmContext.OfType<SendMailViewModel>();
+
+            fluent.SetObjectDataSourceBinding(bsModel);
+
+            fluent.SetBinding(this, t => t.Cursor, m => m.IsLoading, (loading) => loading ? Cursors.WaitCursor : Cursors.Default);
         }
     }
 }

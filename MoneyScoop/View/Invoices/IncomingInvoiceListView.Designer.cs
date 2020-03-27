@@ -57,6 +57,8 @@
             this.IncomingInvoiceDetailView = new MoneyScoop.View.Invoices.IncomingInvoiceDetailView();
             this.colIsSendToBooky = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riCheckEditSendToBooky = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.colOutGoing = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riCheckEditOutgoing = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -72,6 +74,7 @@
             this.DetailsPanel.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSendToBooky)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riCheckEditOutgoing)).BeginInit();
             this.SuspendLayout();
             // 
             // bbiAdd
@@ -100,7 +103,8 @@
             this.riCheckEditPayed,
             this.riCheckEditSend,
             this.riCheckEditSaved,
-            this.riCheckEditSendToBooky});
+            this.riCheckEditSendToBooky,
+            this.riCheckEditOutgoing});
             this.gridControl.Size = new System.Drawing.Size(930, 362);
             // 
             // gridView
@@ -118,7 +122,8 @@
             this.colVAT,
             this.colDueDate,
             this.colIsPdfSaved,
-            this.colTotal});
+            this.colTotal,
+            this.colOutGoing});
             this.gridView.DetailHeight = 350;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCode, DevExpress.Data.ColumnSortOrder.Descending)});
@@ -131,11 +136,13 @@
             // colCode
             // 
             this.colCode.MinWidth = 21;
+            this.colCode.VisibleIndex = 1;
             this.colCode.Width = 75;
             // 
             // colDescription
             // 
             this.colDescription.MinWidth = 21;
+            this.colDescription.VisibleIndex = 2;
             this.colDescription.Width = 75;
             // 
             // colInfo
@@ -204,6 +211,15 @@
             this.ic16x16.Images.SetKeyName(23, "document.png");
             this.ic16x16.Images.SetKeyName(24, "bookkeeper.png");
             this.ic16x16.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic16x16.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic16x16.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic16x16.Images.SetKeyName(28, "money_bills.png");
+            this.ic16x16.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic16x16.Images.SetKeyName(30, "information.png");
+            this.ic16x16.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic16x16.Images.SetKeyName(32, "telephone2.png");
+            this.ic16x16.Images.SetKeyName(33, "chest_into.png");
+            this.ic16x16.Images.SetKeyName(34, "chest_out.png");
             // 
             // ic24x24
             // 
@@ -234,6 +250,15 @@
             this.ic24x24.Images.SetKeyName(23, "document.png");
             this.ic24x24.Images.SetKeyName(24, "bookkeeper.png");
             this.ic24x24.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic24x24.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic24x24.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic24x24.Images.SetKeyName(28, "money_bills.png");
+            this.ic24x24.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic24x24.Images.SetKeyName(30, "information.png");
+            this.ic24x24.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic24x24.Images.SetKeyName(32, "telephone2.png");
+            this.ic24x24.Images.SetKeyName(33, "chest_into.png");
+            this.ic24x24.Images.SetKeyName(34, "chest_out.png");
             // 
             // ic48x48
             // 
@@ -264,6 +289,15 @@
             this.ic48x48.Images.SetKeyName(23, "document.png");
             this.ic48x48.Images.SetKeyName(24, "bookkeeper.png");
             this.ic48x48.Images.SetKeyName(25, "bookkeeper_ok.png");
+            this.ic48x48.Images.SetKeyName(26, "symbol_percent.png");
+            this.ic48x48.Images.SetKeyName(27, "calendar_warning.png");
+            this.ic48x48.Images.SetKeyName(28, "money_bills.png");
+            this.ic48x48.Images.SetKeyName(29, "symbol_sum.png");
+            this.ic48x48.Images.SetKeyName(30, "information.png");
+            this.ic48x48.Images.SetKeyName(31, "symbol_hash.png");
+            this.ic48x48.Images.SetKeyName(32, "telephone2.png");
+            this.ic48x48.Images.SetKeyName(33, "chest_into.png");
+            this.ic48x48.Images.SetKeyName(34, "chest_out.png");
             // 
             // colCustomerCode
             // 
@@ -271,7 +305,7 @@
             this.colCustomerCode.MinWidth = 25;
             this.colCustomerCode.Name = "colCustomerCode";
             this.colCustomerCode.Visible = true;
-            this.colCustomerCode.VisibleIndex = 3;
+            this.colCustomerCode.VisibleIndex = 4;
             this.colCustomerCode.Width = 94;
             // 
             // colCustomerId
@@ -289,7 +323,7 @@
             this.colDateCreated.MinWidth = 25;
             this.colDateCreated.Name = "colDateCreated";
             this.colDateCreated.Visible = true;
-            this.colDateCreated.VisibleIndex = 2;
+            this.colDateCreated.VisibleIndex = 3;
             this.colDateCreated.Width = 94;
             // 
             // colDatePayed
@@ -320,7 +354,7 @@
             this.colIsPayed.Name = "colIsPayed";
             this.colIsPayed.ToolTip = "Payed";
             this.colIsPayed.Visible = true;
-            this.colIsPayed.VisibleIndex = 7;
+            this.colIsPayed.VisibleIndex = 8;
             this.colIsPayed.Width = 30;
             // 
             // riCheckEditPayed
@@ -348,7 +382,7 @@
             this.colIsSend.Name = "colIsSend";
             this.colIsSend.ToolTip = "Send";
             this.colIsSend.Visible = true;
-            this.colIsSend.VisibleIndex = 6;
+            this.colIsSend.VisibleIndex = 7;
             this.colIsSend.Width = 30;
             // 
             // riCheckEditSend
@@ -422,7 +456,7 @@
             this.colIsPdfSaved.Name = "colIsPdfSaved";
             this.colIsPdfSaved.ToolTip = "PDF saved";
             this.colIsPdfSaved.Visible = true;
-            this.colIsPdfSaved.VisibleIndex = 5;
+            this.colIsPdfSaved.VisibleIndex = 6;
             this.colIsPdfSaved.Width = 30;
             // 
             // riCheckEditSaved
@@ -440,7 +474,7 @@
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.Visible = true;
-            this.colTotal.VisibleIndex = 4;
+            this.colTotal.VisibleIndex = 5;
             this.colTotal.Width = 64;
             // 
             // dockManager
@@ -499,7 +533,7 @@
             this.colIsSendToBooky.MinWidth = 30;
             this.colIsSendToBooky.Name = "colIsSendToBooky";
             this.colIsSendToBooky.Visible = true;
-            this.colIsSendToBooky.VisibleIndex = 8;
+            this.colIsSendToBooky.VisibleIndex = 9;
             this.colIsSendToBooky.Width = 30;
             // 
             // riCheckEditSendToBooky
@@ -509,6 +543,27 @@
             this.riCheckEditSendToBooky.ImageOptions.ImageIndexChecked = 25;
             this.riCheckEditSendToBooky.ImageOptions.Images = this.ic16x16;
             this.riCheckEditSendToBooky.Name = "riCheckEditSendToBooky";
+            // 
+            // colOutGoing
+            // 
+            this.colOutGoing.Caption = " ";
+            this.colOutGoing.ColumnEdit = this.riCheckEditOutgoing;
+            this.colOutGoing.FieldName = "OutGoing";
+            this.colOutGoing.MaxWidth = 30;
+            this.colOutGoing.MinWidth = 30;
+            this.colOutGoing.Name = "colOutGoing";
+            this.colOutGoing.Visible = true;
+            this.colOutGoing.VisibleIndex = 0;
+            this.colOutGoing.Width = 72;
+            // 
+            // riCheckEditOutgoing
+            // 
+            this.riCheckEditOutgoing.AutoHeight = false;
+            this.riCheckEditOutgoing.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Custom;
+            this.riCheckEditOutgoing.ImageOptions.ImageIndexChecked = 34;
+            this.riCheckEditOutgoing.ImageOptions.ImageIndexUnchecked = 33;
+            this.riCheckEditOutgoing.ImageOptions.Images = this.ic16x16;
+            this.riCheckEditOutgoing.Name = "riCheckEditOutgoing";
             // 
             // IncomingInvoiceListView
             // 
@@ -536,6 +591,7 @@
             this.DetailsPanel.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSendToBooky)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riCheckEditOutgoing)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,5 +626,7 @@
         private Invoices.IncomingInvoiceDetailView IncomingInvoiceDetailView;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditSendToBooky;
         private DevExpress.XtraGrid.Columns.GridColumn colIsSendToBooky;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditOutgoing;
+        private DevExpress.XtraGrid.Columns.GridColumn colOutGoing;
     }
 }

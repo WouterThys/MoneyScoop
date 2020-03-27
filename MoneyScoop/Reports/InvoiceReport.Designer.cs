@@ -83,6 +83,7 @@
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceDate = new DevExpress.XtraReports.UI.XRTableCell();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.xrLabelVATShifted = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel11 = new DevExpress.XtraReports.UI.XRLabel();
             this.totalTable = new DevExpress.XtraReports.UI.XRTable();
@@ -114,7 +115,6 @@
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.dataSource = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
-            this.xrLabelVATShifted = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.vendorTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
@@ -604,7 +604,7 @@
             this.xrTableCell2.StylePriority.UseForeColor = false;
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell2.Weight = 11.839055108484249D;
+            this.xrTableCell2.Weight = 9.5205740591443551D;
             // 
             // invoiceInfoTableRow2
             // 
@@ -631,7 +631,7 @@
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
             this.xrTableCell13.Text = "Datum";
             this.xrTableCell13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.xrTableCell13.Weight = 2.9597638697317565D;
+            this.xrTableCell13.Weight = 2.1156831258679061D;
             // 
             // xrTableCell6
             // 
@@ -650,7 +650,7 @@
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
             this.xrTableCell6.Text = "Verval datum";
             this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.xrTableCell6.Weight = 2.9597638697317565D;
+            this.xrTableCell6.Weight = 2.1156831667259226D;
             // 
             // invoiceDateCaption
             // 
@@ -667,7 +667,7 @@
             this.invoiceDateCaption.StylePriority.UseTextAlignment = false;
             this.invoiceDateCaption.Text = "Rekening nummer";
             this.invoiceDateCaption.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
-            this.invoiceDateCaption.Weight = 1.9731758205438101D;
+            this.invoiceDateCaption.Weight = 2.1156832042931386D;
             // 
             // invoiceInfoTableRow3
             // 
@@ -694,7 +694,7 @@
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
             this.xrTableCell14.Text = "xrTableCell14";
             this.xrTableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell14.Weight = 2.9597638697317565D;
+            this.xrTableCell14.Weight = 2.1156832487531334D;
             // 
             // xrTableCell7
             // 
@@ -710,7 +710,7 @@
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "xrTableCell7";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell7.Weight = 2.9597638697317565D;
+            this.xrTableCell7.Weight = 2.1156832487531334D;
             // 
             // invoiceDate
             // 
@@ -724,7 +724,7 @@
             this.invoiceDate.StylePriority.UseTextAlignment = false;
             this.invoiceDate.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.invoiceDate.TextFormatString = "{0:dd MMM yyyy}";
-            this.invoiceDate.Weight = 1.9731758205438101D;
+            this.invoiceDate.Weight = 2.1156829993807D;
             // 
             // GroupFooter1
             // 
@@ -739,6 +739,19 @@
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBandExceptLastEntry;
             this.GroupFooter1.StyleName = "baseControlStyle";
+            // 
+            // xrLabelVATShifted
+            // 
+            this.xrLabelVATShifted.AutoWidth = true;
+            this.xrLabelVATShifted.CanShrink = true;
+            this.xrLabelVATShifted.LocationFloat = new DevExpress.Utils.PointFloat(251.6666F, 0F);
+            this.xrLabelVATShifted.Multiline = true;
+            this.xrLabelVATShifted.Name = "xrLabelVATShifted";
+            this.xrLabelVATShifted.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabelVATShifted.SizeF = new System.Drawing.SizeF(483.3336F, 23F);
+            this.xrLabelVATShifted.StylePriority.UseTextAlignment = false;
+            this.xrLabelVATShifted.Text = "BTW verlegd. Belasting te voldoen door de medecontractant, KB nr.1, art20";
+            this.xrLabelVATShifted.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel12
             // 
@@ -1135,19 +1148,6 @@
             // 
             this.dataSource.DataSource = typeof(MoneyScoop.Model.Invoice);
             this.dataSource.Name = "dataSource";
-            // 
-            // xrLabelVATShifted
-            // 
-            this.xrLabelVATShifted.AutoWidth = true;
-            this.xrLabelVATShifted.CanShrink = true;
-            this.xrLabelVATShifted.LocationFloat = new DevExpress.Utils.PointFloat(251.6666F, 0F);
-            this.xrLabelVATShifted.Multiline = true;
-            this.xrLabelVATShifted.Name = "xrLabelVATShifted";
-            this.xrLabelVATShifted.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabelVATShifted.SizeF = new System.Drawing.SizeF(483.3336F, 23F);
-            this.xrLabelVATShifted.StylePriority.UseTextAlignment = false;
-            this.xrLabelVATShifted.Text = "BTW verlegd. Belasting te voldoen door de medecontractant, KB nr.1, art20";
-            this.xrLabelVATShifted.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // InvoiceReport
             // 

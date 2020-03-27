@@ -18,6 +18,7 @@ namespace MoneyScoop
         private const string KEY_DUE_DAYS = "DueDays";
         private const string KEY_SAVE_PATH = "SavePdfPath";
         private const string KEY_READ_PATH = "ReadPdfPath";
+        private const string KEY_BOOKY_PATH = "BookyPdfPath";
 
         private const string SECTION_DATABASE = "Database";
         private const string KEY_DB_SERVER = "DbServer";
@@ -77,6 +78,7 @@ namespace MoneyScoop
         // Save and read
         private string savePdfPath;
         private string readPdfPath;
+        private string bookyPdfPath;
         private int dueDays;
 
         // Mail
@@ -150,6 +152,7 @@ namespace MoneyScoop
             DueDays = iniFile.ReadInt(SECTION_MAIN, KEY_DUE_DAYS);
             SavePdfPath = iniFile.ReadString(SECTION_MAIN, KEY_SAVE_PATH);
             ReadPdfPath = iniFile.ReadString(SECTION_MAIN, KEY_READ_PATH);
+            BookyPdfPath = iniFile.ReadString(SECTION_MAIN, KEY_BOOKY_PATH);
 
             Email = iniFile.ReadString(SECTION_MAIL, KEY_MAIL_EMAIL);
             SMTPServer = iniFile.ReadString(SECTION_MAIL, KEY_MAIL_SMTP_SERVER);
@@ -202,6 +205,12 @@ namespace MoneyScoop
         {
             get => readPdfPath ?? "";
             set => readPdfPath = value;
+        }
+
+        public string BookyPdfPath
+        {
+            get => bookyPdfPath ?? "";
+            set => bookyPdfPath = value;
         }
 
         public int DueDays

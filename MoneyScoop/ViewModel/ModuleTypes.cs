@@ -116,6 +116,7 @@ namespace MoneyScoop.ViewModel
         public readonly static SimpleModuleType CustomerDetailsModule = new SimpleModuleType(-402, ObjectDefinitions.Customer, "CustomerDetailView", "Details");
 
         public readonly static DataListModuleType BookKeeperListModule = new DataListModuleType(-500, ObjectDefinitions.BookKeeper, "BookKeeper");
+        public readonly static SimpleModuleType BookKeeperOverviewModule = new SimpleModuleType(-501, ObjectDefinitions.BookKeeper, "BookKeeperOverviewView", "Overview");
 
         public readonly static SimpleModuleType SendMailModule = new SimpleModuleType(-1000, ObjectDefinitions.DummyDef, "SendMailView", "Send mail");
     }

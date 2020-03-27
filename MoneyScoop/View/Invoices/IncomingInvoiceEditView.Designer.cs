@@ -88,6 +88,9 @@
             this.ItemForTotal = new DevExpress.XtraLayout.LayoutControlItem();
             this.VATShiftedCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.ItemForVATShifted = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.DueDateDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.ItemForDueDate = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
             this.dataLayoutControl.SuspendLayout();
@@ -135,6 +138,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VATShiftedCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForVATShifted)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDueDate)).BeginInit();
             this.SuspendLayout();
             // 
             // bbiSave
@@ -179,8 +186,10 @@
             this.dataLayoutControl.Controls.Add(this.SubTotalTextEdit);
             this.dataLayoutControl.Controls.Add(this.TotalTextEdit);
             this.dataLayoutControl.Controls.Add(this.VATShiftedCheckEdit);
+            this.dataLayoutControl.Controls.Add(this.DueDateDateEdit);
             this.dataLayoutControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataLayoutControl.Size = new System.Drawing.Size(1057, 348);
+            this.dataLayoutControl.Controls.SetChildIndex(this.DueDateDateEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.VATShiftedCheckEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.TotalTextEdit, 0);
             this.dataLayoutControl.Controls.SetChildIndex(this.SubTotalTextEdit, 0);
@@ -204,17 +213,17 @@
             // 
             this.CodeTextEdit.Location = new System.Drawing.Point(92, 49);
             this.CodeTextEdit.Properties.ReadOnly = true;
-            this.CodeTextEdit.Size = new System.Drawing.Size(153, 20);
+            this.CodeTextEdit.Size = new System.Drawing.Size(123, 20);
             // 
             // DescriptionTextEdit
             // 
             this.DescriptionTextEdit.Location = new System.Drawing.Point(92, 73);
-            this.DescriptionTextEdit.Size = new System.Drawing.Size(388, 20);
+            this.DescriptionTextEdit.Size = new System.Drawing.Size(319, 20);
             // 
             // InfoTextEdit
             // 
             this.InfoTextEdit.Location = new System.Drawing.Point(24, 209);
-            this.InfoTextEdit.Size = new System.Drawing.Size(456, 115);
+            this.InfoTextEdit.Size = new System.Drawing.Size(387, 115);
             // 
             // layoutControlGroup1
             // 
@@ -222,7 +231,9 @@
             this.layoutControlItem1,
             this.splitterItem1,
             this.ItemForSubTotal,
-            this.ItemForTotal});
+            this.ItemForTotal,
+            this.emptySpaceItem1,
+            this.ItemForDueDate});
             this.layoutControlGroup1.Size = new System.Drawing.Size(1037, 328);
             // 
             // lcgId
@@ -236,22 +247,22 @@
             this.ItemForDateSendString,
             this.ItemForDateCreated,
             this.ItemForVATShifted});
-            this.lcgId.Size = new System.Drawing.Size(484, 328);
+            this.lcgId.Size = new System.Drawing.Size(415, 328);
             // 
             // ItemForCode
             // 
-            this.ItemForCode.Size = new System.Drawing.Size(225, 24);
+            this.ItemForCode.Size = new System.Drawing.Size(195, 24);
             this.ItemForCode.TextSize = new System.Drawing.Size(56, 13);
             // 
             // ItemForDescription
             // 
-            this.ItemForDescription.Size = new System.Drawing.Size(460, 24);
+            this.ItemForDescription.Size = new System.Drawing.Size(391, 24);
             this.ItemForDescription.TextSize = new System.Drawing.Size(56, 13);
             // 
             // ItemForInfo
             // 
             this.ItemForInfo.Location = new System.Drawing.Point(0, 144);
-            this.ItemForInfo.Size = new System.Drawing.Size(460, 135);
+            this.ItemForInfo.Size = new System.Drawing.Size(391, 135);
             this.ItemForInfo.TextSize = new System.Drawing.Size(56, 13);
             // 
             // ribbonControl
@@ -366,7 +377,7 @@
             this.IsPayedCheckEdit.Name = "IsPayedCheckEdit";
             this.IsPayedCheckEdit.Properties.Caption = "";
             this.IsPayedCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.IsPayedCheckEdit.Size = new System.Drawing.Size(52, 20);
+            this.IsPayedCheckEdit.Size = new System.Drawing.Size(123, 20);
             this.IsPayedCheckEdit.StyleController = this.dataLayoutControl;
             this.IsPayedCheckEdit.TabIndex = 7;
             // 
@@ -375,7 +386,7 @@
             this.ItemForIsPayed.Control = this.IsPayedCheckEdit;
             this.ItemForIsPayed.Location = new System.Drawing.Point(0, 120);
             this.ItemForIsPayed.Name = "ItemForIsPayed";
-            this.ItemForIsPayed.Size = new System.Drawing.Size(124, 24);
+            this.ItemForIsPayed.Size = new System.Drawing.Size(195, 24);
             this.ItemForIsPayed.Text = "Is Payed";
             this.ItemForIsPayed.TextSize = new System.Drawing.Size(56, 13);
             // 
@@ -387,7 +398,7 @@
             this.IsSendCheckEdit.Name = "IsSendCheckEdit";
             this.IsSendCheckEdit.Properties.Caption = "";
             this.IsSendCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.IsSendCheckEdit.Size = new System.Drawing.Size(52, 20);
+            this.IsSendCheckEdit.Size = new System.Drawing.Size(123, 20);
             this.IsSendCheckEdit.StyleController = this.dataLayoutControl;
             this.IsSendCheckEdit.TabIndex = 8;
             // 
@@ -396,14 +407,14 @@
             this.ItemForIsSend.Control = this.IsSendCheckEdit;
             this.ItemForIsSend.Location = new System.Drawing.Point(0, 96);
             this.ItemForIsSend.Name = "ItemForIsSend";
-            this.ItemForIsSend.Size = new System.Drawing.Size(124, 24);
+            this.ItemForIsSend.Size = new System.Drawing.Size(195, 24);
             this.ItemForIsSend.Text = "Is Send";
             this.ItemForIsSend.TextSize = new System.Drawing.Size(56, 13);
             // 
             // VATTextEdit
             // 
             this.VATTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "VAT", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.VATTextEdit.Location = new System.Drawing.Point(216, 121);
+            this.VATTextEdit.Location = new System.Drawing.Point(287, 121);
             this.VATTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VATTextEdit.MenuManager = this.ribbonControl;
             this.VATTextEdit.Name = "VATTextEdit";
@@ -412,16 +423,16 @@
             this.VATTextEdit.Properties.Mask.EditMask = "n";
             this.VATTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.VATTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.VATTextEdit.Size = new System.Drawing.Size(264, 20);
+            this.VATTextEdit.Size = new System.Drawing.Size(124, 20);
             this.VATTextEdit.StyleController = this.dataLayoutControl;
             this.VATTextEdit.TabIndex = 11;
             // 
             // ItemForVAT
             // 
             this.ItemForVAT.Control = this.VATTextEdit;
-            this.ItemForVAT.Location = new System.Drawing.Point(124, 72);
+            this.ItemForVAT.Location = new System.Drawing.Point(195, 72);
             this.ItemForVAT.Name = "ItemForVAT";
-            this.ItemForVAT.Size = new System.Drawing.Size(336, 24);
+            this.ItemForVAT.Size = new System.Drawing.Size(196, 24);
             this.ItemForVAT.Text = "VAT";
             this.ItemForVAT.TextSize = new System.Drawing.Size(56, 13);
             // 
@@ -441,7 +452,7 @@
             this.CustomerIdSearchLookUpEdit.Properties.NullText = "";
             this.CustomerIdSearchLookUpEdit.Properties.PopupView = this.searchLookUpEdit1View;
             this.CustomerIdSearchLookUpEdit.Properties.ValueMember = "Id";
-            this.CustomerIdSearchLookUpEdit.Size = new System.Drawing.Size(388, 20);
+            this.CustomerIdSearchLookUpEdit.Size = new System.Drawing.Size(319, 20);
             this.CustomerIdSearchLookUpEdit.StyleController = this.dataLayoutControl;
             this.CustomerIdSearchLookUpEdit.TabIndex = 12;
             // 
@@ -553,28 +564,28 @@
             this.ItemForCustomerId.Control = this.CustomerIdSearchLookUpEdit;
             this.ItemForCustomerId.Location = new System.Drawing.Point(0, 48);
             this.ItemForCustomerId.Name = "ItemForCustomerId";
-            this.ItemForCustomerId.Size = new System.Drawing.Size(460, 24);
+            this.ItemForCustomerId.Size = new System.Drawing.Size(391, 24);
             this.ItemForCustomerId.Text = "Customer";
             this.ItemForCustomerId.TextSize = new System.Drawing.Size(56, 13);
             // 
             // DatePayedStringTextEdit
             // 
             this.DatePayedStringTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DatePayedString", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.DatePayedStringTextEdit.Location = new System.Drawing.Point(148, 169);
+            this.DatePayedStringTextEdit.Location = new System.Drawing.Point(219, 169);
             this.DatePayedStringTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DatePayedStringTextEdit.MenuManager = this.ribbonControl;
             this.DatePayedStringTextEdit.Name = "DatePayedStringTextEdit";
             this.DatePayedStringTextEdit.Properties.ReadOnly = true;
-            this.DatePayedStringTextEdit.Size = new System.Drawing.Size(332, 20);
+            this.DatePayedStringTextEdit.Size = new System.Drawing.Size(192, 20);
             this.DatePayedStringTextEdit.StyleController = this.dataLayoutControl;
             this.DatePayedStringTextEdit.TabIndex = 14;
             // 
             // ItemForDatePayedString
             // 
             this.ItemForDatePayedString.Control = this.DatePayedStringTextEdit;
-            this.ItemForDatePayedString.Location = new System.Drawing.Point(124, 120);
+            this.ItemForDatePayedString.Location = new System.Drawing.Point(195, 120);
             this.ItemForDatePayedString.Name = "ItemForDatePayedString";
-            this.ItemForDatePayedString.Size = new System.Drawing.Size(336, 24);
+            this.ItemForDatePayedString.Size = new System.Drawing.Size(196, 24);
             this.ItemForDatePayedString.Text = "Date Payed String";
             this.ItemForDatePayedString.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDatePayedString.TextVisible = false;
@@ -582,21 +593,21 @@
             // DateSendStringTextEdit
             // 
             this.DateSendStringTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DateSendString", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.DateSendStringTextEdit.Location = new System.Drawing.Point(148, 145);
+            this.DateSendStringTextEdit.Location = new System.Drawing.Point(219, 145);
             this.DateSendStringTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DateSendStringTextEdit.MenuManager = this.ribbonControl;
             this.DateSendStringTextEdit.Name = "DateSendStringTextEdit";
             this.DateSendStringTextEdit.Properties.ReadOnly = true;
-            this.DateSendStringTextEdit.Size = new System.Drawing.Size(332, 20);
+            this.DateSendStringTextEdit.Size = new System.Drawing.Size(192, 20);
             this.DateSendStringTextEdit.StyleController = this.dataLayoutControl;
             this.DateSendStringTextEdit.TabIndex = 15;
             // 
             // ItemForDateSendString
             // 
             this.ItemForDateSendString.Control = this.DateSendStringTextEdit;
-            this.ItemForDateSendString.Location = new System.Drawing.Point(124, 96);
+            this.ItemForDateSendString.Location = new System.Drawing.Point(195, 96);
             this.ItemForDateSendString.Name = "ItemForDateSendString";
-            this.ItemForDateSendString.Size = new System.Drawing.Size(336, 24);
+            this.ItemForDateSendString.Size = new System.Drawing.Size(196, 24);
             this.ItemForDateSendString.Text = "Date Send String";
             this.ItemForDateSendString.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDateSendString.TextVisible = false;
@@ -605,7 +616,7 @@
             // 
             this.DateCreatedDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DateCreated", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.DateCreatedDateEdit.EditValue = null;
-            this.DateCreatedDateEdit.Location = new System.Drawing.Point(249, 49);
+            this.DateCreatedDateEdit.Location = new System.Drawing.Point(219, 49);
             this.DateCreatedDateEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DateCreatedDateEdit.MenuManager = this.ribbonControl;
             this.DateCreatedDateEdit.Name = "DateCreatedDateEdit";
@@ -613,16 +624,16 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.DateCreatedDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DateCreatedDateEdit.Size = new System.Drawing.Size(231, 20);
+            this.DateCreatedDateEdit.Size = new System.Drawing.Size(192, 20);
             this.DateCreatedDateEdit.StyleController = this.dataLayoutControl;
             this.DateCreatedDateEdit.TabIndex = 16;
             // 
             // ItemForDateCreated
             // 
             this.ItemForDateCreated.Control = this.DateCreatedDateEdit;
-            this.ItemForDateCreated.Location = new System.Drawing.Point(225, 0);
+            this.ItemForDateCreated.Location = new System.Drawing.Point(195, 0);
             this.ItemForDateCreated.Name = "ItemForDateCreated";
-            this.ItemForDateCreated.Size = new System.Drawing.Size(235, 24);
+            this.ItemForDateCreated.Size = new System.Drawing.Size(196, 24);
             this.ItemForDateCreated.Text = "Date Created";
             this.ItemForDateCreated.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForDateCreated.TextVisible = false;
@@ -630,13 +641,13 @@
             // gcInvoiceLines
             // 
             this.gcInvoiceLines.DataSource = this.bsInvoiceLines;
-            this.gcInvoiceLines.Location = new System.Drawing.Point(506, 12);
+            this.gcInvoiceLines.Location = new System.Drawing.Point(437, 12);
             this.gcInvoiceLines.MainView = this.gvInvoiceLines;
             this.gcInvoiceLines.MenuManager = this.ribbonControl;
             this.gcInvoiceLines.Name = "gcInvoiceLines";
             this.gcInvoiceLines.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riTextEditCurrency});
-            this.gcInvoiceLines.Size = new System.Drawing.Size(539, 300);
+            this.gcInvoiceLines.Size = new System.Drawing.Size(608, 300);
             this.gcInvoiceLines.TabIndex = 17;
             this.gcInvoiceLines.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvInvoiceLines});
@@ -776,16 +787,16 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gcInvoiceLines;
-            this.layoutControlItem1.Location = new System.Drawing.Point(494, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(425, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(543, 304);
+            this.layoutControlItem1.Size = new System.Drawing.Size(612, 304);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.Location = new System.Drawing.Point(484, 0);
+            this.splitterItem1.Location = new System.Drawing.Point(415, 0);
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(10, 304);
             // 
@@ -853,50 +864,50 @@
             // SubTotalTextEdit
             // 
             this.SubTotalTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "SubTotal", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.SubTotalTextEdit.Location = new System.Drawing.Point(564, 316);
+            this.SubTotalTextEdit.Location = new System.Drawing.Point(774, 316);
             this.SubTotalTextEdit.MenuManager = this.ribbonControl;
             this.SubTotalTextEdit.Name = "SubTotalTextEdit";
             this.SubTotalTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.SubTotalTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.SubTotalTextEdit.Properties.Mask.EditMask = "G";
+            this.SubTotalTextEdit.Properties.Mask.EditMask = "c";
             this.SubTotalTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.SubTotalTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.SubTotalTextEdit.Properties.ReadOnly = true;
-            this.SubTotalTextEdit.Size = new System.Drawing.Size(102, 20);
+            this.SubTotalTextEdit.Size = new System.Drawing.Size(90, 20);
             this.SubTotalTextEdit.StyleController = this.dataLayoutControl;
             this.SubTotalTextEdit.TabIndex = 18;
             // 
             // ItemForSubTotal
             // 
             this.ItemForSubTotal.Control = this.SubTotalTextEdit;
-            this.ItemForSubTotal.Location = new System.Drawing.Point(484, 304);
+            this.ItemForSubTotal.Location = new System.Drawing.Point(694, 304);
             this.ItemForSubTotal.Name = "ItemForSubTotal";
-            this.ItemForSubTotal.Size = new System.Drawing.Size(174, 24);
+            this.ItemForSubTotal.Size = new System.Drawing.Size(162, 24);
             this.ItemForSubTotal.Text = "Sub Total";
             this.ItemForSubTotal.TextSize = new System.Drawing.Size(56, 13);
             // 
             // TotalTextEdit
             // 
             this.TotalTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "Total", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TotalTextEdit.Location = new System.Drawing.Point(738, 316);
+            this.TotalTextEdit.Location = new System.Drawing.Point(936, 316);
             this.TotalTextEdit.MenuManager = this.ribbonControl;
             this.TotalTextEdit.Name = "TotalTextEdit";
             this.TotalTextEdit.Properties.Appearance.Options.UseTextOptions = true;
             this.TotalTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.TotalTextEdit.Properties.Mask.EditMask = "G";
+            this.TotalTextEdit.Properties.Mask.EditMask = "c";
             this.TotalTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.TotalTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.TotalTextEdit.Properties.ReadOnly = true;
-            this.TotalTextEdit.Size = new System.Drawing.Size(307, 20);
+            this.TotalTextEdit.Size = new System.Drawing.Size(109, 20);
             this.TotalTextEdit.StyleController = this.dataLayoutControl;
             this.TotalTextEdit.TabIndex = 19;
             // 
             // ItemForTotal
             // 
             this.ItemForTotal.Control = this.TotalTextEdit;
-            this.ItemForTotal.Location = new System.Drawing.Point(658, 304);
+            this.ItemForTotal.Location = new System.Drawing.Point(856, 304);
             this.ItemForTotal.Name = "ItemForTotal";
-            this.ItemForTotal.Size = new System.Drawing.Size(379, 24);
+            this.ItemForTotal.Size = new System.Drawing.Size(181, 24);
             this.ItemForTotal.Text = "Total";
             this.ItemForTotal.TextSize = new System.Drawing.Size(56, 13);
             // 
@@ -908,7 +919,7 @@
             this.VATShiftedCheckEdit.Name = "VATShiftedCheckEdit";
             this.VATShiftedCheckEdit.Properties.Caption = "";
             this.VATShiftedCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.VATShiftedCheckEdit.Size = new System.Drawing.Size(52, 20);
+            this.VATShiftedCheckEdit.Size = new System.Drawing.Size(123, 20);
             this.VATShiftedCheckEdit.StyleController = this.dataLayoutControl;
             this.VATShiftedCheckEdit.TabIndex = 20;
             // 
@@ -917,9 +928,42 @@
             this.ItemForVATShifted.Control = this.VATShiftedCheckEdit;
             this.ItemForVATShifted.Location = new System.Drawing.Point(0, 72);
             this.ItemForVATShifted.Name = "ItemForVATShifted";
-            this.ItemForVATShifted.Size = new System.Drawing.Size(124, 24);
+            this.ItemForVATShifted.Size = new System.Drawing.Size(195, 24);
             this.ItemForVATShifted.Text = "VAT Shifted";
             this.ItemForVATShifted.TextSize = new System.Drawing.Size(56, 13);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(415, 304);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(73, 24);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // DueDateDateEdit
+            // 
+            this.DueDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSource, "DueDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DueDateDateEdit.EditValue = null;
+            this.DueDateDateEdit.Location = new System.Drawing.Point(568, 316);
+            this.DueDateDateEdit.MenuManager = this.ribbonControl;
+            this.DueDateDateEdit.Name = "DueDateDateEdit";
+            this.DueDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DueDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DueDateDateEdit.Properties.ReadOnly = true;
+            this.DueDateDateEdit.Size = new System.Drawing.Size(134, 20);
+            this.DueDateDateEdit.StyleController = this.dataLayoutControl;
+            this.DueDateDateEdit.TabIndex = 21;
+            // 
+            // ItemForDueDate
+            // 
+            this.ItemForDueDate.Control = this.DueDateDateEdit;
+            this.ItemForDueDate.Location = new System.Drawing.Point(488, 304);
+            this.ItemForDueDate.Name = "ItemForDueDate";
+            this.ItemForDueDate.Size = new System.Drawing.Size(206, 24);
+            this.ItemForDueDate.Text = "Due Date";
+            this.ItemForDueDate.TextSize = new System.Drawing.Size(56, 13);
             // 
             // IncomingInvoiceEditView
             // 
@@ -975,6 +1019,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VATShiftedCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForVATShifted)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DueDateDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDueDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1040,5 +1088,8 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForSubTotal;
         private DevExpress.XtraLayout.LayoutControlItem ItemForTotal;
         private DevExpress.XtraLayout.LayoutControlItem ItemForVATShifted;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraEditors.DateEdit DueDateDateEdit;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForDueDate;
     }
 }

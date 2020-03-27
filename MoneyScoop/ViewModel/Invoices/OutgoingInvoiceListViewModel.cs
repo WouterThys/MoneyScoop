@@ -58,7 +58,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual void Refresh()
         {
-            IEnumerable<string> allFiles = InvoiceActionHelper.GetAllOutgoingInvoices();
+            IEnumerable<string> allFiles = Utils.GetAllOutgoingInvoices();
             if (allFiles != null)
             {
                 List<string> toCreate = new List<string>();

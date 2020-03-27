@@ -31,6 +31,8 @@ namespace MoneyScoop.View
 
             gridControl.ToolTipController = toolTipController;
             toolTipController.GetActiveObjectInfo += ToolTipController_GetActiveObjectInfo;
+
+            DetailsPanel.Hide();
         }
         
         private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
@@ -79,6 +81,12 @@ namespace MoneyScoop.View
             fluent.BindCommand(bbiPreviewReports, m => m.ShowInvoicePreviews());
             fluent.BindCommand(bbiSaveReports, m => m.SavePdfReports());
             fluent.BindCommand(bbiMail, m => m.SendMailToCustomer());
+
+            fluent.SetTrigger(m => m.Selection, (s) => 
+            {
+                if (s != null && s.Count > 0) { DetailsPanel.Show(); }
+                else { DetailsPanel.HideSliding(); }
+            });
 
             IncomingInvoiceDetailView.InitialiseBindings(fluent.ViewModel.DetailModel);
         }

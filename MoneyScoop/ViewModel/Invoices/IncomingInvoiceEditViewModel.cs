@@ -77,7 +77,7 @@ namespace MoneyScoop.ViewModel
         {
             try
             {
-                InvoiceActionHelper.ShowPreview(Editable);
+                Utils.ShowPreview(Editable);
             }
             catch (Exception e)
             {
@@ -97,7 +97,7 @@ namespace MoneyScoop.ViewModel
         {
                 try
                 {
-                    InvoiceActionHelper.SaveToPdf(Editable);
+                    Utils.SaveToPdf(Editable);
                 }
                 catch (Exception e)
                 {
@@ -108,12 +108,19 @@ namespace MoneyScoop.ViewModel
 
         public virtual bool CanSendMailToCustomer()
         {
-            return !IsLoading && Editable != null && Editable.Id > 0 && Editable.Customer != null && !string.IsNullOrEmpty(Editable.Customer.Email);
+            return !IsLoading && Editable != null && Editable.Customer != null && !string.IsNullOrEmpty(Editable.Customer.Email);
         }
 
         public virtual void SendMailToCustomer()
         {
+            SendMailViewModel viewModel = SendMailViewModel.CreateForCustomer(Editable);
+            viewModel.SetParentViewModel(this);
 
+            var res = DialogService.ShowDialog(MessageButton.OKCancel, "Mail", viewModel);
+            if (res == MessageResult.OK)
+            {
+                viewModel.SendMail();
+            }
         }
 
         #region Invoice Lines

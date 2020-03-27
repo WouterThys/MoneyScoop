@@ -22,6 +22,7 @@ namespace MoneyScoop.Model
         private bool vatShifted;
         private long customerId;
         private string savePath;
+        private string bookySavePath;
 
         // Cached
         private Customer customer;
@@ -64,7 +65,8 @@ namespace MoneyScoop.Model
                 VATShifted = that.VATShifted;
                 CustomerId = that.CustomerId;
                 SavePath = that.SavePath;
-                total = that.total;
+                BookySavePath = that.BookySavePath;
+                Total = that.Total;
             }
         }
 
@@ -84,7 +86,8 @@ namespace MoneyScoop.Model
                         VAT == that.VAT &&
                         VATShifted == that.VATShifted &&
                         SavePath == that.SavePath &&
-                        total == that.total
+                        BookySavePath == that.BookySavePath &&
+                        Total == that.Total
                         ;
                 }
             }
@@ -106,7 +109,8 @@ namespace MoneyScoop.Model
             VATShifted = DatabaseAccess.RGetBool(reader, "vatShifted");
             CustomerId = DatabaseAccess.RGetLong(reader, "customerId");
             SavePath = DatabaseAccess.RGetString(reader, "savePath");
-            total = DatabaseAccess.RGetDecimal(reader, "total");
+            BookySavePath = DatabaseAccess.RGetString(reader, "bookySavePath");
+            Total = DatabaseAccess.RGetDecimal(reader, "total");
         }
 
         public override void AddSqlParameters(DbCommand command)
@@ -121,6 +125,7 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "vatShifted", VATShifted);
             DatabaseAccess.AddDbValue(command, "customerId", CustomerId > UNKNOWN_ID ? CustomerId : UNKNOWN_ID);
             DatabaseAccess.AddDbValue(command, "savePath", SavePath);
+            DatabaseAccess.AddDbValue(command, "bookySavePath", BookySavePath);
             DatabaseAccess.AddDbValue(command, "total", Total);
         }
 
@@ -291,11 +296,15 @@ namespace MoneyScoop.Model
 
         public bool IsPdfSaved => !string.IsNullOrEmpty(SavePath) && File.Exists(SavePath);
 
+        public bool IsBookyPdfSaved => !string.IsNullOrEmpty(BookySavePath) && File.Exists(BookySavePath);
+
         public string DatePayedString => IsPayed ? DatePayed.ToString("dd/MM/yyyy hh:mm") : "";
 
         public string DateSendString => IsSend ? DateSend.ToString("dd/MM/yyyy hh:mm") : "";
 
         public string DateSendToBookyString => IsSendToBooky ? DateSendToBooky.ToString("dd/MM/yyyy hh:mm") : "";
+
+        public DateTime DateSendToBookyDate => DateSendToBooky.Date;
 
         public string DueDateString => DueDate.ToString("dd/MM/yyyy");
 
@@ -460,6 +469,16 @@ namespace MoneyScoop.Model
             {
                 savePath = value;
                 OnPropertyChanged("SavePath");
+            }
+        }
+
+        public string BookySavePath
+        {
+            get => bookySavePath ?? "";
+            set
+            {
+                bookySavePath = value;
+                OnPropertyChanged("BookySavePath");
             }
         }
 

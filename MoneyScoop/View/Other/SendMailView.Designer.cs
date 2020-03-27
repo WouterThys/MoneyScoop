@@ -36,15 +36,19 @@
             this.ReceiverTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.SubjectTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.MessageTextEdit = new DevExpress.XtraEditors.MemoEdit();
+            this.AttachmentsGridControl = new DevExpress.XtraGrid.GridControl();
+            this.attachmentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colAttachmentPath = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.riHypertextLabel = new DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForFrom = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForReceiver = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForSubject = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMessage = new DevExpress.XtraLayout.LayoutControlItem();
-            this.rpgActions = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiSend = new DevExpress.XtraBars.BarButtonItem();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            this.ItemForAttachments = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).BeginInit();
@@ -56,34 +60,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.ReceiverTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MessageTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riHypertextLabel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForReceiver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMessage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForAttachments)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ribbonControl
-            // 
-            this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiSend});
-            this.ribbonControl.MaxItemId = 2;
-            // 
-            // 
-            // 
-            this.ribbonControl.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.ribbonControl.SearchEditItem.EditWidth = 150;
-            this.ribbonControl.SearchEditItem.Id = -5000;
-            this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbonControl.SearchEditItem.UseEditorPadding = false;
-            this.ribbonControl.Size = new System.Drawing.Size(514, 158);
-            // 
-            // MainRibbonPage
-            // 
-            this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgActions});
             // 
             // ic16x16
             // 
@@ -175,16 +164,19 @@
             // 
             // dataLayoutControl
             // 
+            this.dataLayoutControl.AllowGeneratingCollectionProperties = DevExpress.Utils.DefaultBoolean.True;
+            this.dataLayoutControl.AllowGeneratingNestedGroups = DevExpress.Utils.DefaultBoolean.True;
             this.dataLayoutControl.Controls.Add(this.FromTextEdit);
             this.dataLayoutControl.Controls.Add(this.ReceiverTextEdit);
             this.dataLayoutControl.Controls.Add(this.SubjectTextEdit);
             this.dataLayoutControl.Controls.Add(this.MessageTextEdit);
+            this.dataLayoutControl.Controls.Add(this.AttachmentsGridControl);
             this.dataLayoutControl.DataSource = this.bsModel;
             this.dataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl.Location = new System.Drawing.Point(0, 158);
+            this.dataLayoutControl.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl.Name = "dataLayoutControl";
             this.dataLayoutControl.Root = this.Root;
-            this.dataLayoutControl.Size = new System.Drawing.Size(514, 321);
+            this.dataLayoutControl.Size = new System.Drawing.Size(514, 479);
             this.dataLayoutControl.TabIndex = 0;
             this.dataLayoutControl.Text = "dataLayoutControl1";
             // 
@@ -218,11 +210,57 @@
             // MessageTextEdit
             // 
             this.MessageTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsModel, "Message", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MessageTextEdit.Location = new System.Drawing.Point(12, 100);
+            this.MessageTextEdit.Location = new System.Drawing.Point(12, 178);
             this.MessageTextEdit.Name = "MessageTextEdit";
-            this.MessageTextEdit.Size = new System.Drawing.Size(490, 209);
+            this.MessageTextEdit.Size = new System.Drawing.Size(490, 289);
             this.MessageTextEdit.StyleController = this.dataLayoutControl;
             this.MessageTextEdit.TabIndex = 7;
+            // 
+            // AttachmentsGridControl
+            // 
+            this.AttachmentsGridControl.DataBindings.Add(new System.Windows.Forms.Binding("DataSource", this.bsModel, "Attachments", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.AttachmentsGridControl.DataSource = this.attachmentsBindingSource;
+            this.AttachmentsGridControl.Location = new System.Drawing.Point(12, 84);
+            this.AttachmentsGridControl.MainView = this.gridView1;
+            this.AttachmentsGridControl.Name = "AttachmentsGridControl";
+            this.AttachmentsGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riHypertextLabel,
+            this.repositoryItemHyperLinkEdit1});
+            this.AttachmentsGridControl.Size = new System.Drawing.Size(490, 74);
+            this.AttachmentsGridControl.TabIndex = 8;
+            this.AttachmentsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // attachmentsBindingSource
+            // 
+            this.attachmentsBindingSource.DataMember = "Attachments";
+            this.attachmentsBindingSource.DataSource = this.bsModel;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colAttachmentPath});
+            this.gridView1.GridControl = this.AttachmentsGridControl;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // colAttachmentPath
+            // 
+            this.colAttachmentPath.Caption = "Attachments";
+            this.colAttachmentPath.ColumnEdit = this.repositoryItemHyperLinkEdit1;
+            this.colAttachmentPath.FieldName = "AttachmentPath";
+            this.colAttachmentPath.Name = "colAttachmentPath";
+            this.colAttachmentPath.Visible = true;
+            this.colAttachmentPath.VisibleIndex = 0;
+            // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
+            // 
+            // riHypertextLabel
+            // 
+            this.riHypertextLabel.Name = "riHypertextLabel";
             // 
             // Root
             // 
@@ -231,7 +269,7 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(514, 321);
+            this.Root.Size = new System.Drawing.Size(514, 479);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -242,10 +280,11 @@
             this.ItemForFrom,
             this.ItemForReceiver,
             this.ItemForSubject,
-            this.ItemForMessage});
+            this.ItemForMessage,
+            this.ItemForAttachments});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(494, 301);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(494, 459);
             // 
             // ItemForFrom
             // 
@@ -277,26 +316,23 @@
             // ItemForMessage
             // 
             this.ItemForMessage.Control = this.MessageTextEdit;
-            this.ItemForMessage.Location = new System.Drawing.Point(0, 72);
+            this.ItemForMessage.Location = new System.Drawing.Point(0, 150);
             this.ItemForMessage.Name = "ItemForMessage";
-            this.ItemForMessage.Size = new System.Drawing.Size(494, 229);
+            this.ItemForMessage.Size = new System.Drawing.Size(494, 309);
             this.ItemForMessage.Text = "Message";
             this.ItemForMessage.TextLocation = DevExpress.Utils.Locations.Top;
             this.ItemForMessage.TextSize = new System.Drawing.Size(42, 13);
             // 
-            // rpgActions
+            // ItemForAttachments
             // 
-            this.rpgActions.ItemLinks.Add(this.bbiSend);
-            this.rpgActions.Name = "rpgActions";
-            this.rpgActions.Text = "Actions";
-            // 
-            // bbiSend
-            // 
-            this.bbiSend.Caption = "Send";
-            this.bbiSend.Id = 1;
-            this.bbiSend.ImageOptions.ImageIndex = 21;
-            this.bbiSend.ImageOptions.LargeImageIndex = 21;
-            this.bbiSend.Name = "bbiSend";
+            this.ItemForAttachments.Control = this.AttachmentsGridControl;
+            this.ItemForAttachments.Location = new System.Drawing.Point(0, 72);
+            this.ItemForAttachments.Name = "ItemForAttachments";
+            this.ItemForAttachments.Size = new System.Drawing.Size(494, 78);
+            this.ItemForAttachments.StartNewLine = true;
+            this.ItemForAttachments.Text = "Attachments";
+            this.ItemForAttachments.TextSize = new System.Drawing.Size(0, 0);
+            this.ItemForAttachments.TextVisible = false;
             // 
             // SendMailView
             // 
@@ -305,9 +341,6 @@
             this.Controls.Add(this.dataLayoutControl);
             this.Name = "SendMailView";
             this.Size = new System.Drawing.Size(514, 479);
-            this.Controls.SetChildIndex(this.ribbonControl, 0);
-            this.Controls.SetChildIndex(this.dataLayoutControl, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();
@@ -319,14 +352,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.ReceiverTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SubjectTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MessageTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachmentsGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attachmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riHypertextLabel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForReceiver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMessage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForAttachments)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -344,7 +382,12 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForSubject;
         private DevExpress.XtraLayout.LayoutControlItem ItemForMessage;
         private DevExpress.XtraEditors.MemoEdit MessageTextEdit;
-        private DevExpress.XtraBars.BarButtonItem bbiSend;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgActions;
+        private DevExpress.XtraGrid.GridControl AttachmentsGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraLayout.LayoutControlItem ItemForAttachments;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel riHypertextLabel;
+        private System.Windows.Forms.BindingSource attachmentsBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colAttachmentPath;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
     }
 }
