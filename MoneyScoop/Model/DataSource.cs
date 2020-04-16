@@ -1,8 +1,6 @@
-﻿using Database;
-using MoneyScoop.Model.Data;
+﻿using MoneyScoop.Model.Data;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 
@@ -30,12 +28,14 @@ namespace MoneyScoop.Model
             };
         }
 
-        public IEnumerable<Invoice> ThisYearsInvoices
+        public IEnumerable<Invoice> ThisYearsIncomingInvoices
         {
             get
             {
                 int year = DateTime.Now.Year;
-                return Invoices.Where(i => i.DateCreated.Year == year);
+                return Invoices.Where(i => 
+                    !i.OutGoing &&    
+                    i.DateCreated.Year == year);
             }
         }
 
@@ -43,7 +43,7 @@ namespace MoneyScoop.Model
         {
             get
             {
-                IEnumerable<Invoice> invoices = ThisYearsInvoices;
+                IEnumerable<Invoice> invoices = ThisYearsIncomingInvoices;
                 if (invoices != null)
                 {
                     return invoices.Count() + 1;

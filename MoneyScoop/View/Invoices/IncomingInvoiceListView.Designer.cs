@@ -42,7 +42,7 @@
             this.riCheckEditSend = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colVAT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.bbiCustomers = new DevExpress.XtraBars.BarButtonItem();
-            this.rpgReport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgInvoice = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPreviewReports = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveReports = new DevExpress.XtraBars.BarButtonItem();
             this.bbiMail = new DevExpress.XtraBars.BarButtonItem();
@@ -59,6 +59,8 @@
             this.riCheckEditSendToBooky = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colOutGoing = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riCheckEditOutgoing = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.rpgHandy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiOpenDirectory = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -136,13 +138,11 @@
             // colCode
             // 
             this.colCode.MinWidth = 21;
-            this.colCode.VisibleIndex = 1;
             this.colCode.Width = 75;
             // 
             // colDescription
             // 
             this.colDescription.MinWidth = 21;
-            this.colDescription.VisibleIndex = 2;
             this.colDescription.Width = 75;
             // 
             // colInfo
@@ -164,9 +164,10 @@
             this.bbiCustomers,
             this.bbiPreviewReports,
             this.bbiSaveReports,
-            this.bbiMail});
+            this.bbiMail,
+            this.bbiOpenDirectory});
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 8;
+            this.ribbonControl.MaxItemId = 9;
             // 
             // 
             // 
@@ -180,7 +181,8 @@
             // MainRibbonPage
             // 
             this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgReport});
+            this.rpgInvoice,
+            this.rpgHandy});
             // 
             // ic16x16
             // 
@@ -220,6 +222,7 @@
             this.ic16x16.Images.SetKeyName(32, "telephone2.png");
             this.ic16x16.Images.SetKeyName(33, "chest_into.png");
             this.ic16x16.Images.SetKeyName(34, "chest_out.png");
+            this.ic16x16.Images.SetKeyName(35, "folder_document.png");
             // 
             // ic24x24
             // 
@@ -259,6 +262,7 @@
             this.ic24x24.Images.SetKeyName(32, "telephone2.png");
             this.ic24x24.Images.SetKeyName(33, "chest_into.png");
             this.ic24x24.Images.SetKeyName(34, "chest_out.png");
+            this.ic24x24.Images.SetKeyName(35, "folder_document.png");
             // 
             // ic48x48
             // 
@@ -298,6 +302,7 @@
             this.ic48x48.Images.SetKeyName(32, "telephone2.png");
             this.ic48x48.Images.SetKeyName(33, "chest_into.png");
             this.ic48x48.Images.SetKeyName(34, "chest_out.png");
+            this.ic48x48.Images.SetKeyName(35, "folder_document.png");
             // 
             // colCustomerCode
             // 
@@ -408,13 +413,13 @@
             this.bbiCustomers.ImageOptions.LargeImageIndex = 11;
             this.bbiCustomers.Name = "bbiCustomers";
             // 
-            // rpgReport
+            // rpgInvoice
             // 
-            this.rpgReport.ItemLinks.Add(this.bbiPreviewReports);
-            this.rpgReport.ItemLinks.Add(this.bbiSaveReports);
-            this.rpgReport.ItemLinks.Add(this.bbiMail);
-            this.rpgReport.Name = "rpgReport";
-            this.rpgReport.Text = "Reports";
+            this.rpgInvoice.ItemLinks.Add(this.bbiPreviewReports);
+            this.rpgInvoice.ItemLinks.Add(this.bbiSaveReports);
+            this.rpgInvoice.ItemLinks.Add(this.bbiMail);
+            this.rpgInvoice.Name = "rpgInvoice";
+            this.rpgInvoice.Text = "Invoice";
             // 
             // bbiPreviewReports
             // 
@@ -553,8 +558,8 @@
             this.colOutGoing.MinWidth = 30;
             this.colOutGoing.Name = "colOutGoing";
             this.colOutGoing.Visible = true;
-            this.colOutGoing.VisibleIndex = 0;
-            this.colOutGoing.Width = 72;
+            this.colOutGoing.VisibleIndex = 2;
+            this.colOutGoing.Width = 30;
             // 
             // riCheckEditOutgoing
             // 
@@ -564,6 +569,20 @@
             this.riCheckEditOutgoing.ImageOptions.ImageIndexUnchecked = 33;
             this.riCheckEditOutgoing.ImageOptions.Images = this.ic16x16;
             this.riCheckEditOutgoing.Name = "riCheckEditOutgoing";
+            // 
+            // rpgHandy
+            // 
+            this.rpgHandy.ItemLinks.Add(this.bbiOpenDirectory);
+            this.rpgHandy.Name = "rpgHandy";
+            this.rpgHandy.Text = "Handy";
+            // 
+            // bbiOpenDirectory
+            // 
+            this.bbiOpenDirectory.Caption = "Open Folder";
+            this.bbiOpenDirectory.Id = 8;
+            this.bbiOpenDirectory.ImageOptions.ImageIndex = 35;
+            this.bbiOpenDirectory.ImageOptions.LargeImageIndex = 35;
+            this.bbiOpenDirectory.Name = "bbiOpenDirectory";
             // 
             // IncomingInvoiceListView
             // 
@@ -610,7 +629,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colVAT;
         private DevExpress.XtraBars.BarButtonItem bbiCustomers;
         private DevExpress.XtraBars.BarButtonItem bbiPreviewReports;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgReport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInvoice;
         private DevExpress.XtraBars.BarButtonItem bbiSaveReports;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditPayed;
         private DevExpress.XtraGrid.Columns.GridColumn colDueDate;
@@ -628,5 +647,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIsSendToBooky;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditOutgoing;
         private DevExpress.XtraGrid.Columns.GridColumn colOutGoing;
+        private DevExpress.XtraBars.BarButtonItem bbiOpenDirectory;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgHandy;
     }
 }

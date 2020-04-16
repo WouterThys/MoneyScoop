@@ -7,6 +7,7 @@ using MoneyScoop.Reports;
 using MoneyScoop.ViewModel.Invoices;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,6 +43,7 @@ namespace MoneyScoop.ViewModel
         public override void UpdateCommands()
         {
             base.UpdateCommands();
+            this.RaiseCanExecuteChanged(x => x.OpenFolder());
         }
 
         public override void OnSelectionChanged()
@@ -118,6 +120,24 @@ namespace MoneyScoop.ViewModel
                     AddEntity(newInvoice);
                 });
             }, DispatcherService);
+        }
+
+
+        public virtual bool CanOpenFolder()
+        {
+            return !IsLoading && Directory.Exists(Context.Ctx.ReadPdfPath);
+        }
+
+        public virtual void OpenFolder()
+        {
+            try
+            {
+                Process.Start(Context.Ctx.ReadPdfPath);
+            }
+            catch (Exception e)
+            {
+                MessageBoxService.ShowMessage("Error while opening folder: " + e, "Error", MessageButton.OK, MessageIcon.Error);
+            }
         }
     }
 }

@@ -82,6 +82,7 @@
             this.ic16x16.Images.SetKeyName(32, "telephone2.png");
             this.ic16x16.Images.SetKeyName(33, "chest_into.png");
             this.ic16x16.Images.SetKeyName(34, "chest_out.png");
+            this.ic16x16.Images.SetKeyName(35, "folder_document.png");
             // 
             // ic24x24
             // 
@@ -122,6 +123,7 @@
             this.ic24x24.Images.SetKeyName(32, "telephone2.png");
             this.ic24x24.Images.SetKeyName(33, "chest_into.png");
             this.ic24x24.Images.SetKeyName(34, "chest_out.png");
+            this.ic24x24.Images.SetKeyName(35, "folder_document.png");
             // 
             // ic48x48
             // 
@@ -162,6 +164,7 @@
             this.ic48x48.Images.SetKeyName(32, "telephone2.png");
             this.ic48x48.Images.SetKeyName(33, "chest_into.png");
             this.ic48x48.Images.SetKeyName(34, "chest_out.png");
+            this.ic48x48.Images.SetKeyName(35, "folder_document.png");
             // 
             // BaseUserControl
             // 

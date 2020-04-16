@@ -61,6 +61,8 @@
             this.colOutGoing = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riCheckEditOutGoing = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.colBankAccount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpgHandy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiOpenDirectory = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -150,7 +152,6 @@
             // colDescription
             // 
             this.colDescription.MinWidth = 21;
-            this.colDescription.VisibleIndex = 2;
             this.colDescription.Width = 75;
             // 
             // colInfo
@@ -173,9 +174,10 @@
             this.bbiPreviewReports,
             this.bbiSaveReports,
             this.bbiMail,
-            this.bbiRefresh});
+            this.bbiRefresh,
+            this.bbiOpenDirectory});
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 9;
+            this.ribbonControl.MaxItemId = 10;
             // 
             // 
             // 
@@ -185,6 +187,11 @@
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.SearchEditItem.UseEditorPadding = false;
             this.ribbonControl.Size = new System.Drawing.Size(1352, 158);
+            // 
+            // MainRibbonPage
+            // 
+            this.MainRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgHandy});
             // 
             // ic16x16
             // 
@@ -224,6 +231,7 @@
             this.ic16x16.Images.SetKeyName(32, "telephone2.png");
             this.ic16x16.Images.SetKeyName(33, "chest_into.png");
             this.ic16x16.Images.SetKeyName(34, "chest_out.png");
+            this.ic16x16.Images.SetKeyName(35, "folder_document.png");
             // 
             // ic24x24
             // 
@@ -263,6 +271,7 @@
             this.ic24x24.Images.SetKeyName(32, "telephone2.png");
             this.ic24x24.Images.SetKeyName(33, "chest_into.png");
             this.ic24x24.Images.SetKeyName(34, "chest_out.png");
+            this.ic24x24.Images.SetKeyName(35, "folder_document.png");
             // 
             // ic48x48
             // 
@@ -302,6 +311,7 @@
             this.ic48x48.Images.SetKeyName(32, "telephone2.png");
             this.ic48x48.Images.SetKeyName(33, "chest_into.png");
             this.ic48x48.Images.SetKeyName(34, "chest_out.png");
+            this.ic48x48.Images.SetKeyName(35, "folder_document.png");
             // 
             // colCustomerCode
             // 
@@ -564,7 +574,7 @@
             this.colOutGoing.MinWidth = 30;
             this.colOutGoing.Name = "colOutGoing";
             this.colOutGoing.Visible = true;
-            this.colOutGoing.VisibleIndex = 1;
+            this.colOutGoing.VisibleIndex = 2;
             this.colOutGoing.Width = 30;
             // 
             // riCheckEditOutGoing
@@ -581,6 +591,20 @@
             this.colBankAccount.FieldName = "BankAccount";
             this.colBankAccount.Name = "colBankAccount";
             this.colBankAccount.Width = 64;
+            // 
+            // rpgHandy
+            // 
+            this.rpgHandy.ItemLinks.Add(this.bbiOpenDirectory);
+            this.rpgHandy.Name = "rpgHandy";
+            this.rpgHandy.Text = "Handy";
+            // 
+            // bbiOpenDirectory
+            // 
+            this.bbiOpenDirectory.Caption = "Open Folder";
+            this.bbiOpenDirectory.Id = 9;
+            this.bbiOpenDirectory.ImageOptions.ImageIndex = 35;
+            this.bbiOpenDirectory.ImageOptions.LargeImageIndex = 35;
+            this.bbiOpenDirectory.Name = "bbiOpenDirectory";
             // 
             // OutgoingInvoiceListView
             // 
@@ -647,5 +671,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riCheckEditOutGoing;
         private DevExpress.XtraGrid.Columns.GridColumn colOutGoing;
         private DevExpress.XtraGrid.Columns.GridColumn colBankAccount;
+        private DevExpress.XtraBars.BarButtonItem bbiOpenDirectory;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgHandy;
     }
 }

@@ -79,6 +79,8 @@ namespace MoneyScoop.View
             fluent.BindCommand(bbiRefresh, m => m.Refresh());
             OutgoingInvoiceDetailView.InitialiseBindings(fluent.ViewModel.DetailModel);
 
+            fluent.BindCommand(bbiOpenDirectory, m => m.OpenFolder());
+
             fluent.SetTrigger(m => m.Selection, (s) =>
             {
                 if (s != null && s.Count > 0) { DetailPanel.Show(); }

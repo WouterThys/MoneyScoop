@@ -82,6 +82,8 @@ namespace MoneyScoop.View
             fluent.BindCommand(bbiSaveReports, m => m.SavePdfReports());
             fluent.BindCommand(bbiMail, m => m.SendMailToCustomer());
 
+            fluent.BindCommand(bbiOpenDirectory, m => m.OpenFolder());
+
             fluent.SetTrigger(m => m.Selection, (s) => 
             {
                 if (s != null && s.Count > 0) { DetailsPanel.Show(); }

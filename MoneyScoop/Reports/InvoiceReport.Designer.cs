@@ -72,6 +72,8 @@
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.SubBand1 = new DevExpress.XtraReports.UI.SubBand();
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow10 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceInfoTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.invoiceInfoTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -567,25 +569,53 @@
             // 
             this.SubBand1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.invoiceInfoTable});
-            this.SubBand1.HeightF = 149.5F;
+            this.SubBand1.HeightF = 151.8652F;
             this.SubBand1.Name = "SubBand1";
             // 
             // invoiceInfoTable
             // 
-            this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
+            this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.invoiceInfoTable.Name = "invoiceInfoTable";
             this.invoiceInfoTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow10,
             this.invoiceInfoTableRow1,
             this.invoiceInfoTableRow2,
             this.invoiceInfoTableRow3});
-            this.invoiceInfoTable.SizeF = new System.Drawing.SizeF(750F, 139.5F);
+            this.invoiceInfoTable.SizeF = new System.Drawing.SizeF(750F, 149.3751F);
+            // 
+            // xrTableRow10
+            // 
+            this.xrTableRow10.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell5});
+            this.xrTableRow10.Name = "xrTableRow10";
+            this.xrTableRow10.Weight = 0.53213661210113261D;
+            // 
+            // xrTableCell5
+            // 
+            this.xrTableCell5.BorderColor = System.Drawing.Color.LightGray;
+            this.xrTableCell5.Borders = DevExpress.XtraPrinting.BorderSide.Top;
+            this.xrTableCell5.BorderWidth = 5F;
+            this.xrTableCell5.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.xrTableCell5.ForeColor = System.Drawing.Color.Gray;
+            this.xrTableCell5.Multiline = true;
+            this.xrTableCell5.Name = "xrTableCell5";
+            this.xrTableCell5.StylePriority.UseBackColor = false;
+            this.xrTableCell5.StylePriority.UseBorderColor = false;
+            this.xrTableCell5.StylePriority.UseBorders = false;
+            this.xrTableCell5.StylePriority.UseBorderWidth = false;
+            this.xrTableCell5.StylePriority.UseFont = false;
+            this.xrTableCell5.StylePriority.UseForeColor = false;
+            this.xrTableCell5.StylePriority.UseTextAlignment = false;
+            this.xrTableCell5.Text = "Factuur Nummer";
+            this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomCenter;
+            this.xrTableCell5.Weight = 9.5205740591443551D;
             // 
             // invoiceInfoTableRow1
             // 
             this.invoiceInfoTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.xrTableCell2});
             this.invoiceInfoTableRow1.Name = "invoiceInfoTableRow1";
-            this.invoiceInfoTableRow1.Weight = 1.0066972757107671D;
+            this.invoiceInfoTableRow1.Weight = 1.3153992799569338D;
             // 
             // xrTableCell2
             // 
@@ -603,7 +633,7 @@
             this.xrTableCell2.StylePriority.UseFont = false;
             this.xrTableCell2.StylePriority.UseForeColor = false;
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
-            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell2.Weight = 9.5205740591443551D;
             // 
             // invoiceInfoTableRow2
@@ -613,7 +643,7 @@
             this.xrTableCell6,
             this.invoiceDateCaption});
             this.invoiceInfoTableRow2.Name = "invoiceInfoTableRow2";
-            this.invoiceInfoTableRow2.Weight = 0.4266795703683301D;
+            this.invoiceInfoTableRow2.Weight = 0.471078849377847D;
             // 
             // xrTableCell13
             // 
@@ -678,13 +708,13 @@
             this.invoiceInfoTableRow3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.invoiceInfoTableRow3.Name = "invoiceInfoTableRow3";
             this.invoiceInfoTableRow3.StylePriority.UseFont = false;
-            this.invoiceInfoTableRow3.Weight = 0.4266795832360003D;
+            this.invoiceInfoTableRow3.Weight = 0.54813896358995107D;
             // 
             // xrTableCell14
             // 
             this.xrTableCell14.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DateCreated]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DateCreatedString]")});
             this.xrTableCell14.Multiline = true;
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StylePriority.UseBackColor = false;
@@ -1269,5 +1299,7 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel11;
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRLabel xrLabelVATShifted;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow10;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
     }
 }

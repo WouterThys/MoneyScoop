@@ -306,6 +306,8 @@ namespace MoneyScoop.Model
 
         public DateTime DateSendToBookyDate => DateSendToBooky.Date;
 
+        public string DateCreatedString => DateCreated.ToString("dd/MM/yyyy");
+
         public string DueDateString => DueDate.ToString("dd/MM/yyyy");
 
         public string DateModifiedString => LastModified.ToString("dd/MM/yyyy hh:mm");
