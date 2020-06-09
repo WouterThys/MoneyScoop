@@ -332,6 +332,28 @@ namespace MoneyScoop.Model
             }
         }
 
+        public decimal SubTotalWithVAT
+        {
+            get
+            {
+                if (OutGoing)
+                {
+                    return 0;
+                }
+                else
+                {
+                    if (VATShifted)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return (SubTotal * VAT / 100);
+                    }
+                }
+            }
+        }
+
         public decimal Total
         {
             get

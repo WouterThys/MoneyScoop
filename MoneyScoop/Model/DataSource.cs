@@ -44,11 +44,18 @@ namespace MoneyScoop.Model
             get
             {
                 IEnumerable<Invoice> invoices = ThisYearsIncomingInvoices;
-                if (invoices != null)
+                List<string> codes = invoices.Select(i => i.Code).ToList();
+                int biggest = 0;
+                foreach(string code in codes)
                 {
-                    return invoices.Count() + 1;
+                    string codeTxt = code.Split('-')[1];
+                    int codeNr = Convert.ToInt32(codeTxt);
+                    if (codeNr > biggest)
+                    {
+                        biggest = codeNr;
+                    }
                 }
-                return 1;
+                return biggest + 1;
             }
         }
 

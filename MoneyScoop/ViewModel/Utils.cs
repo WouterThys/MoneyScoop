@@ -17,9 +17,9 @@ namespace MoneyScoop.ViewModel
     static class Utils
     {
 
-        public static InvoiceReport CreateReport(Invoice invoice)
+        public static InvoiceReport2 CreateReport(Invoice invoice)
         {
-            InvoiceReport report = new InvoiceReport
+            InvoiceReport2 report = new InvoiceReport2
             {
                 DataSource = new List<Invoice>() { invoice }
             };
@@ -38,7 +38,7 @@ namespace MoneyScoop.ViewModel
             string file = Path.Combine(Context.Ctx.SavePdfPath, invoice.Code);
             file += ".pdf";
 
-            InvoiceReport report = CreateReport(invoice);
+            InvoiceReport2 report = CreateReport(invoice);
             report.ExportToPdf(file);
             if (File.Exists(file))
             {
@@ -84,7 +84,7 @@ namespace MoneyScoop.ViewModel
                 Port = Context.Ctx.SMTPPort,
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false
+                UseDefaultCredentials = true
             };
 
             server.Credentials = new NetworkCredential(
