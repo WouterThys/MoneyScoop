@@ -67,7 +67,7 @@ namespace MoneyScoop.Model
             }
             return false;
         }
-        
+
         public virtual bool IsUnknown()
         {
             return Id == UNKNOWN_ID;
@@ -137,7 +137,7 @@ namespace MoneyScoop.Model
 
         public void OnFailed(global::Database.DbException exception)
         {
-            
+
         }
 
         public virtual Task Save()
@@ -229,6 +229,24 @@ namespace MoneyScoop.Model
             return !(object1 == object2);
         }
 
+        protected void SetProperty<T>(ref T t, T val)
+        {
+            SetProperty(ref t, val, "");
+        }
+
+        protected void SetProperty<T>(ref T t, T val, string name)
+        {
+            SetProperty(ref t, val, name, null);
+        }
+
+        protected void SetProperty<T>(ref T t, T val, string name, Action<T, T> action)
+        {
+            T old = t;
+            t = val;
+            OnPropertyChanged(name);
+            action?.Invoke(old, val);
+        }
+
         #endregion
 
         #region Properties
@@ -238,7 +256,7 @@ namespace MoneyScoop.Model
             get { return id; }
             set { id = value; }
         }
-        
+
         public virtual string Code
         {
             get
@@ -252,7 +270,7 @@ namespace MoneyScoop.Model
                 OnPropertyChanged("Code");
             }
         }
-        
+
         public virtual string Description
         {
             get
@@ -265,7 +283,7 @@ namespace MoneyScoop.Model
                 OnPropertyChanged("Description");
             }
         }
-        
+
         public virtual string Info
         {
             get
@@ -278,7 +296,7 @@ namespace MoneyScoop.Model
                 OnPropertyChanged("Info");
             }
         }
-        
+
         public DateTime LastModified
         {
             get { return lastModified; }
@@ -288,7 +306,7 @@ namespace MoneyScoop.Model
                 OnPropertyChanged("LastModified");
             }
         }
-        
+
         public string LogTableName
         {
             get { return ObjectDefinition.TableName + "Log"; }

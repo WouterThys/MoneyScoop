@@ -1,0 +1,359 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44421861-B60D-4CB0-BCDF-2B7B91B9371B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MoneyScoop</RootNamespace>
+    <AssemblyName>MoneyScoop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v19.2" />
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.2" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Mvvm.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Drawing, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.2" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context.cs" />
+    <Compile Include="MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainViewModel.cs" />
+    <Compile Include="Model\BaseObject.cs" />
+    <Compile Include="Model\BookKeeper.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Data\DataList.cs" />
+    <Compile Include="Model\DataSource.cs" />
+    <Compile Include="Model\Data\Interfaces.cs" />
+    <Compile Include="Model\Interfaces.cs" />
+    <Compile Include="Model\Invoice.cs" />
+    <Compile Include="Model\InvoiceLine.cs" />
+    <Compile Include="Model\MyInfo.cs" />
+    <Compile Include="Model\ObjectDefinition.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\InvoiceReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\InvoiceReport2.Designer.cs">
+      <DependentUpon>InvoiceReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\InvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\InvoiceReport.Designer.cs">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DataChangedService.cs" />
+    <Compile Include="Utils\IniFIle.cs" />
+    <Compile Include="Utils\ViewHelpers.cs" />
+    <Compile Include="ViewModel\BaseDetailsViewModel.cs" />
+    <Compile Include="ViewModel\BaseDocumentViewModel.cs" />
+    <Compile Include="ViewModel\BaseEditViewModel.cs" />
+    <Compile Include="ViewModel\BaseListViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\BookKeeper\BookKeeperListViewModel.cs" />
+    <Compile Include="ViewModel\BookKeeper\BookKeeperOverviewModel.cs" />
+    <Compile Include="ViewModel\BookKeeper\CheckedInvoice.cs" />
+    <Compile Include="ViewModel\Customers\CustomerDetialsViewModel.cs" />
+    <Compile Include="ViewModel\Customers\CustomerEditViewModel.cs" />
+    <Compile Include="ViewModel\Customers\CustomerListViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\OutgoingInvoiceDetailsViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceDetailsViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\OutgoingInvoiceEditViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\OutgoingInvoiceListViewModel.cs" />
+    <Compile Include="ViewModel\Interfaces.cs" />
+    <Compile Include="ViewModel\Other\MailAttachment.cs" />
+    <Compile Include="ViewModel\Utils.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceEditViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceLineEditViewModel.cs" />
+    <Compile Include="ViewModel\Invoices\IncomingInvoiceListViewModel.cs" />
+    <Compile Include="ViewModel\ModuleTypes.cs" />
+    <Compile Include="ViewModel\Other\SendMailViewModel.cs" />
+    <Compile Include="View\BaseDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BaseDialogForm.Designer.cs">
+      <DependentUpon>BaseDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseEditView.Designer.cs">
+      <DependentUpon>BaseEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseListView.Designer.cs">
+      <DependentUpon>BaseListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseRibbonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseRibbonControl.Designer.cs">
+      <DependentUpon>BaseRibbonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperListView.Designer.cs">
+      <DependentUpon>BookKeeperListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperOverviewView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BookKeeper\BookKeeperOverviewView.Designer.cs">
+      <DependentUpon>BookKeeperOverviewView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customers\CustomerDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Customers\CustomerDetailView.Designer.cs">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customers\CustomerEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Customers\CustomerEditView.Designer.cs">
+      <DependentUpon>CustomerEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customers\CustomerListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Customers\CustomerListView.Designer.cs">
+      <DependentUpon>CustomerListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceDetailView.Designer.cs">
+      <DependentUpon>OutgoingInvoiceDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceDetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceDetailView.Designer.cs">
+      <DependentUpon>IncomingInvoiceDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceEditView.Designer.cs">
+      <DependentUpon>OutgoingInvoiceEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\OutgoingInvoiceListView.Designer.cs">
+      <DependentUpon>OutgoingInvoiceListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Interfaces.cs" />
+    <Compile Include="View\Invoices\IncomingInvoiceEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceEditView.Designer.cs">
+      <DependentUpon>IncomingInvoiceEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceLineEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceLineEditView.Designer.cs">
+      <DependentUpon>IncomingInvoiceLineEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Invoices\IncomingInvoiceListView.Designer.cs">
+      <DependentUpon>IncomingInvoiceListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Other\SendMailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Other\SendMailView.Designer.cs">
+      <DependentUpon>SendMailView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reports\InvoiceReport2.resx">
+      <DependentUpon>InvoiceReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InvoiceReport.resx">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseDialogForm.resx">
+      <DependentUpon>BaseDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseEditView.resx">
+      <DependentUpon>BaseEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseListView.resx">
+      <DependentUpon>BaseListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseRibbonControl.resx">
+      <DependentUpon>BaseRibbonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseUserControl.resx">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BookKeeper\BookKeeperListView.resx">
+      <DependentUpon>BookKeeperListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BookKeeper\BookKeeperOverviewView.resx">
+      <DependentUpon>BookKeeperOverviewView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Customers\CustomerDetailView.resx">
+      <DependentUpon>CustomerDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Customers\CustomerEditView.resx">
+      <DependentUpon>CustomerEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Customers\CustomerListView.resx">
+      <DependentUpon>CustomerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\OutgoingInvoiceDetailView.resx">
+      <DependentUpon>OutgoingInvoiceDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceDetailView.resx">
+      <DependentUpon>IncomingInvoiceDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\OutgoingInvoiceEditView.resx">
+      <DependentUpon>OutgoingInvoiceEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceEditView.resx">
+      <DependentUpon>IncomingInvoiceEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceLineEditView.resx">
+      <DependentUpon>IncomingInvoiceLineEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\OutgoingInvoiceListView.resx">
+      <DependentUpon>OutgoingInvoiceListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Invoices\IncomingInvoiceListView.resx">
+      <DependentUpon>IncomingInvoiceListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Other\SendMailView.resx">
+      <DependentUpon>SendMailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Config\settings.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\MoneyScoop.Model.BaseObject.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.Model.Invoice.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.Model.InvoiceLine.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.ViewModel.BookKeeper.CheckedInvoice.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.ViewModel.SendMailViewModel.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{481378DF-59C1-4AEC-99A5-F9AA6A0B5B60}</Project>
+      <Name>Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

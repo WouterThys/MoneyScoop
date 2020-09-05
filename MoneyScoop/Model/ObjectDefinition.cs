@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MoneyScoop.Model
 {
@@ -61,11 +59,18 @@ namespace MoneyScoop.Model
         public static readonly ObjectDefinition Customer = new ObjectDefinition(typeof(Customer), "customers", 10);
         public static readonly ObjectDefinition BookKeeper = new ObjectDefinition(typeof(BookKeeper), "", 24);
 
+        public static readonly ObjectDefinition Project = new ObjectDefinition(typeof(Project), "projects", 36);
+        public static readonly ObjectDefinition Version = new ObjectDefinition(typeof(Version), "versions", 37);
+        public static readonly ObjectDefinition Ticket = new ObjectDefinition(typeof(Ticket), "tickets", 39);
+
         public static List<ObjectDefinition> Definitions = new List<ObjectDefinition>()
         {
             Invoice,
             InvoiceLine,
-            Customer
+            Customer,
+            Project,
+            Version,
+            Ticket
         };
 
         public static ObjectDefinition GetDefinition<T>() where T : IObject

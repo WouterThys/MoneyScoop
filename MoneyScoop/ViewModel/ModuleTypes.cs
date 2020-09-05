@@ -119,5 +119,18 @@ namespace MoneyScoop.ViewModel
         public readonly static SimpleModuleType BookKeeperOverviewModule = new SimpleModuleType(-501, ObjectDefinitions.BookKeeper, "BookKeeperOverviewView", "Overview");
 
         public readonly static SimpleModuleType SendMailModule = new SimpleModuleType(-1000, ObjectDefinitions.DummyDef, "SendMailView", "Send mail");
+
+
+        public readonly static DataListModuleType ProjectListModule = new DataListModuleType(-2000, ObjectDefinitions.Project, "Project");
+        public readonly static AddEditDataModule ProjectEditModule = new AddEditDataModule(-2001, ObjectDefinitions.Project, "Project");
+        public readonly static SimpleModuleType ProjectDetailsModule = new SimpleModuleType(-2002, ObjectDefinitions.Project, "ProjectDetailView", "Details");
+
+        public readonly static DataListModuleType TicketListModule = new DataListModuleType(-2100, ObjectDefinitions.Ticket, "Ticket");
+        public readonly static AddEditDataModule TicketEditModule = new AddEditDataModule(-2101, ObjectDefinitions.Ticket, "Ticket");
+        public readonly static SimpleModuleType TicketDetailsModule = new SimpleModuleType(-2102, ObjectDefinitions.Ticket, "TicketDetailView", "Details");
+
+        public readonly static DataListModuleType VersionListModule = new DataListModuleType(-2200, ObjectDefinitions.Version, "Version");
+        public readonly static AddEditDataModule VersionEditModule = new AddEditDataModule(-2201, ObjectDefinitions.Version, "Version");
+        public readonly static SimpleModuleType VersionDetailsModule = new SimpleModuleType(-2202, ObjectDefinitions.Version, "VersionDetailView", "Details");
     }
 }

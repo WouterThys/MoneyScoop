@@ -22,9 +22,7 @@ namespace MoneyScoop.View
             base.OnLoad(e);
             if (!DesignMode)
             {
-                var fluent = InitBindings<Customer, CustomerEditViewModel>();
-
-                
+                InitBindings<Customer, CustomerEditViewModel>();               
             }
         }
     }

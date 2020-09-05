@@ -6,7 +6,7 @@ namespace MoneyScoop.Model
     public class Customer : BaseObject
     {
         public override ObjectDefinition ObjectDefinition { get { return ObjectDefinitions.Customer; } }
-        
+
         private string addressLine1;
         private string addressLine2;
         private string vatNumber;
@@ -98,19 +98,19 @@ namespace MoneyScoop.Model
                 case ActionType.Delete:
                     DataSource.Ds.OnDeleted(this);
                     break;
+            }
         }
-    }
 
-    #endregion
+        #endregion
 
-    #region Methods & Calculated Fields
+        #region Methods & Calculated Fields
 
 
-    #endregion
+        #endregion
 
-    #region Properties
+        #region Properties
 
-    public string AddressLine1
+        public string AddressLine1
         {
             get => addressLine1 ?? "";
             set
