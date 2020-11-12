@@ -57,24 +57,6 @@ namespace MoneyScoop.Model
             }
         }
 
-        public override bool PropertiesEqual(IObject iObject)
-        {
-            if (base.PropertiesEqual(iObject))
-            {
-                if (iObject is InvoiceLine that)
-                {
-                    return
-                    InvoiceId == that.InvoiceId &&
-                    DateCreated == that.DateCreated &&
-                    UnitPrice == that.UnitPrice &&
-                    Multiplier == that.Multiplier &&
-                    ShowUnitPrice == that.ShowUnitPrice &&
-                    ShowDate == that.ShowDate
-                    ;
-                }
-            }
-            return false;
-        }
         #endregion
 
         #region Database Overrides

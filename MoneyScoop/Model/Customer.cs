@@ -44,23 +44,6 @@ namespace MoneyScoop.Model
             }
         }
 
-        public override bool PropertiesEqual(IObject iObject)
-        {
-            if (base.PropertiesEqual(iObject))
-            {
-                if (iObject is Customer that)
-                {
-                    return
-                    AddressLine1 == that.AddressLine1 &&
-                    AddressLine2 == that.AddressLine2 &&
-                    VATNumber == that.VATNumber &&
-                    Email == that.Email &&
-                    Phone == that.Phone
-                    ;
-                }
-            }
-            return false;
-        }
         #endregion
 
         #region Database Overrides

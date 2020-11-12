@@ -70,29 +70,6 @@ namespace MoneyScoop.Model
             }
         }
 
-        public override bool PropertiesEqual(IObject iObject)
-        {
-            if (base.PropertiesEqual(iObject))
-            {
-                if (iObject is Invoice that)
-                {
-                    return
-                        OutGoing == that.OutGoing &&
-                        CustomerId == that.CustomerId &&
-                        DateCreated == that.DateCreated &&
-                        DateSend == that.DateSend &&
-                        DatePayed == that.DatePayed &&
-                        DateSendToBooky == that.DateSendToBooky &&
-                        VAT == that.VAT &&
-                        VATShifted == that.VATShifted &&
-                        SavePath == that.SavePath &&
-                        BookySavePath == that.BookySavePath &&
-                        Total == that.Total
-                        ;
-                }
-            }
-            return false;
-        }
         #endregion
 
         #region Database Overrides

@@ -54,19 +54,6 @@ namespace MoneyScoop.Model
                 }
             }
         }
-
-        public virtual bool PropertiesEqual(IObject iObject)
-        {
-            if (iObject is BaseObject abo)
-            {
-                return // Don't compare Id and Key!!
-                    Code == abo.Code &&
-                    Description == abo.Description &&
-                    Info == abo.Info
-                    ;
-            }
-            return false;
-        }
         
         public virtual bool IsUnknown()
         {

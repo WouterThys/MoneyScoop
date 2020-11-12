@@ -15,7 +15,6 @@ namespace MoneyScoop.Model
 
         IObject CreateCopy();
         void CopyFrom(IObject iObject);
-        bool PropertiesEqual(IObject iObject);
     }
 
     public interface ISave

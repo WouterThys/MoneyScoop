@@ -34,7 +34,7 @@ namespace MoneyScoop.View
             where T : class, IBaseObject, new()
         {
             var fluent = mvvmContext.OfType<TModel>();
-            fluent.SetObjectDataSourceBinding(bindingSource, m => m.Editable, m => m.UpdateCommands());
+            fluent.SetObjectDataSourceBinding(bindingSource, m => m.Editable, m => m.DataChanged());
             
             fluent.BindCommand(bbiSave, m => m.Save());
             fluent.BindCommand(bbiSaveAndDone, m => m.SaveAndDone());

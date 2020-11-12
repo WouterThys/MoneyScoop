@@ -24,7 +24,7 @@ namespace MoneyScoop.ViewModel
         public virtual TEntity Editable { get; protected set; }
         
         // Helper variables
-        protected bool propertiesEqual;
+        protected bool propertiesChanged;
 
         protected BaseEditViewModel(IModuleType moduleType, TEntity original) : base(moduleType)
         {
@@ -72,7 +72,8 @@ namespace MoneyScoop.ViewModel
                 // Keep object reference
                 Editable.CopyFrom(Original);
             }
-            
+
+            propertiesChanged = false;
             DataChangedService.AddListener(this);
         }
 
@@ -107,10 +108,17 @@ namespace MoneyScoop.ViewModel
             }
         }
 
+        public virtual void DataChanged()
+        {
+            if (!propertiesChanged)
+            {
+                propertiesChanged = true;
+                UpdateCommands();
+            }
+        }
+
         public virtual void UpdateCommands()
         {
-            propertiesEqual = Editable != null && Original.PropertiesEqual(Editable);
-
             this.RaiseCanExecuteChanged(x => x.Save());
             this.RaiseCanExecuteChanged(x => x.SaveAndDone());
             this.RaiseCanExecuteChanged(x => x.Reset());
@@ -141,7 +149,7 @@ namespace MoneyScoop.ViewModel
 
         public virtual bool CanClose()
         {
-            return Editable == null || Original.PropertiesEqual(Editable) || Editable.Code.Length < Context.Ctx.MaxObjectCodeLength;
+            return Editable == null || !propertiesChanged || Editable.Code.Length < Context.Ctx.MaxObjectCodeLength;
         }
         
         #region DOCUMENT
@@ -187,18 +195,19 @@ namespace MoneyScoop.ViewModel
         {
             if (IsSaving || IsLoading || IsUpdating) return false;
 
-            if (!propertiesEqual && Editable != null && Editable.Code.Length >= Context.Ctx.MinObjectCodeLength)
-            {
-                if (Editable.Id > BaseObject.UNKNOWN_ID)
-                {
-                    return Editable.CanBeEdited;
-                }
-                else
-                {
-                    return Editable.CanBeAdded;
-                }
-            }
-            return false;
+            //if (propertiesChanged && Editable != null && Editable.Code.Length >= Context.Ctx.MinObjectCodeLength)
+            //{
+            //    if (Editable.Id > BaseObject.UNKNOWN_ID)
+            //    {
+            //        return Editable.CanBeEdited;
+            //    }
+            //    else
+            //    {
+            //        return Editable.CanBeAdded;
+            //    }
+            //}
+            //return false;
+            return true;
         }
 
         public virtual void Save()
@@ -256,7 +265,7 @@ namespace MoneyScoop.ViewModel
         public virtual bool CanReset()
         {
             if (IsSaving || IsLoading || IsUpdating) return false;
-            return !propertiesEqual;
+            return propertiesChanged;
         }
 
         public virtual void Reset()
