@@ -1,6 +1,6 @@
-﻿namespace MoneyScoop.View
+﻿namespace MoneyScoop.View.Tickets
 {
-    partial class BaseRibbonControl
+    partial class TicketListView
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,15 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseRibbonControl));
-            this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.MainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicketListView));
+            this.colState = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colType = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bbiAdd
+            // 
+            this.bbiAdd.ImageOptions.ImageIndex = 0;
+            this.bbiAdd.ImageOptions.LargeImageIndex = 0;
+            // 
+            // bbiEdit
+            // 
+            this.bbiEdit.ImageOptions.ImageIndex = 1;
+            this.bbiEdit.ImageOptions.LargeImageIndex = 1;
+            // 
+            // bbiDelete
+            // 
+            this.bbiDelete.ImageOptions.ImageIndex = 2;
+            this.bbiDelete.ImageOptions.LargeImageIndex = 2;
+            // 
+            // MainGroup
+            // 
+            this.MainGroup.Text = "Tickets";
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(MoneyScoop.Model.Ticket);
+            // 
+            // gridControl
+            // 
+            this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            // 
+            // gridView
+            // 
+            this.gridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colState,
+            this.colType});
+            // 
+            // colLastModified
+            // 
+            this.colLastModified.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm";
+            this.colLastModified.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            // 
+            // ribbonControl
+            // 
+            this.ribbonControl.ExpandCollapseItem.Id = 0;
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            // 
+            // 
+            // 
+            this.ribbonControl.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.ribbonControl.SearchEditItem.EditWidth = 150;
+            this.ribbonControl.SearchEditItem.Id = -5000;
+            this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.ribbonControl.SearchEditItem.UseEditorPadding = false;
             // 
             // ic16x16
             // 
@@ -176,38 +230,38 @@
             this.ic48x48.Images.SetKeyName(40, "ticket_green.png");
             this.ic48x48.Images.SetKeyName(41, "ticket_red.png");
             // 
-            // ribbonControl
+            // colState
             // 
-            this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl.ExpandCollapseItem,
-            this.ribbonControl.SearchEditItem});
-            this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 1;
-            this.ribbonControl.Name = "ribbonControl";
-            this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.MainRibbonPage});
-            this.ribbonControl.Size = new System.Drawing.Size(527, 194);
+            this.colState.FieldName = "State";
+            this.colState.MinWidth = 25;
+            this.colState.Name = "colState";
+            this.colState.Visible = true;
+            this.colState.VisibleIndex = 2;
+            this.colState.Width = 94;
             // 
-            // MainRibbonPage
+            // colType
             // 
-            this.MainRibbonPage.Name = "MainRibbonPage";
-            this.MainRibbonPage.Text = "Main";
+            this.colType.FieldName = "Type";
+            this.colType.MinWidth = 25;
+            this.colType.Name = "colType";
+            this.colType.Visible = true;
+            this.colType.VisibleIndex = 3;
+            this.colType.Width = 94;
             // 
-            // BaseRibbonControl
+            // TicketListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ribbonControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "BaseRibbonControl";
-            this.Size = new System.Drawing.Size(527, 528);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "TicketListView";
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,7 +269,7 @@
 
         #endregion
 
-        protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        protected DevExpress.XtraBars.Ribbon.RibbonPage MainRibbonPage;
+        private DevExpress.XtraGrid.Columns.GridColumn colState;
+        private DevExpress.XtraGrid.Columns.GridColumn colType;
     }
 }

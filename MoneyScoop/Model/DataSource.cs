@@ -8,12 +8,10 @@ namespace MoneyScoop.Model
 {
     public class DataSource
     {
-        // Singleton
-        private static readonly DataSource INSTANCE = new DataSource();
-        public static DataSource Ds { get { return INSTANCE; } }
+        public static DataSource Ds { get; } = new DataSource();
 
         // Variables
-        private IDictionary<Type, IDataList> cache;
+        private readonly IDictionary<Type, IDataList> cache;
         private INotifyDataChanged dataListener;
         private IDataInvoker dataInvoker;
 
@@ -24,7 +22,11 @@ namespace MoneyScoop.Model
             {
                 { typeof(Invoice), new DataList<Invoice>() },
                 { typeof(InvoiceLine), new DataList<InvoiceLine>() },
-                { typeof(Customer), new DataList<Customer>() }
+                { typeof(Customer), new DataList<Customer>() },
+
+                { typeof(Project), new DataList<Project>() },
+                { typeof(Version), new DataList<Version>() },
+                { typeof(Ticket), new DataList<Ticket>() },
             };
         }
 
@@ -34,6 +36,7 @@ namespace MoneyScoop.Model
             {
                 int year = DateTime.Now.Year;
                 return Invoices.Where(i => 
+                    i.Id > 0 &&
                     !i.OutGoing &&    
                     i.DateCreated.Year == year);
             }
@@ -58,6 +61,16 @@ namespace MoneyScoop.Model
                 return biggest + 1;
             }
         }
+
+        public DataList<Invoice> Invoices { get { return GetList(GetCachedList<Invoice>(), () => FetchAllFromDb<Invoice>()); } }
+        public DataList<InvoiceLine> InvoiceLines { get { return GetList(GetCachedList<InvoiceLine>(), () => FetchAllFromDb<InvoiceLine>()); } }
+        public DataList<Customer> Customers { get { return GetList(GetCachedList<Customer>(), () => FetchAllFromDb<Customer>()); } }
+
+
+        public DataList<Project> Projects { get { return GetList(GetCachedList<Project>(), () => FetchAllFromDb<Project>()); } }
+        public DataList<Version> Versions { get { return GetList(GetCachedList<Version>(), () => FetchAllFromDb<Version>()); } }
+        public DataList<Ticket> Tickets { get { return GetList(GetCachedList<Ticket>(), () => FetchAllFromDb<Ticket>()); } }
+
 
         #region DataSource Methods
 
@@ -90,14 +103,6 @@ namespace MoneyScoop.Model
             return new List<TObject>(Context.Ctx.Db.SelectAll<TObject>());
         }
 
-        #endregion
-        
-        #region Data Lists
-
-        public DataList<Invoice> Invoices { get { return GetList(GetCachedList<Invoice>(), () => FetchAllFromDb<Invoice>()); } }
-        public DataList<InvoiceLine> InvoiceLines { get { return GetList(GetCachedList<InvoiceLine>(), () => FetchAllFromDb<InvoiceLine>()); } }
-        public DataList<Customer> Customers { get { return GetList(GetCachedList<Customer>(), () => FetchAllFromDb<Customer>()); } }
-        
         #endregion
 
         #region Data Changed

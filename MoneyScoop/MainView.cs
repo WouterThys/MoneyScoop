@@ -42,6 +42,7 @@ namespace MoneyScoop
             aceInvoiceOutgoing.Tag = ModuleTypes.OutgoingInvoiceListModule;
             aceCusomers.Tag = ModuleTypes.CustomerListModule;
             aceBookKeeper.Tag = ModuleTypes.BookKeeperListModule;
+            aceProjects.Tag = ModuleTypes.ProjectListModule;
             Text = "Money Scoop";
         }
 

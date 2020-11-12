@@ -86,7 +86,20 @@ namespace MoneyScoop.ViewModel
                 {
                     return Selection[0];
                 }
-                return default(TEntity);
+                return default;
+            }
+            set
+            {
+                if (Selection == null)
+                {
+                    Selection = new List<TEntity>();
+                }
+                Selection.Clear();
+                if (value != null)
+                {
+                    Selection.Add(value);
+                    OnSelectionChanged();
+                }
             }
         }
 

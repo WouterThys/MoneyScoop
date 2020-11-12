@@ -154,7 +154,7 @@ namespace Database
             DbCommand cmd = null;
             try
             {
-                string sql = schema + "." + t.GetScript(ActionType.SelectAll);
+                string sql = t.GetScript(ActionType.SelectAll);
 
                 using (connection = GetConnection())
                 {
@@ -188,7 +188,7 @@ namespace Database
         public T SelectById<T>(long id) where T : IDbObject, new()
         {
             T t = new T();
-            string sql = schema + "." + t.GetScript(ActionType.SelectById);
+            string sql = t.GetScript(ActionType.SelectById);
             using (DbConnection connection = GetConnection())
             {
                 connection.Open();
@@ -474,7 +474,7 @@ namespace Database
 
                 try
                 {
-                    sql = schema + "." + dbInstance.GetScript(queryType);
+                    sql = dbInstance.GetScript(queryType);
                 }
                 catch (Exception e)
                 {
@@ -584,7 +584,17 @@ namespace Database
 
         public static void AddDbValue(DbCommand command, string paramName, object value)
         {
+            if (value is DateTime dt && dt.Year < 2000)
+            {
+                DateTime corrected = new DateTime(1990, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second, dt.Millisecond);
+                if (command is MySql.Data.MySqlClient.MySqlCommand) ((MySql.Data.MySqlClient.MySqlCommand)command).Parameters.AddWithValue("@" + paramName, corrected);
+                //else if (command is System.Data.OracleClient.OracleCommand) command.Parameters.Add(new SqlParameter(":" + paramName, value));
+                else if (command is SqlCommand) command.Parameters.Add(new SqlParameter("@" + paramName, corrected));
+                return;
+            }
+
             if (command is MySql.Data.MySqlClient.MySqlCommand) ((MySql.Data.MySqlClient.MySqlCommand)command).Parameters.AddWithValue("@" + paramName, value);
+            //else if (command is System.Data.OracleClient.OracleCommand) command.Parameters.Add(new SqlParameter(":" + paramName, value));
             else if (command is SqlCommand) command.Parameters.Add(new SqlParameter("@" + paramName, value));
         }
 
@@ -694,7 +704,14 @@ namespace Database
             int ordinal = r.GetOrdinal(fieldName);
             try
             {
-                if (!r.IsDBNull(ordinal)) { dt = r.GetDateTime(ordinal); }
+                if (!r.IsDBNull(ordinal))
+                {
+                    dt = r.GetDateTime(ordinal);
+                    if (dt != null && dt.Year < 2000)
+                    {
+                        dt = defaultValue;
+                    }
+                }
             }
             catch
             {

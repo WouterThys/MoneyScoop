@@ -39,11 +39,14 @@
             this.dockPanelNavigation = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.accordionControl = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.aceGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceMoneyGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceInvoiceIncoming = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceInvoiceOutgoing = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.aceCusomers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceBookKeeper = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceProjectsGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceProjects = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceDataGroup = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceCusomers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager)).BeginInit();
@@ -62,9 +65,10 @@
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.Size = new System.Drawing.Size(1574, 60);
+            this.ribbonControl1.Size = new System.Drawing.Size(1836, 73);
             // 
             // mvvmContext
             // 
@@ -103,41 +107,45 @@
             this.dockPanelNavigation.Controls.Add(this.dockPanel1_Container);
             this.dockPanelNavigation.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanelNavigation.ID = new System.Guid("213f10cd-add6-4101-bb1b-0d3e02a13ed6");
-            this.dockPanelNavigation.Location = new System.Drawing.Point(0, 60);
+            this.dockPanelNavigation.Location = new System.Drawing.Point(0, 73);
+            this.dockPanelNavigation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dockPanelNavigation.Name = "dockPanelNavigation";
             this.dockPanelNavigation.OriginalSize = new System.Drawing.Size(300, 200);
-            this.dockPanelNavigation.Size = new System.Drawing.Size(300, 618);
+            this.dockPanelNavigation.Size = new System.Drawing.Size(300, 761);
             this.dockPanelNavigation.Text = "Navigation";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.accordionControl);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(3, 30);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 37);
+            this.dockPanel1_Container.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(293, 585);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(290, 720);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // accordionControl
             // 
             this.accordionControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accordionControl.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.aceGroup});
+            this.aceMoneyGroup,
+            this.aceProjectsGroup,
+            this.aceDataGroup});
             this.accordionControl.Location = new System.Drawing.Point(0, 0);
+            this.accordionControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.accordionControl.Name = "accordionControl";
-            this.accordionControl.Size = new System.Drawing.Size(293, 585);
+            this.accordionControl.Size = new System.Drawing.Size(290, 720);
             this.accordionControl.TabIndex = 0;
             this.accordionControl.Text = "accordionControl1";
             // 
-            // aceGroup
+            // aceMoneyGroup
             // 
-            this.aceGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aceMoneyGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.aceInvoiceIncoming,
             this.aceInvoiceOutgoing,
-            this.aceCusomers,
             this.aceBookKeeper});
-            this.aceGroup.Expanded = true;
-            this.aceGroup.Name = "aceGroup";
-            this.aceGroup.Text = "Select";
+            this.aceMoneyGroup.Expanded = true;
+            this.aceMoneyGroup.Name = "aceMoneyGroup";
+            this.aceMoneyGroup.Text = "Banking";
             // 
             // aceInvoiceIncoming
             // 
@@ -153,13 +161,6 @@
             this.aceInvoiceOutgoing.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceInvoiceOutgoing.Text = "Outgoing";
             // 
-            // aceCusomers
-            // 
-            this.aceCusomers.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceCusomers.ImageOptions.Image")));
-            this.aceCusomers.Name = "aceCusomers";
-            this.aceCusomers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.aceCusomers.Text = "Customers";
-            // 
             // aceBookKeeper
             // 
             this.aceBookKeeper.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceBookKeeper.ImageOptions.Image")));
@@ -167,16 +168,47 @@
             this.aceBookKeeper.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceBookKeeper.Text = "Booky";
             // 
+            // aceProjectsGroup
+            // 
+            this.aceProjectsGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aceProjects});
+            this.aceProjectsGroup.Expanded = true;
+            this.aceProjectsGroup.Name = "aceProjectsGroup";
+            this.aceProjectsGroup.Text = "Projects";
+            // 
+            // aceProjects
+            // 
+            this.aceProjects.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
+            this.aceProjects.Name = "aceProjects";
+            this.aceProjects.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceProjects.Text = "Projects";
+            // 
+            // aceDataGroup
+            // 
+            this.aceDataGroup.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.aceCusomers});
+            this.aceDataGroup.Expanded = true;
+            this.aceDataGroup.Name = "aceDataGroup";
+            this.aceDataGroup.Text = "Data";
+            // 
+            // aceCusomers
+            // 
+            this.aceCusomers.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("aceCusomers.ImageOptions.Image")));
+            this.aceCusomers.Name = "aceCusomers";
+            this.aceCusomers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceCusomers.Text = "Customers";
+            // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.behaviorManager.SetBehaviors(this, new DevExpress.Utils.Behaviors.Behavior[] {
             ((DevExpress.Utils.Behaviors.Behavior)(DevExpress.Utils.Behaviors.Common.PersistenceBehavior.Create(typeof(DevExpress.Utils.BehaviorSource.PersistenceBehaviorSourceForForm), null, DevExpress.Utils.Behaviors.Common.Storage.File, DevExpress.Utils.DefaultBoolean.True)))});
-            this.ClientSize = new System.Drawing.Size(1574, 678);
+            this.ClientSize = new System.Drawing.Size(1836, 834);
             this.Controls.Add(this.dockPanelNavigation);
             this.Controls.Add(this.ribbonControl1);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("MainView.IconOptions.Image")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainView";
             this.Ribbon = this.ribbonControl1;
             this.Text = "MainView";
@@ -205,11 +237,14 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl;
         private DevExpress.XtraBars.Docking.DockManager dockManager;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement aceGroup;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceMoneyGroup;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceInvoiceIncoming;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceInvoiceOutgoing;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceCusomers;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceBookKeeper;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceProjectsGroup;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceProjects;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceDataGroup;
     }
 }
 

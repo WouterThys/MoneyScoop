@@ -54,6 +54,19 @@ namespace MoneyScoop.Model
                 }
             }
         }
+
+        public virtual bool PropertiesEqual(IObject iObject)
+        {
+            if (iObject is BaseObject abo)
+            {
+                return // Don't compare Id and Key!!
+                    Code == abo.Code &&
+                    Description == abo.Description &&
+                    Info == abo.Info
+                    ;
+            }
+            return false;
+        }
         
         public virtual bool IsUnknown()
         {
@@ -214,6 +227,24 @@ namespace MoneyScoop.Model
         public static bool operator !=(BaseObject object1, BaseObject object2)
         {
             return !(object1 == object2);
+        }
+
+        protected void SetProperty<T>(ref T t, T val)
+        {
+            SetProperty(ref t, val, "");
+        }
+
+        protected void SetProperty<T>(ref T t, T val, string name)
+        {
+            SetProperty(ref t, val, name, null);
+        }
+
+        protected void SetProperty<T>(ref T t, T val, string name, Action<T, T> action)
+        {
+            T old = t;
+            t = val;
+            OnPropertyChanged(name);
+            action?.Invoke(old, val);
         }
 
         #endregion

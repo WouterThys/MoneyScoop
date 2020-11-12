@@ -1,6 +1,6 @@
-﻿namespace MoneyScoop.View
+﻿namespace MoneyScoop.View.Projects
 {
-    partial class BaseRibbonControl
+    partial class ProjectEditView
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,15 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseRibbonControl));
-            this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.MainRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectEditView));
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).BeginInit();
+            this.dataLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bbiSave
+            // 
+            this.bbiSave.ImageOptions.ImageIndex = 9;
+            this.bbiSave.ImageOptions.LargeImageIndex = 9;
+            // 
+            // bbiSaveAndDone
+            // 
+            this.bbiSaveAndDone.ImageOptions.ImageIndex = 10;
+            this.bbiSaveAndDone.ImageOptions.LargeImageIndex = 10;
+            // 
+            // bbiDelete
+            // 
+            this.bbiDelete.ImageOptions.ImageIndex = 2;
+            this.bbiDelete.ImageOptions.LargeImageIndex = 2;
+            // 
+            // bbiReset
+            // 
+            this.bbiReset.ImageOptions.ImageIndex = 7;
+            this.bbiReset.ImageOptions.LargeImageIndex = 7;
+            // 
+            // bbiCopy
+            // 
+            this.bbiCopy.ImageOptions.ImageIndex = 3;
+            this.bbiCopy.ImageOptions.LargeImageIndex = 3;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(MoneyScoop.Model.Project);
+            this.dataLayoutControl.Controls.SetChildIndex(this.InfoTextEdit, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.DescriptionTextEdit, 0);
+            this.dataLayoutControl.Controls.SetChildIndex(this.CodeTextEdit, 0);
+            // 
+            // CodeTextEdit
+            // 
+            // 
+            // DescriptionTextEdit
+            // 
+            // 
+            // InfoTextEdit
+            // 
+            // 
+            // ribbonControl
+            // 
+            this.ribbonControl.ExpandCollapseItem.Id = 0;
+            // 
+            // 
+            // 
+            this.ribbonControl.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.ribbonControl.SearchEditItem.EditWidth = 150;
+            this.ribbonControl.SearchEditItem.Id = -5000;
+            this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.ribbonControl.SearchEditItem.UseEditorPadding = false;
             // 
             // ic16x16
             // 
@@ -176,46 +240,34 @@
             this.ic48x48.Images.SetKeyName(40, "ticket_green.png");
             this.ic48x48.Images.SetKeyName(41, "ticket_red.png");
             // 
-            // ribbonControl
-            // 
-            this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbonControl.ExpandCollapseItem,
-            this.ribbonControl.SearchEditItem});
-            this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 1;
-            this.ribbonControl.Name = "ribbonControl";
-            this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.MainRibbonPage});
-            this.ribbonControl.Size = new System.Drawing.Size(527, 194);
-            // 
-            // MainRibbonPage
-            // 
-            this.MainRibbonPage.Name = "MainRibbonPage";
-            this.MainRibbonPage.Text = "Main";
-            // 
-            // BaseRibbonControl
+            // ProjectEditView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ribbonControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Name = "BaseRibbonControl";
-            this.Size = new System.Drawing.Size(527, 528);
+            this.Name = "ProjectEditView";
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl)).EndInit();
+            this.dataLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CodeTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DescriptionTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcgId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemForInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic24x24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic48x48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-        protected DevExpress.XtraBars.Ribbon.RibbonPage MainRibbonPage;
     }
 }
