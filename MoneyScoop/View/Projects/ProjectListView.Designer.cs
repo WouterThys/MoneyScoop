@@ -47,6 +47,7 @@
             this.tvProjects = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.colId = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.ticketListView = new MoneyScoop.View.Tickets.TicketListView();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ic16x16)).BeginInit();
@@ -66,6 +67,7 @@
             this.bbiAdd,
             this.bbiEdit,
             this.bbiDelete});
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonControl.MaxItemId = 4;
             // 
             // 
@@ -75,7 +77,7 @@
             this.ribbonControl.SearchEditItem.Id = -5000;
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.SearchEditItem.UseEditorPadding = false;
-            this.ribbonControl.Size = new System.Drawing.Size(1206, 194);
+            this.ribbonControl.Size = new System.Drawing.Size(1034, 158);
             // 
             // MainRibbonPage
             // 
@@ -223,20 +225,20 @@
             // colCode
             // 
             this.colCode.FieldName = "Code";
-            this.colCode.MinWidth = 25;
+            this.colCode.MinWidth = 21;
             this.colCode.Name = "colCode";
             this.colCode.Visible = true;
             this.colCode.VisibleIndex = 1;
-            this.colCode.Width = 94;
+            this.colCode.Width = 81;
             // 
             // colDescription
             // 
             this.colDescription.FieldName = "Description";
-            this.colDescription.MinWidth = 25;
+            this.colDescription.MinWidth = 21;
             this.colDescription.Name = "colDescription";
             this.colDescription.Visible = true;
             this.colDescription.VisibleIndex = 2;
-            this.colDescription.Width = 94;
+            this.colDescription.Width = 81;
             // 
             // rpgProjects
             // 
@@ -273,24 +275,28 @@
             // splitContainerControl
             // 
             this.splitContainerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl.Location = new System.Drawing.Point(0, 194);
+            this.splitContainerControl.Location = new System.Drawing.Point(0, 158);
+            this.splitContainerControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainerControl.Name = "splitContainerControl";
             this.splitContainerControl.Panel1.Controls.Add(this.gcProjects);
             this.splitContainerControl.Panel1.Text = "Panel1";
+            this.splitContainerControl.Panel2.Controls.Add(this.ticketListView);
             this.splitContainerControl.Panel2.Text = "Panel2";
-            this.splitContainerControl.Size = new System.Drawing.Size(1206, 460);
-            this.splitContainerControl.SplitterPosition = 315;
+            this.splitContainerControl.Size = new System.Drawing.Size(1034, 373);
+            this.splitContainerControl.SplitterPosition = 270;
             this.splitContainerControl.TabIndex = 1;
             // 
             // gcProjects
             // 
             this.gcProjects.DataSource = this.bsProjects;
             this.gcProjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcProjects.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcProjects.Location = new System.Drawing.Point(0, 0);
             this.gcProjects.MainView = this.tvProjects;
+            this.gcProjects.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcProjects.MenuManager = this.ribbonControl;
             this.gcProjects.Name = "gcProjects";
-            this.gcProjects.Size = new System.Drawing.Size(315, 460);
+            this.gcProjects.Size = new System.Drawing.Size(270, 373);
             this.gcProjects.TabIndex = 0;
             this.gcProjects.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tvProjects});
@@ -306,6 +312,7 @@
             this.colCode,
             this.colDescription,
             this.colInfo});
+            this.tvProjects.DetailHeight = 284;
             this.tvProjects.GridControl = this.gcProjects;
             this.tvProjects.Name = "tvProjects";
             this.tvProjects.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
@@ -339,28 +346,38 @@
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 25;
+            this.colId.MinWidth = 21;
             this.colId.Name = "colId";
             this.colId.Visible = true;
             this.colId.VisibleIndex = 0;
-            this.colId.Width = 94;
+            this.colId.Width = 81;
             // 
             // colInfo
             // 
             this.colInfo.FieldName = "Info";
-            this.colInfo.MinWidth = 25;
+            this.colInfo.MinWidth = 21;
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
             this.colInfo.VisibleIndex = 3;
-            this.colInfo.Width = 94;
+            this.colInfo.Width = 81;
+            // 
+            // ticketListView
+            // 
+            this.ticketListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ticketListView.Location = new System.Drawing.Point(0, 0);
+            this.ticketListView.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ticketListView.Name = "ticketListView";
+            this.ticketListView.Size = new System.Drawing.Size(754, 373);
+            this.ticketListView.TabIndex = 0;
             // 
             // ProjectListView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl);
+            this.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.Name = "ProjectListView";
-            this.Size = new System.Drawing.Size(1206, 654);
+            this.Size = new System.Drawing.Size(1034, 531);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
             this.Controls.SetChildIndex(this.splitContainerControl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
@@ -392,5 +409,6 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn colCode;
         private DevExpress.XtraGrid.Columns.TileViewColumn colDescription;
         private DevExpress.XtraGrid.Columns.TileViewColumn colInfo;
+        private Tickets.TicketListView ticketListView;
     }
 }

@@ -271,6 +271,18 @@
     <Compile Include="View\Projects\ProjectListView.Designer.cs">
       <DependentUpon>ProjectListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Tickets\TicketEditView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Tickets\TicketEditView.Designer.cs">
+      <DependentUpon>TicketEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tickets\TicketListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Tickets\TicketListView.Designer.cs">
+      <DependentUpon>TicketListView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,6 +362,12 @@
     <EmbeddedResource Include="View\Projects\ProjectListView.resx">
       <DependentUpon>ProjectListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Tickets\TicketEditView.resx">
+      <DependentUpon>TicketEditView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Tickets\TicketListView.resx">
+      <DependentUpon>TicketListView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Config\settings.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -360,6 +378,7 @@
     <None Include="Properties\DataSources\MoneyScoop.Model.Invoice.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.InvoiceLine.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.Model.Project.datasource" />
+    <None Include="Properties\DataSources\MoneyScoop.Model.Ticket.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.ViewModel.BookKeeper.CheckedInvoice.datasource" />
     <None Include="Properties\DataSources\MoneyScoop.ViewModel.SendMailViewModel.datasource" />
     <None Include="Properties\Settings.settings">

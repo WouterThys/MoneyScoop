@@ -14,7 +14,7 @@ namespace MoneyScoop.ViewModel.Tickets
             return ViewModelSource.Create(() => new TicketListViewModel());
         }
 
-        public Project Project { get; set; }
+        public virtual Project Project { get; set; }
 
         public virtual TicketDetailsViewModel DetailModel { get; protected set; }
 
@@ -26,6 +26,7 @@ namespace MoneyScoop.ViewModel.Tickets
 
         public override IBaseViewModel GetEditViewModel(Ticket baseObject)
         {
+            baseObject.ProjectId = Project.Id;
             return TicketEditViewModel.Create(baseObject);
         }
 
@@ -43,8 +44,7 @@ namespace MoneyScoop.ViewModel.Tickets
             else
             {
                 return DataSource.Ds.Tickets.Where(t => t.ProjectId == Project.Id);
-            }
-            
+            }   
         }
 
         public override void OnSelectionChanged()
@@ -52,5 +52,7 @@ namespace MoneyScoop.ViewModel.Tickets
             base.OnSelectionChanged();
             DetailModel.Entity = Selected;
         }
+
+        
     }
 }

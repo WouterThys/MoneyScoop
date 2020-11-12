@@ -41,6 +41,7 @@ namespace MoneyScoop.ViewModel.Projects
         {
             base.OnSelectionChanged();
             DetailModel.Entity = Selected;
+            TicketListViewModel.Project = Selected;
         }
     }
 }

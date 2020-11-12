@@ -30,6 +30,7 @@ namespace MoneyScoop.View.Projects
         public override void InitializeLayouts()
         {
             base.InitializeLayouts();
+            Ribbon.MergeRibbon(ticketListView.Ribbon);
         }
 
         protected override void InitializeServices()
@@ -76,6 +77,9 @@ namespace MoneyScoop.View.Projects
             fluent.BindCommand(bbiAdd, m => m.Add());
             fluent.BindCommand(bbiEdit, m => m.Edit(null), m => m.Selected);
             fluent.BindCommand(bbiDelete, m => m.Delete(null), m => m.Selection);
+
+            // Tickets
+            ticketListView.InitializeBindings(fluent.ViewModel.TicketListViewModel);
         }
     }
 }

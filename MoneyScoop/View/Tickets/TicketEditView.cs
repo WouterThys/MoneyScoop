@@ -1,14 +1,14 @@
 ﻿using System;
-using MoneyScoop.ViewModel.Projects;
+using MoneyScoop.ViewModel.Tickets;
 using MoneyScoop.Model;
 
-namespace MoneyScoop.View.Projects
+namespace MoneyScoop.View.Tickets
 {
-    public partial class ProjectEditView : BaseEditView
+    public partial class TicketEditView : BaseEditView
     {
-        public ProjectEditView()
+        public TicketEditView()
         {
-            InitializeModel(typeof(ProjectEditViewModel));
+            InitializeModel(typeof(TicketEditViewModel));
             InitializeComponent();
             if (!DesignMode)
             {
@@ -22,7 +22,7 @@ namespace MoneyScoop.View.Projects
             base.OnLoad(e);
             if (!DesignMode)
             {
-                InitBindings<Project, ProjectEditViewModel>();
+                InitBindings<Ticket, TicketEditViewModel>();
             }
         }
     }

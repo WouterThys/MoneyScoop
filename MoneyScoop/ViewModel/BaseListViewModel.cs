@@ -98,6 +98,7 @@ namespace MoneyScoop.ViewModel
                 if (value != null)
                 {
                     Selection.Add(value);
+                    OnSelectionChanged();
                 }
             }
         }
