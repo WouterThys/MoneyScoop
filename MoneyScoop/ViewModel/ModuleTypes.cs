@@ -132,5 +132,9 @@ namespace MoneyScoop.ViewModel
         public readonly static DataListModuleType VersionListModule = new DataListModuleType(-2200, ObjectDefinitions.Version, "Version");
         public readonly static AddEditDataModule VersionEditModule = new AddEditDataModule(-2201, ObjectDefinitions.Version, "Version");
         public readonly static SimpleModuleType VersionDetailsModule = new SimpleModuleType(-2202, ObjectDefinitions.Version, "VersionDetailView", "Details");
+
+        public readonly static DataListModuleType LogItemListModule = new DataListModuleType(-2300, ObjectDefinitions.LogItem, "LogItem");
+        public readonly static AddEditDataModule LogItemEditModule = new AddEditDataModule(-2301, ObjectDefinitions.LogItem, "LogItem");
+        public readonly static SimpleModuleType LogItemDetailsModule = new SimpleModuleType(-2302, ObjectDefinitions.LogItem, "LogItemDetailView", "Details");
     }
 }

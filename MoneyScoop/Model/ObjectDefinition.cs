@@ -63,6 +63,8 @@ namespace MoneyScoop.Model
         public static readonly ObjectDefinition Version = new ObjectDefinition(typeof(Version), "versions", 37);
         public static readonly ObjectDefinition Ticket = new ObjectDefinition(typeof(Ticket), "tickets", 39);
 
+        public static readonly ObjectDefinition LogItem = new ObjectDefinition(typeof(LogItem), "logitems", 36);
+
         public static List<ObjectDefinition> Definitions = new List<ObjectDefinition>()
         {
             Invoice,
@@ -70,7 +72,8 @@ namespace MoneyScoop.Model
             Customer,
             Project,
             Version,
-            Ticket
+            Ticket,
+            LogItem
         };
 
         public static ObjectDefinition GetDefinition<T>() where T : IObject

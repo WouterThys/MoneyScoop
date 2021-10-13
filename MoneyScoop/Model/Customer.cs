@@ -12,6 +12,12 @@ namespace MoneyScoop.Model
         private string vatNumber;
         private string email;
         private string phone;
+        private string website;
+
+        // Defaults for invoice
+        private bool vatShifted;
+        private decimal defaultUnitPrice;
+        private string invoiceCode;
 
         public Customer() : this("")
         {
@@ -41,6 +47,10 @@ namespace MoneyScoop.Model
                 VATNumber = that.VATNumber;
                 Email = that.Email;
                 Phone = that.Phone;
+                Website = that.Website;
+                VatShifted = that.VatShifted;
+                DefaultUnitPrice = that.DefaultUnitPrice;
+                InvoiceCode = that.InvoiceCode;
             }
         }
 
@@ -56,6 +66,10 @@ namespace MoneyScoop.Model
             VATNumber = DatabaseAccess.RGetString(reader, "vatNumber");
             Email = DatabaseAccess.RGetString(reader, "email");
             Phone = DatabaseAccess.RGetString(reader, "phone");
+            Website = DatabaseAccess.RGetString(reader, "website");
+            VatShifted = DatabaseAccess.RGetBool(reader, "vatShifted");
+            DefaultUnitPrice = DatabaseAccess.RGetDecimal(reader, "defaultUnitPrice");
+            InvoiceCode = DatabaseAccess.RGetString(reader, "invoiceCode");
         }
 
         public override void AddSqlParameters(DbCommand command)
@@ -66,6 +80,11 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "vatNumber", VATNumber);
             DatabaseAccess.AddDbValue(command, "email", Email);
             DatabaseAccess.AddDbValue(command, "phone", Phone);
+            DatabaseAccess.AddDbValue(command, "website", Website);
+            DatabaseAccess.AddDbValue(command, "vatShifted", VatShifted);
+            DatabaseAccess.AddDbValue(command, "defaultUnitPrice", DefaultUnitPrice);
+            DatabaseAccess.AddDbValue(command, "invoiceCode", InvoiceCode);
+            
         }
 
         protected override void OnDbActionDone(ActionType action)
@@ -140,6 +159,46 @@ namespace MoneyScoop.Model
             {
                 phone = value;
                 OnPropertyChanged("Phone");
+            }
+        }
+
+        public string Website
+        {
+            get => website ?? "";
+            set
+            {
+                website = value;
+                OnPropertyChanged("Website");
+            }
+        }
+
+        public bool VatShifted
+        {
+            get => vatShifted;
+            set
+            {
+                vatShifted = value;
+                OnPropertyChanged("VatShifted");
+            }
+        }
+
+        public decimal DefaultUnitPrice
+        {
+            get => defaultUnitPrice;
+            set
+            {
+                defaultUnitPrice = value;
+                OnPropertyChanged("DefaultUnitPrice");
+            }
+        }
+
+        public string InvoiceCode
+        {
+            get => invoiceCode ?? "";
+            set
+            {
+                invoiceCode = value;
+                OnPropertyChanged("InvoiceCode");
             }
         }
 

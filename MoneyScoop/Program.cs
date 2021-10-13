@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using DevExpress.UserSkins;
-using DevExpress.Skins;
 
 namespace MoneyScoop
 {

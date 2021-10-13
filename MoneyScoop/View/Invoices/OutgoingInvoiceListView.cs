@@ -4,6 +4,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils.MVVM;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using System;
+using System.Diagnostics;
 
 namespace MoneyScoop.View
 {
@@ -83,8 +85,8 @@ namespace MoneyScoop.View
 
             fluent.SetTrigger(m => m.Selection, (s) =>
             {
-                if (s != null && s.Count > 0) { DetailPanel.Show(); }
-                else { DetailPanel.HideSliding(); }
+                   if (s != null && s.Count > 0) { DetailPanel.Show(); }
+                   else { DetailPanel.HideSliding(); }
             });
         }
     }

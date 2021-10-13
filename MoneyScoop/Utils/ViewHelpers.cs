@@ -106,61 +106,61 @@ namespace MoneyScoop.Utils
 
         public static void InitializeLayoutPrecistance(PersistenceBehavior behaviour, string layoutXmlName, Action<string> _saveDefault = null)
         {
-            if (behaviour == null) return;
-            if (string.IsNullOrEmpty(layoutXmlName)) return;
+            //if (behaviour == null) return;
+            //if (string.IsNullOrEmpty(layoutXmlName)) return;
 
-            if (!Directory.Exists("Layouts"))
-            {
-                Directory.CreateDirectory("Layouts");
-                DirectorySecurity sec = Directory.GetAccessControl("Layouts");
-                SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
-                sec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.Modify | FileSystemRights.Synchronize, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
-                Directory.SetAccessControl("Layouts", sec);
-            }
-            try
-            {
-                string path = Path.Combine("Layouts", layoutXmlName);
-                if (_saveDefault != null)
-                {
-                    string defaultPath = Path.Combine("Layouts", "Default");
-                    string defaultLayout = Path.Combine("Layouts", "Default", layoutXmlName);
-                    if (!Directory.Exists(defaultPath))
-                    {
-                        Directory.CreateDirectory(defaultPath);
-                    }
-                    if (!File.Exists(defaultLayout))
-                    {
-                        _saveDefault(defaultLayout);
-                    }
-                }
+            //if (!Directory.Exists("Layouts"))
+            //{
+            //    Directory.CreateDirectory("Layouts");
+            //    DirectorySecurity sec = Directory.GetAccessControl("Layouts");
+            //    SecurityIdentifier everyone = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+            //    sec.AddAccessRule(new FileSystemAccessRule(everyone, FileSystemRights.Modify | FileSystemRights.Synchronize, InheritanceFlags.ContainerInherit | InheritanceFlags.ObjectInherit, PropagationFlags.None, AccessControlType.Allow));
+            //    Directory.SetAccessControl("Layouts", sec);
+            //}
+            //try
+            //{
+            //    string path = Path.Combine("Layouts", layoutXmlName);
+            //    if (_saveDefault != null)
+            //    {
+            //        string defaultPath = Path.Combine("Layouts", "Default");
+            //        string defaultLayout = Path.Combine("Layouts", "Default", layoutXmlName);
+            //        if (!Directory.Exists(defaultPath))
+            //        {
+            //            Directory.CreateDirectory(defaultPath);
+            //        }
+            //        if (!File.Exists(defaultLayout))
+            //        {
+            //            _saveDefault(defaultLayout);
+            //        }
+            //    }
 
-                behaviour.Properties.Path = path;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine("Failed to InitializeLayoutPrecistance: " + e);
-            }
+            //    behaviour.Properties.Path = path;
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine("Failed to InitializeLayoutPrecistance: " + e);
+            //}
         }
 
         public static void RemoveLayoutPrecistance(string layoutXmlName, Action<string> _restoreLayout = null)
         {
-            if (string.IsNullOrEmpty(layoutXmlName)) return;
-            try
-            {
-                File.Delete(Path.Combine("Layouts", layoutXmlName));
-                if (_restoreLayout != null)
-                {
-                    string defaultLayout = Path.Combine("Layouts", "Default", layoutXmlName);
-                    if (File.Exists(defaultLayout))
-                    {
-                        _restoreLayout(defaultLayout);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine("Failed to RemoveLayoutPrecistance: " + e);
-            }
+            //if (string.IsNullOrEmpty(layoutXmlName)) return;
+            //try
+            //{
+            //    File.Delete(Path.Combine("Layouts", layoutXmlName));
+            //    if (_restoreLayout != null)
+            //    {
+            //        string defaultLayout = Path.Combine("Layouts", "Default", layoutXmlName);
+            //        if (File.Exists(defaultLayout))
+            //        {
+            //            _restoreLayout(defaultLayout);
+            //        }
+            //    }
+            //}
+            //catch (Exception e)
+            //{
+            //    Debug.WriteLine("Failed to RemoveLayoutPrecistance: " + e);
+            //}
         }
 
         public static void InitializeImageComboBox<T>(ImageComboBoxEdit edit)

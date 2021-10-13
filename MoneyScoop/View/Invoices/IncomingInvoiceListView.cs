@@ -4,6 +4,8 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.Utils.MVVM;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid;
+using DevExpress.Data;
 
 namespace MoneyScoop.View
 {
@@ -31,6 +33,13 @@ namespace MoneyScoop.View
 
             gridControl.ToolTipController = toolTipController;
             toolTipController.GetActiveObjectInfo += ToolTipController_GetActiveObjectInfo;
+
+            gridView.OptionsBehavior.AlignGroupSummaryInGroupRow = DefaultBoolean.True;
+            gridView.OptionsView.ShowGroupedColumns = false;
+
+            gridView.GroupSummary.Add(SummaryItemType.Average, colTotal.FieldName);
+            gridView.GroupSummary.Add(SummaryItemType.Sum, colTotal.FieldName);
+            
 
             DetailsPanel.Hide();
         }

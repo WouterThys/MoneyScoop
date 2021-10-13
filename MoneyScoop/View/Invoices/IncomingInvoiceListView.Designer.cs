@@ -101,6 +101,7 @@
             // gridControl
             // 
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl.Location = new System.Drawing.Point(0, 158);
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riCheckEditPayed,
             this.riCheckEditSend,
@@ -126,36 +127,13 @@
             this.colIsPdfSaved,
             this.colTotal,
             this.colOutGoing});
-            this.gridView.DetailHeight = 350;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCode, DevExpress.Data.ColumnSortOrder.Descending)});
-            // 
-            // colId
-            // 
-            this.colId.MinWidth = 21;
-            this.colId.Width = 75;
-            // 
-            // colCode
-            // 
-            this.colCode.MinWidth = 21;
-            this.colCode.Width = 75;
-            // 
-            // colDescription
-            // 
-            this.colDescription.MinWidth = 21;
-            this.colDescription.Width = 75;
-            // 
-            // colInfo
-            // 
-            this.colInfo.MinWidth = 21;
-            this.colInfo.Width = 75;
             // 
             // colLastModified
             // 
             this.colLastModified.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm";
             this.colLastModified.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colLastModified.MinWidth = 21;
-            this.colLastModified.Width = 75;
             // 
             // ribbonControl
             // 
@@ -478,6 +456,8 @@
             this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
+            this.colTotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "Total", "AVG={0:C}")});
             this.colTotal.Visible = true;
             this.colTotal.VisibleIndex = 5;
             this.colTotal.Width = 64;

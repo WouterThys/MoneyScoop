@@ -75,7 +75,10 @@ namespace MoneyScoop.ViewModel
         public virtual void OnSelectionChanged()
         {
             if (IsLoading) return;
-            UpdateCommands();
+            DispatcherService.BeginInvoke(() => 
+            {
+                UpdateCommands();
+            });
         }
 
         public virtual TEntity Selected

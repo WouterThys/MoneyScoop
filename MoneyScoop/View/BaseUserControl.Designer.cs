@@ -83,6 +83,7 @@
             this.ic16x16.Images.SetKeyName(33, "chest_into.png");
             this.ic16x16.Images.SetKeyName(34, "chest_out.png");
             this.ic16x16.Images.SetKeyName(35, "folder_document.png");
+            this.ic16x16.Images.SetKeyName(36, "date_time.png");
             // 
             // ic24x24
             // 
@@ -124,6 +125,7 @@
             this.ic24x24.Images.SetKeyName(33, "chest_into.png");
             this.ic24x24.Images.SetKeyName(34, "chest_out.png");
             this.ic24x24.Images.SetKeyName(35, "folder_document.png");
+            this.ic24x24.Images.SetKeyName(36, "date_time.png");
             // 
             // ic48x48
             // 
@@ -165,6 +167,7 @@
             this.ic48x48.Images.SetKeyName(33, "chest_into.png");
             this.ic48x48.Images.SetKeyName(34, "chest_out.png");
             this.ic48x48.Images.SetKeyName(35, "folder_document.png");
+            this.ic48x48.Images.SetKeyName(36, "date_time.png");
             // 
             // BaseUserControl
             // 

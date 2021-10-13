@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyScoop", "MoneyScoop\MoneyScoop.csproj", "{44421861-B60D-4CB0-BCDF-2B7B91B9371B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{481378DF-59C1-4AEC-99A5-F9AA6A0B5B60}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{041EB1A5-02BC-4EC2-B8B8-B0CBF7E30536}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,9 +26,6 @@ Global
 		{481378DF-59C1-4AEC-99A5-F9AA6A0B5B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{481378DF-59C1-4AEC-99A5-F9AA6A0B5B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{481378DF-59C1-4AEC-99A5-F9AA6A0B5B60}.Release|Any CPU.Build.0 = Release|Any CPU
-		{041EB1A5-02BC-4EC2-B8B8-B0CBF7E30536}.All|Any CPU.ActiveCfg = Release
-		{041EB1A5-02BC-4EC2-B8B8-B0CBF7E30536}.Debug|Any CPU.ActiveCfg = Debug
-		{041EB1A5-02BC-4EC2-B8B8-B0CBF7E30536}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

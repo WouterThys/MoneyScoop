@@ -43,6 +43,7 @@ namespace MoneyScoop
             aceCusomers.Tag = ModuleTypes.CustomerListModule;
             aceBookKeeper.Tag = ModuleTypes.BookKeeperListModule;
             aceProjects.Tag = ModuleTypes.ProjectListModule;
+            aceLogs.Tag = ModuleTypes.LogItemListModule;
             Text = "Money Scoop";
         }
 

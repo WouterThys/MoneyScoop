@@ -33,6 +33,7 @@ namespace MoneyScoop.ViewModel
         public override void OnLoading()
         {
             base.OnLoading();
+            Editable.UpdateInvoiceLines();
             tmpCustomers = new List<Customer>(DataSource.Ds.Customers);
             tmpInvoiceLines = new List<InvoiceLine>(Editable.InvoiceLines ?? new List<InvoiceLine>());
         }
@@ -150,6 +151,10 @@ namespace MoneyScoop.ViewModel
         public virtual void AddLine()
         {
             InvoiceLine line = new InvoiceLine(Editable);
+            if (Editable.Customer != null && Editable.Customer.DefaultUnitPrice > 0)
+            {
+                line.UnitPrice = Editable.Customer.DefaultUnitPrice;
+            }
             IncomingInvoiceLineEditViewModel model = IncomingInvoiceLineEditViewModel.Create(line);
             model.SetParentViewModel(this);
             ShowDocument(model);

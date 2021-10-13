@@ -71,6 +71,7 @@ namespace MoneyScoop.ViewModel
                 Body = message,
             };
             mail.To.Add(to);
+            mail.CC.Add(from);
             if (attachments != null && attachments.Count() > 0)
             {
                 foreach (string attachment in attachments)

@@ -48,8 +48,15 @@ namespace MoneyScoop.ViewModel
 
         public override void OnSelectionChanged()
         {
-            base.OnSelectionChanged();
-            DetailModel.Entity = Selected;
+            try
+            {
+                base.OnSelectionChanged();
+                DetailModel.Entity = Selected;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
         }
 
 

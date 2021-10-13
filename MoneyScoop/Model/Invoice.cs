@@ -136,13 +136,18 @@ namespace MoneyScoop.Model
             }
         }
 
+        public static string CreateCode(DateTime date)
+        {
+            return date.Year + "-" + DataSource.Ds.NextInvoiceNumber.ToString("D3");
+        }
+
         public override string Code
         {
             get
             {
                 if (Id <= UNKNOWN_ID && !OutGoing)
                 {
-                    return DateCreated.Year + "-" + DataSource.Ds.NextInvoiceNumber.ToString("D3");
+                    return CreateCode(DateCreated);
                 }
                 return base.Code;
             }

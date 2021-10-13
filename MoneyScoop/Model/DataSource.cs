@@ -27,6 +27,8 @@ namespace MoneyScoop.Model
                 { typeof(Project), new DataList<Project>() },
                 { typeof(Version), new DataList<Version>() },
                 { typeof(Ticket), new DataList<Ticket>() },
+
+                { typeof(LogItem), new DataList<LogItem>() },
             };
         }
 
@@ -70,6 +72,9 @@ namespace MoneyScoop.Model
         public DataList<Project> Projects { get { return GetList(GetCachedList<Project>(), () => FetchAllFromDb<Project>()); } }
         public DataList<Version> Versions { get { return GetList(GetCachedList<Version>(), () => FetchAllFromDb<Version>()); } }
         public DataList<Ticket> Tickets { get { return GetList(GetCachedList<Ticket>(), () => FetchAllFromDb<Ticket>()); } }
+
+
+        public DataList<LogItem> LogItems { get { return GetList(GetCachedList<LogItem>(), () => FetchAllFromDb<LogItem>()); } }
 
 
         #region DataSource Methods

@@ -38,7 +38,6 @@ namespace MoneyScoop.View
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            gridControl.ForceInitialize();
         }
 
         protected virtual MVVMContextFluentAPI<TModel> InitializeBindings<T, TModel>()

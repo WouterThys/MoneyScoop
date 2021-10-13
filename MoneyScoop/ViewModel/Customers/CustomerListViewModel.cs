@@ -34,7 +34,10 @@ namespace MoneyScoop.ViewModel
         public override void OnSelectionChanged()
         {
             base.OnSelectionChanged();
-            DetailModel.Entity = Selected;
+            DispatcherService.BeginInvoke(() =>
+            {
+                DetailModel.Entity = Selected;
+            });
         }
     }
 }

@@ -63,6 +63,7 @@
             this.colBankAccount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rpgHandy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiOpenDirectory = new DevExpress.XtraBars.BarButtonItem();
+            this.colSavePath = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -107,6 +108,7 @@
             // gridControl
             // 
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gridControl.Location = new System.Drawing.Point(0, 158);
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riCheckEditPayed,
             this.riCheckEditSend,
@@ -133,38 +135,19 @@
             this.colDateSendToBookyDate,
             this.colTotal,
             this.colOutGoing,
-            this.colBankAccount});
-            this.gridView.DetailHeight = 350;
+            this.colBankAccount,
+            this.colSavePath});
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDateCreated, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colId
             // 
             this.colId.ColumnEdit = this.riCheckEditSendToBooky;
-            this.colId.MinWidth = 21;
-            this.colId.Width = 75;
-            // 
-            // colCode
-            // 
-            this.colCode.MinWidth = 21;
-            this.colCode.Width = 75;
-            // 
-            // colDescription
-            // 
-            this.colDescription.MinWidth = 21;
-            this.colDescription.Width = 75;
-            // 
-            // colInfo
-            // 
-            this.colInfo.MinWidth = 21;
-            this.colInfo.Width = 75;
             // 
             // colLastModified
             // 
             this.colLastModified.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm";
             this.colLastModified.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colLastModified.MinWidth = 21;
-            this.colLastModified.Width = 75;
             // 
             // ribbonControl
             // 
@@ -606,6 +589,12 @@
             this.bbiOpenDirectory.ImageOptions.LargeImageIndex = 35;
             this.bbiOpenDirectory.Name = "bbiOpenDirectory";
             // 
+            // colSavePath
+            // 
+            this.colSavePath.FieldName = "SavePath";
+            this.colSavePath.Name = "colSavePath";
+            this.colSavePath.Width = 64;
+            // 
             // OutgoingInvoiceListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -673,5 +662,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colBankAccount;
         private DevExpress.XtraBars.BarButtonItem bbiOpenDirectory;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgHandy;
+        private DevExpress.XtraGrid.Columns.GridColumn colSavePath;
     }
 }
