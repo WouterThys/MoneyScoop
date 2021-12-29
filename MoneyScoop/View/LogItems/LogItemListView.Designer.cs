@@ -42,6 +42,9 @@ namespace MoneyScoop.View.LogItems
             this.LogItemDetails = new MoneyScoop.View.LogItems.LogItemDetailView();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiCreateInvoices = new DevExpress.XtraBars.BarButtonItem();
+            this.colCustomerCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInvoiceCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colWorkTime = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -76,6 +79,7 @@ namespace MoneyScoop.View.LogItems
             // 
             // gridControl
             // 
+            this.gridControl.Location = new System.Drawing.Point(0, 158);
             this.gridControl.Size = new System.Drawing.Size(650, 482);
             // 
             // gridView
@@ -85,7 +89,13 @@ namespace MoneyScoop.View.LogItems
             this.colStartTime,
             this.colStopTime,
             this.colTimeStamp,
-            this.colVersion});
+            this.colVersion,
+            this.colCustomerCode,
+            this.colInvoiceCode,
+            this.colWorkTime});
+            this.gridView.GroupCount = 1;
+            this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colInvoiceCode, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colLastModified
             // 
@@ -108,6 +118,7 @@ namespace MoneyScoop.View.LogItems
             this.ribbonControl.SearchEditItem.Id = -5000;
             this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbonControl.SearchEditItem.UseEditorPadding = false;
+            this.ribbonControl.Size = new System.Drawing.Size(1058, 158);
             // 
             // MainRibbonPage
             // 
@@ -351,6 +362,30 @@ namespace MoneyScoop.View.LogItems
             this.bbiCreateInvoices.ImageOptions.LargeImageIndex = 12;
             this.bbiCreateInvoices.Name = "bbiCreateInvoices";
             // 
+            // colCustomerCode
+            // 
+            this.colCustomerCode.FieldName = "CustomerCode";
+            this.colCustomerCode.Name = "colCustomerCode";
+            this.colCustomerCode.Visible = true;
+            this.colCustomerCode.VisibleIndex = 7;
+            this.colCustomerCode.Width = 64;
+            // 
+            // colInvoiceCode
+            // 
+            this.colInvoiceCode.FieldName = "InvoiceCode";
+            this.colInvoiceCode.Name = "colInvoiceCode";
+            this.colInvoiceCode.Visible = true;
+            this.colInvoiceCode.VisibleIndex = 8;
+            this.colInvoiceCode.Width = 64;
+            // 
+            // colWorkTime
+            // 
+            this.colWorkTime.FieldName = "WorkTime";
+            this.colWorkTime.Name = "colWorkTime";
+            this.colWorkTime.Visible = true;
+            this.colWorkTime.VisibleIndex = 8;
+            this.colWorkTime.Width = 64;
+            // 
             // LogItemListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,5 +424,8 @@ namespace MoneyScoop.View.LogItems
         private LogItemDetailView LogItemDetails;
         private DevExpress.XtraBars.BarButtonItem bbiCreateInvoices;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCustomerCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colInvoiceCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colWorkTime;
     }
 }

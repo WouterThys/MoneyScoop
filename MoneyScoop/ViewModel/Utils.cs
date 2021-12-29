@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraReports;
+using DevExpress.XtraReports.UI;
 using MoneyScoop.Model;
 using MoneyScoop.Reports;
 using PdfSharp.Pdf;
@@ -17,12 +18,23 @@ namespace MoneyScoop.ViewModel
     static class Utils
     {
 
-        public static InvoiceReport2 CreateReport(Invoice invoice)
+        public static BaseReport CreateReport(Invoice invoice)
         {
-            InvoiceReport2 report = new InvoiceReport2
+            BaseReport report;
+            if (invoice.ShowDetails)
             {
-                DataSource = new List<Invoice>() { invoice }
-            };
+                report = new InvoiceReport_wDetails
+                {
+                    DataSource = new List<Invoice>() { invoice }
+                };
+            }
+            else
+            {
+                report = new InvoiceReport_noDetails
+                {
+                    DataSource = new List<Invoice>() { invoice }
+                };
+            }
             report.ShowVATShifted(invoice.VATShifted);
             return report;
         }
@@ -38,7 +50,7 @@ namespace MoneyScoop.ViewModel
             string file = Path.Combine(Context.Ctx.SavePdfPath, invoice.Code);
             file += ".pdf";
 
-            InvoiceReport2 report = CreateReport(invoice);
+            XtraReport report = CreateReport(invoice);
             report.ExportToPdf(file);
             if (File.Exists(file))
             {

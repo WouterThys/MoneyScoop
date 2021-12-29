@@ -74,7 +74,7 @@
             // gridControl
             // 
             this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gridControl.Size = new System.Drawing.Size(507, 362);
+            this.gridControl.Size = new System.Drawing.Size(658, 482);
             // 
             // gridView
             // 
@@ -84,44 +84,30 @@
             this.colEmail,
             this.colPhone,
             this.colVATNumber});
-            this.gridView.DetailHeight = 350;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colCode, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
-            // colId
-            // 
-            this.colId.MinWidth = 21;
-            this.colId.Width = 75;
-            // 
             // colCode
             // 
-            this.colCode.MinWidth = 21;
-            this.colCode.Width = 75;
+            this.colCode.Width = 243;
             // 
             // colDescription
             // 
-            this.colDescription.MinWidth = 21;
-            this.colDescription.Width = 75;
-            // 
-            // colInfo
-            // 
-            this.colInfo.MinWidth = 21;
-            this.colInfo.Width = 75;
+            this.colDescription.Width = 231;
             // 
             // colLastModified
             // 
             this.colLastModified.DisplayFormat.FormatString = "dd/MM/yyyy hh:mm";
             this.colLastModified.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colLastModified.MinWidth = 21;
-            this.colLastModified.Width = 75;
             // 
             // ribbonControl
             // 
+            this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(19, 15, 19, 15);
             this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             // 
             // 
             // 
+            this.ribbonControl.SearchEditItem.AccessibleName = "Search Item";
             this.ribbonControl.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
             this.ribbonControl.SearchEditItem.EditWidth = 150;
             this.ribbonControl.SearchEditItem.Id = -5000;
@@ -206,7 +192,7 @@
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
             this.colEmail.VisibleIndex = 2;
-            this.colEmail.Width = 94;
+            this.colEmail.Width = 292;
             // 
             // colPhone
             // 
@@ -215,7 +201,7 @@
             this.colPhone.Name = "colPhone";
             this.colPhone.Visible = true;
             this.colPhone.VisibleIndex = 3;
-            this.colPhone.Width = 94;
+            this.colPhone.Width = 296;
             // 
             // colVATNumber
             // 
@@ -248,11 +234,11 @@
             this.DetailsPanel.Controls.Add(this.dockPanel1_Container);
             this.DetailsPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.DetailsPanel.ID = new System.Guid("52686837-0f87-4f75-b63a-2b0680c1e248");
-            this.DetailsPanel.Location = new System.Drawing.Point(507, 158);
+            this.DetailsPanel.Location = new System.Drawing.Point(658, 158);
             this.DetailsPanel.Name = "DetailsPanel";
             this.DetailsPanel.Options.ShowCloseButton = false;
             this.DetailsPanel.OriginalSize = new System.Drawing.Size(400, 200);
-            this.DetailsPanel.Size = new System.Drawing.Size(400, 362);
+            this.DetailsPanel.Size = new System.Drawing.Size(400, 482);
             this.DetailsPanel.Text = "Details";
             // 
             // dockPanel1_Container
@@ -260,7 +246,7 @@
             this.dockPanel1_Container.Controls.Add(this.CustomerDetailView);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 30);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(393, 329);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(393, 449);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // CustomerDetailView
@@ -268,7 +254,7 @@
             this.CustomerDetailView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerDetailView.Location = new System.Drawing.Point(0, 0);
             this.CustomerDetailView.Name = "CustomerDetailView";
-            this.CustomerDetailView.Size = new System.Drawing.Size(393, 329);
+            this.CustomerDetailView.Size = new System.Drawing.Size(393, 449);
             this.CustomerDetailView.TabIndex = 0;
             // 
             // CustomerListView

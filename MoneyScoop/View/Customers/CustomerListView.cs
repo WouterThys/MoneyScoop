@@ -23,7 +23,7 @@ namespace MoneyScoop.View
         {
             base.InitializeLayouts();
             CustomerDetailView.InitializeLayouts();
-            DetailsPanel.Hide();
+            //DetailsPanel.Hide();
         }
 
         private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)

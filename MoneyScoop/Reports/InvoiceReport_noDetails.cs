@@ -2,15 +2,15 @@
 
 namespace MoneyScoop.Reports
 {
-    public partial class InvoiceReport : XtraReport
+    public partial class InvoiceReport_noDetails : BaseReport
     {
-        public InvoiceReport()
+        public InvoiceReport_noDetails()
         {
             InitializeComponent();
         }
 
         
-        public void ShowVATShifted(bool show)
+        public override void ShowVATShifted(bool show)
         {
             xrLabelVATShifted.Visible = show;
         }

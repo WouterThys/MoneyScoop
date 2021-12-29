@@ -262,17 +262,17 @@
 
         #endregion
 
-        protected DevExpress.XtraBars.BarButtonItem bbiAdd;
-        protected DevExpress.XtraBars.BarButtonItem bbiEdit;
-        protected DevExpress.XtraBars.BarButtonItem bbiDelete;
-        protected DevExpress.XtraBars.Ribbon.RibbonPageGroup MainGroup;
-        protected System.Windows.Forms.BindingSource bindingSource;
-        protected DevExpress.XtraGrid.GridControl gridControl;
-        protected DevExpress.XtraGrid.Views.Grid.GridView gridView;
-        protected DevExpress.XtraGrid.Columns.GridColumn colId;
-        protected DevExpress.XtraGrid.Columns.GridColumn colCode;
-        protected DevExpress.XtraGrid.Columns.GridColumn colDescription;
-        protected DevExpress.XtraGrid.Columns.GridColumn colInfo;
-        protected DevExpress.XtraGrid.Columns.GridColumn colLastModified;
+        public DevExpress.XtraBars.BarButtonItem bbiAdd;
+        public DevExpress.XtraBars.BarButtonItem bbiEdit;
+        public DevExpress.XtraBars.BarButtonItem bbiDelete;
+        public DevExpress.XtraBars.Ribbon.RibbonPageGroup MainGroup;
+        public System.Windows.Forms.BindingSource bindingSource;
+        public DevExpress.XtraGrid.GridControl gridControl;
+        public DevExpress.XtraGrid.Views.Grid.GridView gridView;
+        public DevExpress.XtraGrid.Columns.GridColumn colId;
+        public DevExpress.XtraGrid.Columns.GridColumn colCode;
+        public DevExpress.XtraGrid.Columns.GridColumn colDescription;
+        public DevExpress.XtraGrid.Columns.GridColumn colInfo;
+        public DevExpress.XtraGrid.Columns.GridColumn colLastModified;
     }
 }

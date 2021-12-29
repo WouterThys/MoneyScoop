@@ -3,6 +3,7 @@ using MoneyScoop.Model;
 using DevExpress.XtraGrid.Views.Grid;
 using MoneyScoop.ViewModel.LogItems;
 using DevExpress.Utils;
+using DevExpress.XtraGrid;
 
 namespace MoneyScoop.View.LogItems
 { 
@@ -33,7 +34,11 @@ namespace MoneyScoop.View.LogItems
             colStopTime.DisplayFormat.FormatType = FormatType.DateTime;
             colStopTime.DisplayFormat.FormatString = LogItemEditView.dtFormat;
 
-            //LogItemDetails.Hide();
+
+            GridGroupSummaryItem item = new GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, colWorkTime.FieldName, colWorkTime, "Sum: {0}");
+            //colWorkTime.Summary.Add(item);
+            gridView.GroupSummary.Add(item);
+
         }
 
         private void GridView_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)

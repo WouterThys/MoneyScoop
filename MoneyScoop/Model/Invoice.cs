@@ -23,6 +23,7 @@ namespace MoneyScoop.Model
         private long customerId;
         private string savePath;
         private string bookySavePath;
+        private bool showDetails;
 
         // Cached
         private Customer customer;
@@ -30,7 +31,7 @@ namespace MoneyScoop.Model
 
         public Invoice() : this("")
         {
-
+            showDetails = true;
         }
 
         public Invoice(string code) : base(code)
@@ -67,6 +68,7 @@ namespace MoneyScoop.Model
                 SavePath = that.SavePath;
                 BookySavePath = that.BookySavePath;
                 Total = that.Total;
+                ShowDetails = that.ShowDetails;
             }
         }
 
@@ -88,6 +90,7 @@ namespace MoneyScoop.Model
             SavePath = DatabaseAccess.RGetString(reader, "savePath");
             BookySavePath = DatabaseAccess.RGetString(reader, "bookySavePath");
             Total = DatabaseAccess.RGetDecimal(reader, "total");
+            ShowDetails = DatabaseAccess.RGetBool(reader, "showDetails");
         }
 
         public override void AddSqlParameters(DbCommand command)
@@ -104,6 +107,7 @@ namespace MoneyScoop.Model
             DatabaseAccess.AddDbValue(command, "savePath", SavePath);
             DatabaseAccess.AddDbValue(command, "bookySavePath", BookySavePath);
             DatabaseAccess.AddDbValue(command, "total", Total);
+            DatabaseAccess.AddDbValue(command, "showDetails", ShowDetails);
         }
 
         protected override void OnDbActionDone(ActionType action)
@@ -448,6 +452,16 @@ namespace MoneyScoop.Model
                 vatShifted = value;
                 OnPropertyChanged("VATShifted");
                 OnPropertyChanged("VAT");
+            }
+        }
+
+        public bool ShowDetails
+        {
+            get => showDetails;
+            set
+            {
+                showDetails = value;
+                OnPropertyChanged("ShowDetails");
             }
         }
 
