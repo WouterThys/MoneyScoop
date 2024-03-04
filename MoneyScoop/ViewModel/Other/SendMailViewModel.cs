@@ -147,12 +147,17 @@ namespace MoneyScoop.ViewModel
             {
                 try
                 {
-                    Utils.SendMail(
-                        From,
-                        Receiver,
-                        Subject,
-                        Message,
-                        new List<MailAttachment>(Attachments).ConvertAll(a => a.AttachmentPath));
+                    //Utils.SendMail(
+                    //    From,
+                    //    Receiver,
+                    //    Subject,
+                    //    Message,
+                    //    new List<MailAttachment>(Attachments).ConvertAll(a => a.AttachmentPath));
+
+                    var result = MessageBoxService.ShowMessage("Send mails yourself!!",
+                    "Do it yourself",
+                    MessageButton.OK,
+                    MessageIcon.Warning);
 
                     // Save
                     foreach (Invoice invoice in invoices)

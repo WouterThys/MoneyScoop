@@ -64,6 +64,7 @@
             this.rpgHandy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiOpenDirectory = new DevExpress.XtraBars.BarButtonItem();
             this.colSavePath = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -80,6 +81,7 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSendToBooky)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditOutGoing)).BeginInit();
+            this.hideContainerRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // bbiAdd
@@ -115,7 +117,7 @@
             this.riCheckEditSaved,
             this.riCheckEditSendToBooky,
             this.riCheckEditOutGoing});
-            this.gridControl.Size = new System.Drawing.Size(952, 362);
+            this.gridControl.Size = new System.Drawing.Size(1327, 362);
             // 
             // gridView
             // 
@@ -137,12 +139,21 @@
             this.colOutGoing,
             this.colBankAccount,
             this.colSavePath});
+            this.gridView.OptionsEditForm.PopupEditFormWidth = 686;
             this.gridView.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colDateCreated, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colId
             // 
             this.colId.ColumnEdit = this.riCheckEditSendToBooky;
+            // 
+            // colCode
+            // 
+            this.colCode.Width = 132;
+            // 
+            // colDescription
+            // 
+            this.colDescription.Width = 132;
             // 
             // colLastModified
             // 
@@ -151,6 +162,7 @@
             // 
             // ribbonControl
             // 
+            this.ribbonControl.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(19, 15, 19, 15);
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbiCustomers,
@@ -159,16 +171,7 @@
             this.bbiMail,
             this.bbiRefresh,
             this.bbiOpenDirectory});
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl.MaxItemId = 10;
-            // 
-            // 
-            // 
-            this.ribbonControl.SearchEditItem.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.ribbonControl.SearchEditItem.EditWidth = 150;
-            this.ribbonControl.SearchEditItem.Id = -5000;
-            this.ribbonControl.SearchEditItem.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbonControl.SearchEditItem.UseEditorPadding = false;
             this.ribbonControl.Size = new System.Drawing.Size(1352, 158);
             // 
             // MainRibbonPage
@@ -302,8 +305,8 @@
             this.colCustomerCode.MinWidth = 25;
             this.colCustomerCode.Name = "colCustomerCode";
             this.colCustomerCode.Visible = true;
-            this.colCustomerCode.VisibleIndex = 4;
-            this.colCustomerCode.Width = 94;
+            this.colCustomerCode.VisibleIndex = 3;
+            this.colCustomerCode.Width = 166;
             // 
             // colCustomerId
             // 
@@ -320,8 +323,8 @@
             this.colDateCreated.MinWidth = 25;
             this.colDateCreated.Name = "colDateCreated";
             this.colDateCreated.Visible = true;
-            this.colDateCreated.VisibleIndex = 3;
-            this.colDateCreated.Width = 94;
+            this.colDateCreated.VisibleIndex = 2;
+            this.colDateCreated.Width = 166;
             // 
             // colDatePayed
             // 
@@ -344,14 +347,11 @@
             // colIsPayed
             // 
             this.colIsPayed.Caption = " ";
-            this.colIsPayed.ColumnEdit = this.riCheckEditPayed;
             this.colIsPayed.FieldName = "IsPayed";
             this.colIsPayed.MaxWidth = 30;
             this.colIsPayed.MinWidth = 30;
             this.colIsPayed.Name = "colIsPayed";
             this.colIsPayed.ToolTip = "Payed";
-            this.colIsPayed.Visible = true;
-            this.colIsPayed.VisibleIndex = 8;
             this.colIsPayed.Width = 30;
             // 
             // riCheckEditPayed
@@ -372,14 +372,11 @@
             // colIsSend
             // 
             this.colIsSend.Caption = " ";
-            this.colIsSend.ColumnEdit = this.riCheckEditSend;
             this.colIsSend.FieldName = "IsSend";
             this.colIsSend.MaxWidth = 30;
             this.colIsSend.MinWidth = 30;
             this.colIsSend.Name = "colIsSend";
             this.colIsSend.ToolTip = "Send";
-            this.colIsSend.Visible = true;
-            this.colIsSend.VisibleIndex = 7;
             this.colIsSend.Width = 30;
             // 
             // riCheckEditSend
@@ -438,14 +435,11 @@
             // colIsPdfSaved
             // 
             this.colIsPdfSaved.Caption = " ";
-            this.colIsPdfSaved.ColumnEdit = this.riCheckEditSaved;
             this.colIsPdfSaved.FieldName = "IsPdfSaved";
             this.colIsPdfSaved.MaxWidth = 30;
             this.colIsPdfSaved.MinWidth = 30;
             this.colIsPdfSaved.Name = "colIsPdfSaved";
             this.colIsPdfSaved.ToolTip = "PDF saved";
-            this.colIsPdfSaved.Visible = true;
-            this.colIsPdfSaved.VisibleIndex = 6;
             this.colIsPdfSaved.Width = 30;
             // 
             // riCheckEditSaved
@@ -466,9 +460,9 @@
             // 
             // dockManager
             // 
+            this.dockManager.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
+            this.hideContainerRight});
             this.dockManager.Form = this;
-            this.dockManager.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.DetailPanel});
             this.dockManager.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
@@ -488,12 +482,15 @@
             this.DetailPanel.Controls.Add(this.dockPanel1_Container);
             this.DetailPanel.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.DetailPanel.ID = new System.Guid("37091cb3-08a8-43b2-8eb9-c95286da5f4d");
-            this.DetailPanel.Location = new System.Drawing.Point(952, 158);
+            this.DetailPanel.Location = new System.Drawing.Point(0, 0);
             this.DetailPanel.Name = "DetailPanel";
             this.DetailPanel.Options.ShowCloseButton = false;
             this.DetailPanel.OriginalSize = new System.Drawing.Size(400, 200);
+            this.DetailPanel.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.DetailPanel.SavedIndex = 0;
             this.DetailPanel.Size = new System.Drawing.Size(400, 362);
             this.DetailPanel.Text = "Details";
+            this.DetailPanel.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             // 
             // dockPanel1_Container
             // 
@@ -518,8 +515,6 @@
             this.colIsSendToBooky.MaxWidth = 30;
             this.colIsSendToBooky.MinWidth = 30;
             this.colIsSendToBooky.Name = "colIsSendToBooky";
-            this.colIsSendToBooky.Visible = true;
-            this.colIsSendToBooky.VisibleIndex = 9;
             this.colIsSendToBooky.Width = 30;
             // 
             // riCheckEditSendToBooky
@@ -545,8 +540,8 @@
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.Visible = true;
-            this.colTotal.VisibleIndex = 5;
-            this.colTotal.Width = 64;
+            this.colTotal.VisibleIndex = 4;
+            this.colTotal.Width = 211;
             // 
             // colOutGoing
             // 
@@ -556,8 +551,6 @@
             this.colOutGoing.MaxWidth = 30;
             this.colOutGoing.MinWidth = 30;
             this.colOutGoing.Name = "colOutGoing";
-            this.colOutGoing.Visible = true;
-            this.colOutGoing.VisibleIndex = 2;
             this.colOutGoing.Width = 30;
             // 
             // riCheckEditOutGoing
@@ -595,16 +588,25 @@
             this.colSavePath.Name = "colSavePath";
             this.colSavePath.Width = 64;
             // 
+            // hideContainerRight
+            // 
+            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.hideContainerRight.Controls.Add(this.DetailPanel);
+            this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.hideContainerRight.Location = new System.Drawing.Point(1327, 158);
+            this.hideContainerRight.Name = "hideContainerRight";
+            this.hideContainerRight.Size = new System.Drawing.Size(25, 362);
+            // 
             // OutgoingInvoiceListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.DetailPanel);
+            this.Controls.Add(this.hideContainerRight);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "OutgoingInvoiceListView";
             this.Size = new System.Drawing.Size(1352, 520);
             this.Controls.SetChildIndex(this.ribbonControl, 0);
-            this.Controls.SetChildIndex(this.DetailPanel, 0);
+            this.Controls.SetChildIndex(this.hideContainerRight, 0);
             this.Controls.SetChildIndex(this.gridControl, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
@@ -622,6 +624,7 @@
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditSendToBooky)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riCheckEditOutGoing)).EndInit();
+            this.hideContainerRight.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,5 +666,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiOpenDirectory;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgHandy;
         private DevExpress.XtraGrid.Columns.GridColumn colSavePath;
+        private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
     }
 }

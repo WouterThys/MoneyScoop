@@ -15,7 +15,7 @@ namespace MoneyScoop.ViewModel
 
         protected BaseDetailsViewModel(IModuleType moduleType) : base(moduleType)
         {
-            
+            DataChangedService.AddListener(this);
         }
 
         #region Base
@@ -35,8 +35,7 @@ namespace MoneyScoop.ViewModel
 
         public override void OnLoading()
         {
-            DataChangedService.RemoveListener(this);
-            DataChangedService.AddListener(this);
+
         }
 
         public override void OnLoaded()
